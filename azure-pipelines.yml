@@ -71,22 +71,23 @@ stages:
           agentPool: ${{ parameters.agentPool }}
           targetResources: ${{ parameters.targetResources }}
 
-  # Trigger compliance scan after successful apply
-  - ${{ if and(eq(variables['Build.SourceBranch'], 'refs/heads/master'), eq(variables['Build.Reason'], 'Manual')) }}:
-    - stage: compliance
-      displayName: Compliance and Scans
-      condition: succeeded()
+  # Trigger compliance scan
+  - ${{ if eq(variables['Build.SourceBranch'], 'refs/heads/master') }}:
+    - stage: trigger_scan
+      displayName: Trigger Policy State Scan
+      dependsOn:
+        - apply_nlv
+        - apply_lve
       pool:
         name: MDV-ADO-AGENTS-01
       jobs:
-        - job: trigger_scan
-          displayName: Trigger Policy State Scan
+        - job: scan
           steps:
             - task: AzureCLI@2
               displayName: Trigger Policy State Scan - Non Live
               inputs:
                 scriptType: bash
-                azureSubscription: "ado_nonlive_workload_identity"
+                azureSubscription: 'ado_nonlive_workload_identity'
                 scriptLocation: inlineScript
                 inlineScript: |
                   az policy state scan --subscription 0511a7fe-771b-4ffa-9348-c59e9c4a87bd
@@ -96,7 +97,7 @@ stages:
               displayName: Trigger Policy State Scan - Live
               inputs:
                 scriptType: bash
-                azureSubscription: "ado_live_workload_identity"
+                azureSubscription: 'ado_live_workload_identity'
                 scriptLocation: inlineScript
                 inlineScript: |
                   az policy state scan --subscription e7819cdc-66af-4611-9dba-b9958e5b6d7d
