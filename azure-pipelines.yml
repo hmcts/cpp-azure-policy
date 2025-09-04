@@ -72,7 +72,7 @@ stages:
           targetResources: ${{ parameters.targetResources }}
 
   # Trigger compliance scan after successful apply
-  - ${{ if eq(variables['Build.Reason'], 'Manual') }}:
+  - ${{ if eq(variables['Build.SourceBranch'], 'refs/heads/master') }}:
       - stage: trigger_scan
         displayName: Trigger Policy State Scan
         condition: succeeded()
