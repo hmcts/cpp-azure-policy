@@ -8,7 +8,7 @@ resources:
     - repository: cppAzureDevOpsTemplates
       type: github
       name: hmcts/cpp-azure-devops-templates
-      ref: "main"
+      ref: 'DTSPO-26989-flexible-stages'
       endpoint: "hmcts"
 
 parameters:
@@ -72,7 +72,7 @@ stages:
           targetResources: ${{ parameters.targetResources }}
 
   # Trigger compliance scan
-  - ${{ if eq(variables['Build.SourceBranch'], 'refs/heads/master') }}:
+  - ${{ if and(eq(variables['Build.SourceBranch'], 'refs/heads/master'), eq(variables['Build.Reason'], 'Manual')) }}:
       - stage: trigger_scan
         displayName: Trigger Policy State Scan
         condition: succeeded()
