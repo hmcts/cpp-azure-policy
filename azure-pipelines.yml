@@ -75,6 +75,7 @@ stages:
   - ${{ if eq(variables['Build.SourceBranch'], 'refs/heads/master') }}:
       - stage: trigger_scan
         displayName: Trigger Policy State Scan
+        condition: succeeded()
         pool:
           name: MDV-ADO-AGENTS-01
         jobs:
