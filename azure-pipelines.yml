@@ -75,7 +75,7 @@ stages:
   # - ${{ if eq(variables['Build.SourceBranch'], 'refs/heads/master') }}:
   - stage: trigger_scan
     displayName: Trigger Policy State Scan
-    condition: succeeded()
+    # condition: succeeded()
     pool:
       name: ${{ parameters.agentPool }}
     jobs:
