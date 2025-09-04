@@ -71,6 +71,8 @@ stages:
           agentPool: ${{ parameters.agentPool }}
           targetResources: ${{ parameters.targetResources }}
 
+  # Trigger compliance scan after successful apply
+  - ${{ if eq(variables['Build.Reason'], 'Manual') }}:
       - stage: trigger_scan
         displayName: Trigger Policy State Scan
         condition: succeeded()
