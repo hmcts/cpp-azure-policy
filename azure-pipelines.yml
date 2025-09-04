@@ -74,7 +74,6 @@ stages:
   # Trigger compliance scan after successful apply
   - stage: trigger_scan
     displayName: Trigger Policy State Scan
-    condition: succeeded()
     pool:
       name: ${{ parameters.agentPool }}
     jobs:
