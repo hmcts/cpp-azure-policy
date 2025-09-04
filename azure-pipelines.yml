@@ -24,9 +24,6 @@ parameters:
       - "nonlive"
       - "live"
     default: "nonlive"
-  - name: environment
-    default: "dev01"
-    displayName: "Environment name like dev08 or prx01"
   - name: targetResources
     default: null
   - name: enableDebug
@@ -38,9 +35,18 @@ parameters:
       - "false"
 
 variables:
-  - template: azure-pipeline-variables/${{ parameters.platform }}.yml
   - name: backendConfigFile
     value: backend_config/${{ parameters.platform }}.conf
+  - ${{ if eq(parameters.platform, 'nonlive') }}:
+      - name: azureServiceConnection
+        value: ado_nonlive_workload_identity
+      - name: vaultAdminCredentialsVarGroup
+        value: cpp-nonlive-vault-admin
+  - ${{ if eq(parameters.platform, 'live') }}:
+      - name: azureServiceConnection
+        value: ado_live_workload_identity
+      - name: vaultAdminCredentialsVarGroup
+        value: cpp-live-vault-admin
 
 stages:
   - stage: precommit
@@ -61,7 +67,7 @@ stages:
           azureServiceConnection: ${{ variables.azureServiceConnection }}
           vaultAdminCredentialsVarGroup: ${{ variables.vaultAdminCredentialsVarGroup }}
           platform: ${{ parameters.platform }}
-          environment: ${{ parameters.environment }}
+          environment: ${{ parameters.platform }}
           agentPool: ${{ parameters.agentPool }}
           targetResources: ${{ parameters.targetResources }}
 
