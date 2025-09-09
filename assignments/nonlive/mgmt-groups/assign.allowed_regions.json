@@ -5,7 +5,7 @@
       },
       "description": "Policy to check resource locations",
       "displayName": "HMCTS Location Policy - (CPP NLV)",
-      "enforcementMode": "DoNotEnforce",
+      "enforcementMode": "Default",
       "nonComplianceMessages": [
         {
             "message": "Resource doesn't meet location requirements. See https://github.com/hmcts/cpp-azure-policy/blob/master/policies/allowed_regions/README.md"
