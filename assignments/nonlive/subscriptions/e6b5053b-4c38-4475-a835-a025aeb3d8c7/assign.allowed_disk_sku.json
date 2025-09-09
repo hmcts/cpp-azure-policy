@@ -1,0 +1,22 @@
+{
+  "properties": {
+    "metadata": {
+      "assignedBy": "PlatOps"
+    },
+    "description": "Approved Disk SKU sizes",
+    "displayName": "HMCTS Approved Disk SKU Sizes - (CPP nonlive)",
+    "enforcementMode": "Default",
+    "nonComplianceMessages": [
+      {
+        "message": "The selected SKU is not permitted or the size is greater than 2TB. See https://github.com/hmcts/cpp-azure-policy/blob/master/policies/allowed_disk_sku/README.md"
+      }
+    ],
+    "notScopes": [],
+    "parameters": {},
+    "policyDefinitionId": "/providers/Microsoft.Management/managementGroups/e2995d11-9947-4e78-9de6-d44e0603518e/providers/Microsoft.Authorization/policyDefinitions/HMCTSDiskSkuSize",
+    "scope": "/subscriptions/e6b5053b-4c38-4475-a835-a025aeb3d8c7"
+  },
+  "type": "Microsoft.Authorization/policyAssignments",
+  "id": "/providers/Microsoft.Management/managementGroups/e2995d11-9947-4e78-9de6-d44e0603518e/providers/Microsoft.Authorization/policyAssignments/HMCTSDiskSkuSize",
+  "name": "HMCTSDiskSkuSize"
+}

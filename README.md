@@ -124,8 +124,8 @@ Notice, there is a 24 characters limit on the policy name.
 Example:
 
 ```json
-    "displayName": "HMCTS Restricted VM SKU Sizes - (HMCTS MG)"
-    "scope": "/providers/Microsoft.Management/managementGroups/e2995d11-9947-4e78-9de6-d44e0603518e"
+    "displayName": "HMCTS Restricted VM SKU Sizes - (CPP nonlive)"
+    "scope": "/subscriptions/e6b5053b-4c38-4475-a835-a025aeb3d8c7"
     "id": "/providers/Microsoft.Management/managementGroups/e2995d11-9947-4e78-9de6-d44e0603518e/providers/Microsoft.Authorization/policyAssignments/HMCTSVmSkuSize"
 ```
 
@@ -219,7 +219,7 @@ OR
 Management Group Scopes
 
 ```json
-    "scope": "/providers/Microsoft.Management/managementGroups/e2995d11-9947-4e78-9de6-d44e0603518e"
+    "scope": "/subscriptions/e6b5053b-4c38-4475-a835-a025aeb3d8c7"
     "id": "/providers/Microsoft.Management/managementGroups/e2995d11-9947-4e78-9de6-d44e0603518e/providers/Microsoft.Authorization/policyAssignments/HMCTSaum_scan"
 ```
 

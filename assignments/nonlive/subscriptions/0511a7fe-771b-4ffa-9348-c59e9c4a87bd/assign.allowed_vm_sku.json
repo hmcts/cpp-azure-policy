@@ -4,7 +4,7 @@
         "assignedBy": "PlatOps"
       },
       "description": "Restrict the Virtual Machine SKU sizes that can be deployed in HMCTS",
-      "displayName": "HMCTS Restricted VM SKU Sizes - (mg:CFT-Sandbox)",
+      "displayName": "HMCTS Restricted VM SKU Sizes - (CPP nonlive)",
       "enforcementMode": "Default",
       "nonComplianceMessages": [
         {

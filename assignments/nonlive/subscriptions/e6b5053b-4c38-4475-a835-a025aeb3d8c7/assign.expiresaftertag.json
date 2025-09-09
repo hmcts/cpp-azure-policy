@@ -1,0 +1,26 @@
+{
+    "properties": {
+      "metadata": {
+        "assignedBy": "PlatOps"
+      },
+      "description": "Policy to check required tags",
+      "displayName": "HMCTS Expires After Tagging - (CPP nonlive)",
+      "enforcementMode": "Default",
+      "nonComplianceMessages": [
+        {
+            "message": "Resource doesn't meet the tagging requirements. See https://github.com/hmcts/cpp-azure-policy/blob/master/policies/expires-after-tagging/README.md"
+        }
+      ],
+      "notScopes": [],
+      "parameters": {},
+      "policyDefinitionId": "/providers/Microsoft.Management/managementGroups/e2995d11-9947-4e78-9de6-d44e0603518e/providers/Microsoft.Authorization/policyDefinitions/ExpiresAfterTagging",
+      "scope": "/subscriptions/e6b5053b-4c38-4475-a835-a025aeb3d8c7"
+    },
+    "sku": {
+      "name": "A0",
+      "tier": "Free"
+    },
+    "type": "Microsoft.Authorization/policyAssignments",
+    "id": "/providers/Microsoft.Management/managementGroups/CFT-Sandbox/providers/Microsoft.Authorization/policyAssignments/ExpiresTag_CFT-Sbox",
+    "name": "ExpiresTag_CFT-Sbox"
+}
