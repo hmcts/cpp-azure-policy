@@ -74,7 +74,7 @@ Example:
 
 ```json
     "displayName": "HMCTS Collect Activity Logs",
-    "id": "/providers/Microsoft.Management/managementGroups/HMCTS/providers/Microsoft.Authorization/policyAssignments/HMCTSDiagnosticGlobal",
+    "id": "/providers/Microsoft.Management/managementGroups/e2995d11-9947-4e78-9de6-d44e0603518e/providers/Microsoft.Authorization/policyAssignments/HMCTSDiagnosticGlobal",
     "name": "HMCTSDiagnosticGlobal"
 ```
 
@@ -125,8 +125,8 @@ Example:
 
 ```json
     "displayName": "HMCTS Restricted VM SKU Sizes - (HMCTS MG)"
-    "scope": "/providers/Microsoft.Management/managementGroups/HMCTS"
-    "id": "/providers/Microsoft.Management/managementGroups/HMCTS/providers/Microsoft.Authorization/policyAssignments/HMCTSVmSkuSize"
+    "scope": "/providers/Microsoft.Management/managementGroups/e2995d11-9947-4e78-9de6-d44e0603518e"
+    "id": "/providers/Microsoft.Management/managementGroups/e2995d11-9947-4e78-9de6-d44e0603518e/providers/Microsoft.Authorization/policyAssignments/HMCTSVmSkuSize"
 ```
 
 ### Policy permissions
@@ -219,8 +219,8 @@ OR
 Management Group Scopes
 
 ```json
-    "scope": "/providers/Microsoft.Management/managementGroups/HMCTS"
-    "id": "/providers/Microsoft.Management/managementGroups/HMCTS/providers/Microsoft.Authorization/policyAssignments/HMCTSaum_scan"
+    "scope": "/providers/Microsoft.Management/managementGroups/e2995d11-9947-4e78-9de6-d44e0603518e"
+    "id": "/providers/Microsoft.Management/managementGroups/e2995d11-9947-4e78-9de6-d44e0603518e/providers/Microsoft.Authorization/policyAssignments/HMCTSaum_scan"
 ```
 
 Also the assignment folder target scope is the same as what has been described in the scope and ID.

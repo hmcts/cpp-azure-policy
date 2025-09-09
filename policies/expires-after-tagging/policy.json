@@ -1,6 +1,6 @@
 {
   "properties": {
-    "displayName": "HMCTS Tagging",
+    "displayName": "HMCTS Expires After Tagging",
     "policyType": "Custom",
     "mode": "Indexed",
     "parameters": {
@@ -20,7 +20,9 @@
           "Microsoft.Network/networkWatchers/flowLogs",
           "Microsoft.Network/privateDnsZones/virtualNetworkLinks",
           "Microsoft.Compute/restorePointCollections",
-          "Microsoft.Compute/virtualMachines/extensions",
+          "microsoft.network/vpnserverconfigurations",
+          "microsoft.network/virtualhubs",
+          "microsoft.network/virtualwans",
           "Microsoft.Sql/managedInstances/securityAlertPolicies",
           "Microsoft.Sql/managedInstances/databases",
           "Microsoft.Sql/managedInstances/administrators",
@@ -32,7 +34,6 @@
           "Microsoft.Network/FrontDoors",
           "Microsoft.Cdn/profiles",
           "Microsoft.Security/automations",
-          "Microsoft.ResourceGraph/queries",
           "Microsoft.Web/connections"
         ],
         "type": "Array",
@@ -41,46 +42,12 @@
           "description": "Resource Types to exclude from compliance results"
         }
       },
-      "allowedEnvironmentNames": {
-        "defaultValue": [
-          "sandbox",
-          "development",
-          "testing",
-          "demo",
-          "ITHC",
-          "staging",
-          "production",
-          "preview"
-        ],
-        "type": "Array",
+      "RequiredTag": {
+        "defaultValue": "expiresAfter",
+        "type": "String",
         "metadata": {
-          "displayName": "Allowed environment Names",
-          "description": "Allowed environment names such as production or staging"
-        }
-      },
-      "allowedBusinessAreaNames": {
-        "defaultValue": [
-          "CFT",
-          "crime",
-          "Cross-Cutting"
-        ],
-        "type": "Array",
-        "metadata": {
-          "displayName": "Allowed businessArea names",
-          "description": "Allowed businessArea names such as CFT or crime"
-        }
-      },
-      "RequiredTags": {
-        "type": "Array",
-        "defaultValue": [
-          "environment",
-          "application",
-          "businessArea",
-          "builtFrom"
-        ],
-        "metadata": {
-          "displayName": "Required Tags",
-          "description": "The list of Required tags for resources."
+          "displayName": "Required Tag Name",
+          "description": "Required expiresAfter tag on resource"
         }
       }
     },
@@ -94,22 +61,8 @@
           {
             "anyOf": [
               {
-                "count": {
-                  "value": "[parameters('RequiredTags')]",
-                  "where": {
-                    "field": "tags",
-                    "notContainsKey": "[current()]"
-                  }
-                },
-                "greater": 0
-              },
-              {
-                "field": "tags['environment']",
-                "notIn": "[parameters('allowedEnvironmentNames')]"
-              },
-              {
-                "field": "tags['businessArea']",
-                "notIn": "[parameters('allowedBusinessAreaNames')]"
+                "field": "[concat('tags[', parameters('RequiredTag'), ']')]",
+                "notMatch": "####-##-##"
               }
             ]
           }
@@ -120,7 +73,7 @@
       }
     }
   },
-  "id": "/providers/Microsoft.Management/managementGroups/e2995d11-9947-4e78-9de6-d44e0603518e/providers/Microsoft.Authorization/policyDefinitions/HMCTSTagging",
+  "id": "/providers/Microsoft.Management/managementGroups/e2995d11-9947-4e78-9de6-d44e0603518e/providers/Microsoft.Authorization/policyDefinitions/ExpiresAfterTagging",
   "type": "Microsoft.Authorization/policyDefinitions",
-  "name": "HMCTSTagging"
+  "name": "ExpiresAfterTagging"
 }

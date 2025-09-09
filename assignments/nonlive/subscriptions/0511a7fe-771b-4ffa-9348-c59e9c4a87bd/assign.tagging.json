@@ -1,7 +1,7 @@
 {
     "properties": {
         "metadata": {
-            "assignedBy": "github.com/hmcts/azure-policy"
+            "assignedBy": "github.com/hmcts/cpp-azure-policy"
         },
         "description": "Policy to check required tags",
         "displayName": "HMCTS Tagging (HMCTS MG)",
@@ -14,8 +14,8 @@
         "notScopes": [
         ],
         "parameters": {},
-      "policyDefinitionId": "/providers/Microsoft.Management/managementGroups/HMCTS/providers/Microsoft.Authorization/policyDefinitions/HMCTSTagging",
-        "scope": "/providers/Microsoft.Management/managementGroups/HMCTS"
+      "policyDefinitionId": "/providers/Microsoft.Management/managementGroups/e2995d11-9947-4e78-9de6-d44e0603518e/providers/Microsoft.Authorization/policyDefinitions/HMCTSTagging",
+        "scope": "/providers/Microsoft.Management/managementGroups/e2995d11-9947-4e78-9de6-d44e0603518e"
     },
     "sku": {
         "name": "A0",

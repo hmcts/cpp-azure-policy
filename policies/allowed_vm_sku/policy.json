@@ -22,7 +22,8 @@
           "Standard_E4ds_v5",
           "Standard_E8ds_v5",
           "Standard_E16ds_v5",
-          "Standard_E32ds_v5"
+          "Standard_E32ds_v5",
+          "Standard_D8ads_v5"
         ],
         "defaultValue": [
           "Standard_D2ds_v5",
@@ -35,7 +36,8 @@
           "Standard_E4ds_v5",
           "Standard_E8ds_v5",
           "Standard_E16ds_v5",
-          "Standard_E32ds_v5"
+          "Standard_E32ds_v5",
+          "Standard_D8ads_v5"
         ]
       }
     },
@@ -57,7 +59,7 @@
       }
     }
   },
-  "id": "/providers/Microsoft.Management/managementGroups/HMCTS/providers/Microsoft.Authorization/policyDefinitions/HMCTSVmSkuSize",
+  "id": "/providers/Microsoft.Management/managementGroups/e2995d11-9947-4e78-9de6-d44e0603518e/providers/Microsoft.Authorization/policyDefinitions/HMCTSVmSkuSize",
   "type": "Microsoft.Authorization/policyDefinitions",
   "name": "HMCTSVmSkuSize"
 }
