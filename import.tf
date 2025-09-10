@@ -33,3 +33,9 @@ import {
   id       = "/subscriptions/e6b5053b-4c38-4475-a835-a025aeb3d8c7/providers/Microsoft.Authorization/policyDefinitions/13d7db1d-fd0e-4286-a665-25bf16a88549"
   to       = azurerm_policy_definition.policies["NSG On Subnet"]
 }
+
+import {
+  for_each = var.env == "nonlive" ? [0] : []
+  id       = "/subscriptions/e6b5053b-4c38-4475-a835-a025aeb3d8c7/providers/microsoft.authorization/policyassignments/49768da0094b4e579dbac94a"
+  to       = azurerm_policy_definition.policies["49768da0094b4e579dbac94a"]
+}
