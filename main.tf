@@ -50,7 +50,7 @@ resource "azurerm_subscription_policy_assignment" "subscription_assignments" {
 
   lifecycle {
     replace_triggered_by = [
-      azurerm_policy_definition.policies
+      azurerm_policy_definition.policies.name
     ]
   }
 }
