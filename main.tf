@@ -44,7 +44,15 @@ resource "azurerm_subscription_policy_assignment" "subscription_assignments" {
   parameters = try(jsonencode(each.value.properties.parameters), "{}")
 
   # Need policy assignments to be defined before we can reference them
-  depends_on = [azurerm_policy_definition.policies]
+  depends_on = [
+    azurerm_policy_definition.policies
+  ]
+
+  lifecycle {
+    replace_triggered_by = [
+      azurerm_policy_definition.policies
+    ]
+  }
 }
 
 resource "azurerm_management_group_policy_assignment" "management_assignments" {
