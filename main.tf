@@ -19,7 +19,7 @@ resource "azurerm_policy_definition" "policies" {
 
   management_group_id = var.management_group
 }
-
+/*
 resource "azurerm_subscription_policy_assignment" "subscription_assignments" {
   for_each = local.subscription_assignments
 
@@ -47,12 +47,6 @@ resource "azurerm_subscription_policy_assignment" "subscription_assignments" {
   depends_on = [
     azurerm_policy_definition.policies
   ]
-
-  lifecycle {
-    replace_triggered_by = [
-      azurerm_policy_definition.policies.name
-    ]
-  }
 }
 
 resource "azurerm_management_group_policy_assignment" "management_assignments" {
@@ -81,3 +75,4 @@ resource "azurerm_management_group_policy_assignment" "management_assignments" {
   # Need policy assignments to be defined before we can reference them
   depends_on = [azurerm_policy_definition.policies]
 }
+*/
