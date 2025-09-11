@@ -14,7 +14,7 @@ locals {
     "/subscriptions/e6b5053b-4c38-4475-a835-a025aeb3d8c7/providers/Microsoft.Authorization/policyAssignments/406b5d34d9cb457aaceec789"
   ])
 }
-
+/*
 resource "azurerm_subscription_policy_assignment" "to_delete" {
   for_each = local.to_delete
 
@@ -28,7 +28,7 @@ import {
   for_each = local.to_delete
   id       = each.value
   to       = azurerm_subscription_policy_assignment.to_delete[each.key]
-}
+}*/
 
 resource "azurerm_policy_set_definition" "secops_policy" {
   name         = "SecOps_policy"
