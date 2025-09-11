@@ -10,8 +10,7 @@ locals {
     "/subscriptions/e6b5053b-4c38-4475-a835-a025aeb3d8c7/providers/Microsoft.Authorization/policyAssignments/49768da0094b4e579dbac94a",
     "/subscriptions/e6b5053b-4c38-4475-a835-a025aeb3d8c7/providers/Microsoft.Authorization/policyAssignments/16b775678d1e4257b9ce9a20",
     "/subscriptions/e6b5053b-4c38-4475-a835-a025aeb3d8c7/providers/Microsoft.Authorization/policyAssignments/05fd6e0f8a2c4f54b636c3ea",
-    "/subscriptions/e6b5053b-4c38-4475-a835-a025aeb3d8c7/providers/Microsoft.Authorization/policyAssignments/Deny-Resource-Deletion-Assignment",
-    "/subscriptions/e6b5053b-4c38-4475-a835-a025aeb3d8c7/providers/Microsoft.Authorization/policySetDefinitions/13d7db1d-fd0e-4286-a665-25bf16a88855"
+    "/subscriptions/e6b5053b-4c38-4475-a835-a025aeb3d8c7/providers/Microsoft.Authorization/policyAssignments/Deny-Resource-Deletion-Assignment"
   ])
 }
 
