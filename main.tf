@@ -5,6 +5,31 @@
 # Collect all .json.tpl files under assignments/subscriptions/*
 # Create a policy assignment for each file
 
+locals {
+  to_delete = toset([
+    "/subscriptions/e6b5053b-4c38-4475-a835-a025aeb3d8c7/providers/Microsoft.Authorization/policyAssignments/49768da0094b4e579dbac94a",
+    "/subscriptions/e6b5053b-4c38-4475-a835-a025aeb3d8c7/providers/Microsoft.Authorization/policyAssignments/16b775678d1e4257b9ce9a20",
+    "/subscriptions/e6b5053b-4c38-4475-a835-a025aeb3d8c7/providers/Microsoft.Authorization/policyAssignments/05fd6e0f8a2c4f54b636c3ea",
+    "/subscriptions/e6b5053b-4c38-4475-a835-a025aeb3d8c7/providers/Microsoft.Authorization/policyAssignments/Deny-Resource-Deletion-Assignment"
+  ])
+}
+
+resource "azurerm_subscription_policy_assignment" "to_delete" {
+  for_each = local.to_delete
+
+  name = trimprefix(each.value, "/subscriptions/e6b5053b-4c38-4475-a835-a025aeb3d8c7/providers/Microsoft.Authorization/policyAssignments/")
+
+  subscription_id      = "/subscriptions/e6b5053b-4c38-4475-a835-a025aeb3d8c7"
+  policy_definition_id = "/subscriptions/e6b5053b-4c38-4475-a835-a025aeb3d8c7/providers/Microsoft.Authorization/policyDefinitions/cff68e1b-f3bb-49c1-af48-540a155c8519"
+}
+
+import {
+  for_each = local.to_delete
+  id       = each.value
+  to       = azurerm_subscription_policy_assignment.to_delete[each.key]
+}
+
+
 resource "azurerm_policy_definition" "policies" {
   for_each = local.policies
 
