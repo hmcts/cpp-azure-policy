@@ -37,5 +37,5 @@ import {
 import {
   for_each = var.env == "nonlive" ? [0] : []
   id       = "/subscriptions/e6b5053b-4c38-4475-a835-a025aeb3d8c7/providers/microsoft.authorization/policyassignments/49768da0094b4e579dbac94a"
-  to       = azurerm_policy_definition.policies["49768da0094b4e579dbac94a"]
+  to       = azurerm_subscription_policy_assignment.subscription_assignments["49768da0094b4e579dbac94a"]
 }
