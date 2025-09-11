@@ -11,8 +11,7 @@ locals {
     "/subscriptions/e6b5053b-4c38-4475-a835-a025aeb3d8c7/providers/Microsoft.Authorization/policyAssignments/16b775678d1e4257b9ce9a20",
     "/subscriptions/e6b5053b-4c38-4475-a835-a025aeb3d8c7/providers/Microsoft.Authorization/policyAssignments/05fd6e0f8a2c4f54b636c3ea",
     "/subscriptions/e6b5053b-4c38-4475-a835-a025aeb3d8c7/providers/Microsoft.Authorization/policyAssignments/Deny-Resource-Deletion-Assignment",
-    "/subscriptions/e6b5053b-4c38-4475-a835-a025aeb3d8c7/providers/Microsoft.Authorization/policySetDefinitions/13d7db1d-fd0e-4286-a665-25bf16a88855",
-    "/providers/Microsoft.Management/managementGroups/e2995d11-9947-4e78-9de6-d44e0603518e/providers/Microsoft.Authorization/policyAssignments/Location_Global"
+    "/subscriptions/e6b5053b-4c38-4475-a835-a025aeb3d8c7/providers/Microsoft.Authorization/policySetDefinitions/13d7db1d-fd0e-4286-a665-25bf16a88855"
   ])
 }
 
@@ -31,7 +30,6 @@ import {
   to       = azurerm_subscription_policy_assignment.to_delete[each.key]
 }
 
-/*
 resource "azurerm_policy_definition" "policies" {
   for_each = local.policies
 
@@ -46,7 +44,7 @@ resource "azurerm_policy_definition" "policies" {
 
   management_group_id = var.management_group
 }
-
+/*
 resource "azurerm_subscription_policy_assignment" "subscription_assignments" {
   for_each = local.subscription_assignments
 
