@@ -32,14 +32,10 @@
       },
       "allowedEnvironmentNames": {
         "defaultValue": [
-          "sandbox",
-          "development",
-          "testing",
-          "demo",
-          "ITHC",
-          "staging",
-          "production",
-          "preview"
+          "mdv",
+          "sit",
+          "dev",
+          "nft"
         ],
         "metadata": {
           "description": "Allowed environment names such as production or staging",
