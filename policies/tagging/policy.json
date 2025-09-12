@@ -72,7 +72,9 @@
           "Microsoft.Cdn/profiles",
           "Microsoft.Security/automations",
           "Microsoft.ResourceGraph/queries",
-          "Microsoft.Web/connections"
+          "Microsoft.Web/connections",
+          "Microsoft.ManagedIdentity/userAssignedIdentities",
+          "Microsoft.ManagedIdentity/systemAssignedIdentities"
         ],
         "metadata": {
           "description": "Resource Types to exclude from compliance results",
