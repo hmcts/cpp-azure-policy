@@ -1,30 +1,32 @@
 {
-    "description": null,
-    "displayName": "Restrict Direct Role Assignment",
-    "enforcementMode": "Default",
+    "properties": {
+        "description": null,
+        "displayName": "Restrict Direct Role Assignment",
+        "enforcementMode": "Default",
+        "metadata": {
+            "createdBy": "0dcf5f59-c5ce-4ae5-8c13-11d9f3933a94",
+            "createdOn": "2024-08-06T10:03:07.3795653Z",
+            "parameterScopes": {},
+            "updatedBy": null,
+            "updatedOn": null
+        },
+        "nonComplianceMessages": [],
+        "notScopes": [],
+        "parameters": {},
+        "policyDefinitionId": "/subscriptions/e6b5053b-4c38-4475-a835-a025aeb3d8c7/providers/Microsoft.Authorization/policyDefinitions/46a4e5c2-fd49-4945-ad75-d32b2157c5fe",
+        "scope": "/subscriptions/e6b5053b-4c38-4475-a835-a025aeb3d8c7",
+        "systemData": {
+            "createdAt": "2024-08-06T10:03:07.348180+00:00",
+            "createdBy": "daniel.alves1@hmctsnonlive.onmicrosoft.com",
+            "createdByType": "User",
+            "lastModifiedAt": "2024-08-06T10:03:07.348180+00:00",
+            "lastModifiedBy": "daniel.alves1@hmctsnonlive.onmicrosoft.com",
+            "lastModifiedByType": "User"
+        }
+    },
     "id": "/subscriptions/e6b5053b-4c38-4475-a835-a025aeb3d8c7/providers/Microsoft.Authorization/policyAssignments/49768da0094b4e579dbac94a",
     "identity": null,
     "location": null,
-    "metadata": {
-        "createdBy": "0dcf5f59-c5ce-4ae5-8c13-11d9f3933a94",
-        "createdOn": "2024-08-06T10:03:07.3795653Z",
-        "parameterScopes": {},
-        "updatedBy": null,
-        "updatedOn": null
-    },
     "name": "49768da0094b4e579dbac94a",
-    "nonComplianceMessages": [],
-    "notScopes": [],
-    "parameters": {},
-    "policyDefinitionId": "/subscriptions/e6b5053b-4c38-4475-a835-a025aeb3d8c7/providers/Microsoft.Authorization/policyDefinitions/46a4e5c2-fd49-4945-ad75-d32b2157c5fe",
-    "scope": "/subscriptions/e6b5053b-4c38-4475-a835-a025aeb3d8c7",
-    "systemData": {
-        "createdAt": "2024-08-06T10:03:07.348180+00:00",
-        "createdBy": "daniel.alves1@hmctsnonlive.onmicrosoft.com",
-        "createdByType": "User",
-        "lastModifiedAt": "2024-08-06T10:03:07.348180+00:00",
-        "lastModifiedBy": "daniel.alves1@hmctsnonlive.onmicrosoft.com",
-        "lastModifiedByType": "User"
-    },
     "type": "Microsoft.Authorization/policyAssignments"
 }
