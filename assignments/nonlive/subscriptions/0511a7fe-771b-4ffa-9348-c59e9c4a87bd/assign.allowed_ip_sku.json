@@ -4,7 +4,7 @@
   "properties": {
     "description": "Approved IP Address SKU sizes",
     "displayName": "HMCTS Approved IP Address SKU Sizes - (CPP nonlive)",
-    "enforcementMode": "Default",
+    "enforcementMode": "DoNotEnforce",
     "metadata": {
       "assignedBy": "PlatOps"
     },

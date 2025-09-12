@@ -6,7 +6,7 @@
   "properties": {
     "description": null,
     "displayName": "Restrict Direct Role Assignment",
-    "enforcementMode": "Default",
+    "enforcementMode": "DoNotEnforce",
     "metadata": {
       "createdBy": "0dcf5f59-c5ce-4ae5-8c13-11d9f3933a94",
       "createdOn": "2024-08-06T10:03:07.3795653Z",

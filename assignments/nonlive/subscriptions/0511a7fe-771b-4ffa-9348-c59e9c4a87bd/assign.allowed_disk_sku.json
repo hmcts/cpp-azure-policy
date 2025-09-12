@@ -4,7 +4,7 @@
   "properties": {
     "description": "Restrict the Disk SKU sizes that can be deployed in HMCTS",
     "displayName": "HMCTS Restricted Disk SKU Sizes - MoJ-HMCTS-Crime-IdAM-NLE",
-    "enforcementMode": "Default",
+    "enforcementMode": "DoNotEnforce",
     "metadata": {
       "assignedBy": "PlatOps"
     },

@@ -4,7 +4,7 @@
   "properties": {
     "description": "Restrict the Virtual Machine SKU sizes that can be deployed in HMCTS",
     "displayName": "HMCTS Restricted VM SKU Sizes - (CPP nonlive)",
-    "enforcementMode": "Default",
+    "enforcementMode": "DoNotEnforce",
     "metadata": {
       "assignedBy": "PlatOps"
     },

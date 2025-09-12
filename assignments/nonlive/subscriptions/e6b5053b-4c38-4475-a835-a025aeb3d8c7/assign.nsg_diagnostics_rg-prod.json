@@ -11,7 +11,7 @@
   "properties": {
     "description": "Forwards Network Security Group Logs from prod resource group to Azure Event Hub - MOJ",
     "displayName": "HMCTS Collect NSG Logs prod (Production Subscription)",
-    "enforcementMode": "Default",
+    "enforcementMode": "DoNotEnforce",
     "metadata": {
       "assignedBy": "https://github.com/hmcts/cpp-azure-policy"
     },

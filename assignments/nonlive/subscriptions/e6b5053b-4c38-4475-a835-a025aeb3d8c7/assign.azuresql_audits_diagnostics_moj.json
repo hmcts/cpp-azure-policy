@@ -11,7 +11,7 @@
   "properties": {
     "description": "Forwards all AzureSQL_audits Logs to an Azure Event Hub - MOJ",
     "displayName": "HMCTS Collect AzureSQL_audits Logs - MOJ (CPP nonlive)",
-    "enforcementMode": "Default",
+    "enforcementMode": "DoNotEnforce",
     "metadata": {
       "assignedBy": "github.com/hmcts/cpp-azure-policy"
     },

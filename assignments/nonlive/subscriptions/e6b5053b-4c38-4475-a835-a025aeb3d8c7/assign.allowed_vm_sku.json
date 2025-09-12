@@ -4,7 +4,7 @@
   "properties": {
     "description": "Approved Virtual Machine SKU sizes",
     "displayName": "HMCTS Approved VM SKU Sizes - (CPP nonlive)",
-    "enforcementMode": "Default",
+    "enforcementMode": "DoNotEnforce",
     "metadata": {
       "assignedBy": "PlatOps"
     },

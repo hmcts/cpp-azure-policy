@@ -6,7 +6,7 @@
   "properties": {
     "description": null,
     "displayName": "NSG-on-Interface",
-    "enforcementMode": "Default",
+    "enforcementMode": "DoNotEnforce",
     "metadata": {
       "assignedBy": "ashwini.sidhu@hmctsnonlive.onmicrosoft.com ",
       "createdBy": "42d21776-31c9-4507-8b4e-3f19d1054456",

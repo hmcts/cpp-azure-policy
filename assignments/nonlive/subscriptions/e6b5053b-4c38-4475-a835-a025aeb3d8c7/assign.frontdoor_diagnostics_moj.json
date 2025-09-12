@@ -11,7 +11,7 @@
   "properties": {
     "description": "Forwards all Front Door Logs to Azure Event Hub - MOJ",
     "displayName": "HMCTS Collect Front Door Logs - MOJ (CPP nonlive)",
-    "enforcementMode": "Default",
+    "enforcementMode": "DoNotEnforce",
     "metadata": {
       "assignedBy": "github.com/hmcts/cpp-azure-policy"
     },
