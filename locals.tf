@@ -13,7 +13,7 @@ locals {
   }
 
   subscription_assignment_files = [
-    for assignment in fileset(local.subscription_dir, "*.json") :
+    for assignment in fileset(local.subscription_dir, "**/*.json") :
     jsondecode(file(join("", [local.subscription_dir, assignment])))
   ]
 
