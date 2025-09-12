@@ -1,73 +1,73 @@
 {
+  "id": "/subscriptions/e6b5053b-4c38-4475-a835-a025aeb3d8c7/providers/Microsoft.Authorization/policyDefinitions/Deny Resource Deletion",
+  "name": "Deny Resource Deletion",
   "properties": {
-    "displayName": "Deny Deletion of Resources in Strategic Platform - non-live",
-    "policyType": "Custom",
-    "mode": "All",
     "description": "This policy denies the deletion of critical resources such as Storage accounts, Key Vaults, App Insights, Log Analytics, Public IPs, Function Apps, API Management, Application Gateway, Logic Apps, Private DNS Zones, SQL Databases, and Kubernetes Clusters in the 'Strategic Platform - non-live' subscription",
+    "displayName": "Deny Deletion of Resources in Strategic Platform - non-live",
     "metadata": {
       "createdBy": "1a0172bd-5e9d-4017-aab3-0756c7dbd7cf",
       "createdOn": "2025-04-03T14:18:55.751924Z",
       "updatedBy": "c40742dd-d68c-4fec-a4c9-25a286eb6974",
       "updatedOn": "2025-04-08T12:39:24.1969555Z"
     },
-    "version": "1.0.0",
+    "mode": "All",
     "parameters": {},
     "policyRule": {
       "if": {
         "anyOf": [
           {
-            "field": "type",
-            "equals": "Microsoft.Storage/storageAccounts"
+            "equals": "Microsoft.Storage/storageAccounts",
+            "field": "type"
           },
           {
-            "field": "type",
-            "equals": "Microsoft.KeyVault/vaults"
+            "equals": "Microsoft.KeyVault/vaults",
+            "field": "type"
           },
           {
-            "field": "type",
-            "equals": "Microsoft.Insights/components"
+            "equals": "Microsoft.Insights/components",
+            "field": "type"
           },
           {
-            "field": "type",
-            "equals": "Microsoft.OperationalInsights/workspaces"
+            "equals": "Microsoft.OperationalInsights/workspaces",
+            "field": "type"
           },
           {
-            "field": "type",
-            "equals": "Microsoft.Network/publicIPAddresses"
+            "equals": "Microsoft.Network/publicIPAddresses",
+            "field": "type"
           },
           {
-            "field": "type",
-            "equals": "Microsoft.Web/sites"
+            "equals": "Microsoft.Web/sites",
+            "field": "type"
           },
           {
-            "field": "type",
-            "equals": "Microsoft.ApiManagement/service"
+            "equals": "Microsoft.ApiManagement/service",
+            "field": "type"
           },
           {
-            "field": "type",
-            "equals": "Microsoft.Network/applicationGateways"
+            "equals": "Microsoft.Network/applicationGateways",
+            "field": "type"
           },
           {
-            "field": "type",
-            "equals": "Microsoft.Logic/workflows"
+            "equals": "Microsoft.Logic/workflows",
+            "field": "type"
           },
           {
-            "field": "type",
-            "equals": "Microsoft.Network/privateDnsZones"
+            "equals": "Microsoft.Network/privateDnsZones",
+            "field": "type"
           },
           {
-            "field": "type",
-            "equals": "Microsoft.Sql/servers/databases"
+            "equals": "Microsoft.Sql/servers/databases",
+            "field": "type"
           },
           {
-            "field": "type",
-            "equals": "Microsoft.ContainerService/managedClusters"
+            "equals": "Microsoft.ContainerService/managedClusters",
+            "field": "type"
           },
           {
             "allOf": [
               {
-                "field": "type",
-                "equals": "Microsoft.Compute/virtualMachines"
+                "equals": "Microsoft.Compute/virtualMachines",
+                "field": "type"
               },
               {
                 "not": {
@@ -80,19 +80,19 @@
         ]
       },
       "then": {
-        "effect": "denyAction",
         "details": {
           "actionNames": [
             "delete"
           ]
-        }
+        },
+        "effect": "denyAction"
       }
     },
+    "policyType": "Custom",
+    "version": "1.0.0",
     "versions": [
       "1.0.0"
     ]
   },
-  "id": "/subscriptions/e6b5053b-4c38-4475-a835-a025aeb3d8c7/providers/Microsoft.Authorization/policyDefinitions/Deny Resource Deletion",
-  "type": "Microsoft.Authorization/policyDefinitions",
-  "name": "Deny Resource Deletion"
+  "type": "Microsoft.Authorization/policyDefinitions"
 }

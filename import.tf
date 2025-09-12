@@ -1,10 +1,10 @@
-/*
+
 import {
   for_each = var.env == "nonlive" ? [0] : []
-  id       = "/providers/Microsoft.Management/managementGroups/e2995d11-9947-4e78-9de6-d44e0603518e/providers/Microsoft.Authorization/policyDefinitions/HMCTSResourceLocationPolicy"
-  to       = azurerm_policy_definition.policies["HMCTSResourceLocationPolicy"]
+  id       = "/providers/Microsoft.Management/managementGroups/e2995d11-9947-4e78-9de6-d44e0603518e/providers/Microsoft.Authorization/policyAssignments/Location_Global"
+  to       = azurerm_management_group_policy_assignment.management_assignments["Location_Global"]
 }
-
+/*
 import {
   for_each = var.env == "nonlive" ? [0] : []
   id       = "/providers/Microsoft.Management/managementGroups/e2995d11-9947-4e78-9de6-d44e0603518e/providers/Microsoft.Authorization/policyDefinitions/HMCTSDiskSkuSize"

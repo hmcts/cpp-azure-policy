@@ -1,9 +1,18 @@
 {
+  "id": "/providers/Microsoft.Management/managementGroups/e2995d11-9947-4e78-9de6-d44e0603518e/providers/Microsoft.Authorization/policyDefinitions/ExpiresAfterTagging",
+  "name": "ExpiresAfterTagging",
   "properties": {
     "displayName": "HMCTS Expires After Tagging",
-    "policyType": "Custom",
     "mode": "Indexed",
     "parameters": {
+      "RequiredTag": {
+        "defaultValue": "expiresAfter",
+        "metadata": {
+          "description": "Required expiresAfter tag on resource",
+          "displayName": "Required Tag Name"
+        },
+        "type": "String"
+      },
       "excludedResourceTypes": {
         "defaultValue": [
           "Microsoft.Network/networkWatchers",
@@ -36,19 +45,11 @@
           "Microsoft.Security/automations",
           "Microsoft.Web/connections"
         ],
-        "type": "Array",
         "metadata": {
-          "displayName": "Resource Types to exclude",
-          "description": "Resource Types to exclude from compliance results"
-        }
-      },
-      "RequiredTag": {
-        "defaultValue": "expiresAfter",
-        "type": "String",
-        "metadata": {
-          "displayName": "Required Tag Name",
-          "description": "Required expiresAfter tag on resource"
-        }
+          "description": "Resource Types to exclude from compliance results",
+          "displayName": "Resource Types to exclude"
+        },
+        "type": "Array"
       }
     },
     "policyRule": {
@@ -71,9 +72,8 @@
       "then": {
         "effect": "deny"
       }
-    }
+    },
+    "policyType": "Custom"
   },
-  "id": "/providers/Microsoft.Management/managementGroups/e2995d11-9947-4e78-9de6-d44e0603518e/providers/Microsoft.Authorization/policyDefinitions/ExpiresAfterTagging",
-  "type": "Microsoft.Authorization/policyDefinitions",
-  "name": "ExpiresAfterTagging"
+  "type": "Microsoft.Authorization/policyDefinitions"
 }

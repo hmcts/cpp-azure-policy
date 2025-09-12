@@ -1,8 +1,9 @@
 {
-  "id": "/providers/Microsoft.Management/managementGroups/e2995d11-9947-4e78-9de6-d44e0603518e/providers/Microsoft.Authorization/policyDefinitions/HMCTSNSGDiagnostic",
-  "name": "HMCTSNSGDiagnostic",
+  "id": "/providers/Microsoft.Management/managementGroups/e2995d11-9947-4e78-9de6-d44e0603518e/providers/Microsoft.Authorization/policyDefinitions/HMCTSFrontDoor",
+  "name": "HMCTSFrontDoor",
   "properties": {
-    "displayName": "Diagnostic Settings for NSG to SOC",
+    "description": "Forwards all Azure Front Door Activity Logs to an Azure Event Hub",
+    "displayName": "HMCTS Front Door Security Activity Logging",
     "mode": "Indexed",
     "parameters": {
       "eventHubAuthRule": {
@@ -21,14 +22,14 @@
       "eventHubLocation": {
         "defaultValue": "",
         "metadata": {
-          "description": "The location the Event Hub resides in. Only Key Vaults in this location will be linked to this Event Hub.",
+          "description": "The location the Event Hub resides in. Only Front Doors in this location will be linked to this Event Hub.",
           "displayName": "Event Hub Location",
           "strongType": "location"
         },
         "type": "String"
       },
       "eventHubName": {
-        "defaultValue": "network-security-group",
+        "defaultValue": "front-door",
         "metadata": {
           "description": "The event hub for Azure Diagnostics",
           "displayName": "EventHub Name"
@@ -47,8 +48,20 @@
         },
         "type": "String"
       },
+      "metricsEnabled": {
+        "allowedValues": [
+          "True",
+          "False"
+        ],
+        "defaultValue": "False",
+        "metadata": {
+          "description": "Whether to enable metrics stream to the Event Hub - True or False",
+          "displayName": "Enable metrics"
+        },
+        "type": "String"
+      },
       "profileName": {
-        "defaultValue": "SOC-Prod",
+        "defaultValue": "frontDoorToEventHub",
         "metadata": {
           "description": "The diagnostic settings profile name",
           "displayName": "Profile name"
@@ -60,7 +73,7 @@
       "if": {
         "allOf": [
           {
-            "equals": "Microsoft.Network/networkSecurityGroups",
+            "equals": "Microsoft.Cdn/profiles",
             "field": "type"
           },
           {
@@ -81,7 +94,7 @@
         "details": {
           "deployment": {
             "properties": {
-              "mode": "Incremental",
+              "mode": "incremental",
               "parameters": {
                 "eventHubAuthRule": {
                   "value": "[parameters('eventHubAuthRule')]"
@@ -89,17 +102,20 @@
                 "eventHubName": {
                   "value": "[parameters('eventHubName')]"
                 },
+                "frontDoorName": {
+                  "value": "[field('name')]"
+                },
                 "location": {
                   "value": "[field('location')]"
                 },
                 "logsEnabled": {
                   "value": "[parameters('logsEnabled')]"
                 },
+                "metricsEnabled": {
+                  "value": "[parameters('metricsEnabled')]"
+                },
                 "profileName": {
                   "value": "[parameters('profileName')]"
-                },
-                "resourceName": {
-                  "value": "[field('name')]"
                 }
               },
               "template": {
@@ -108,7 +124,7 @@
                 "outputs": {
                   "policy": {
                     "type": "string",
-                    "value": "[concat('Enabled diagnostic settings for ', parameters('resourceName'))]"
+                    "value": "[concat('Enabled diagnostic settings for ', parameters('frontDoorName'))]"
                   }
                 },
                 "parameters": {
@@ -118,39 +134,55 @@
                   "eventHubName": {
                     "type": "string"
                   },
+                  "frontDoorName": {
+                    "type": "string"
+                  },
                   "location": {
-                    "type": "String"
+                    "type": "string"
                   },
                   "logsEnabled": {
-                    "type": "String"
+                    "type": "string"
+                  },
+                  "metricsEnabled": {
+                    "type": "string"
                   },
                   "profileName": {
-                    "type": "String"
-                  },
-                  "resourceName": {
-                    "type": "String"
+                    "type": "string"
                   }
                 },
                 "resources": [
                   {
-                    "apiVersion": "2017-05-01-preview",
+                    "apiVersion": "2021-05-01-preview",
                     "dependsOn": [],
                     "location": "[parameters('location')]",
-                    "name": "[concat(parameters('resourceName'), '/', 'Microsoft.Insights/', parameters('profileName'))]",
+                    "name": "[concat(parameters('frontDoorName'), '/', 'Microsoft.Insights/', parameters('profileName'))]",
                     "properties": {
                       "eventHubAuthorizationRuleId": "[parameters('eventHubAuthRule')]",
                       "eventHubName": "[parameters('eventHubName')]",
                       "logs": [
                         {
-                          "category": "NetworkSecurityGroupEvent",
+                          "category": "FrontdoorAccessLog",
                           "enabled": "[parameters('logsEnabled')]"
+                        },
+                        {
+                          "category": "FrontdoorWebApplicationFirewallLog",
+                          "enabled": "[parameters('logsEnabled')]"
+                        }
+                      ],
+                      "metrics": [
+                        {
+                          "category": "AllMetrics",
+                          "enabled": "[parameters('metricsEnabled')]",
+                          "retentionPolicy": {
+                            "days": 0,
+                            "enabled": false
+                          }
                         }
                       ]
                     },
-                    "type": "Microsoft.Network/networkSecurityGroups/providers/diagnosticSettings"
+                    "type": "Microsoft.Cdn/profiles/providers/diagnosticSettings"
                   }
-                ],
-                "variables": {}
+                ]
               }
             }
           },
@@ -165,13 +197,27 @@
                   }
                 },
                 "greaterOrEquals": 1
+              },
+              {
+                "count": {
+                  "field": "Microsoft.Insights/diagnosticSettings/metrics[*]",
+                  "where": {
+                    "equals": "[parameters('metricsEnabled')]",
+                    "field": "Microsoft.Insights/diagnosticSettings/metrics[*].enabled"
+                  }
+                },
+                "greaterOrEquals": 1
+              },
+              {
+                "equals": "[parameters('eventHubAuthRule')]",
+                "field": "Microsoft.Insights/diagnosticSettings/eventHubAuthorizationRuleId"
               }
             ]
           },
           "name": "[parameters('profileName')]",
           "roleDefinitionIds": [
-            "/providers/microsoft.authorization/roleDefinitions/749f88d5-cbae-40b8-bcfc-e573ddc772fa",
-            "/providers/microsoft.authorization/roleDefinitions/92aaf0da-9dab-42b6-94a3-d43ce8d16293"
+            "/providers/Microsoft.Authorization/roleDefinitions/92aaf0da-9dab-42b6-94a3-d43ce8d16293",
+            "/providers/Microsoft.Authorization/roleDefinitions/749f88d5-cbae-40b8-bcfc-e573ddc772fa"
           ],
           "type": "Microsoft.Insights/diagnosticSettings"
         },

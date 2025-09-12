@@ -1,14 +1,16 @@
 {
+  "id": "/subscriptions/e6b5053b-4c38-4475-a835-a025aeb3d8c7/providers/Microsoft.Authorization/policyAssignments/Deny-Resource-Deletion-Assignment",
+  "name": "Deny-Resource-Deletion-Assignment",
   "properties": {
+    "description": null,
+    "displayName": null,
+    "enforcementMode": "Default",
     "metadata": {
       "createdBy": "1a0172bd-5e9d-4017-aab3-0756c7dbd7cf",
       "createdOn": "2025-04-04T08:30:42.8127277Z",
       "updatedBy": "1a0172bd-5e9d-4017-aab3-0756c7dbd7cf",
       "updatedOn": "2025-05-02T15:37:34.2080544Z"
     },
-    "description": null,
-    "displayName": null,
-    "enforcementMode": "Default",
     "parameters": {
       "tagNames": {
         "value": [
@@ -26,7 +28,5 @@
     "name": "A0",
     "tier": "Free"
   },
-  "type": "Microsoft.Authorization/policyAssignments",
-    "id": "/subscriptions/e6b5053b-4c38-4475-a835-a025aeb3d8c7/providers/Microsoft.Authorization/policyAssignments/Deny-Resource-Deletion-Assignment",
-    "name": "Deny-Resource-Deletion-Assignment"
+  "type": "Microsoft.Authorization/policyAssignments"
 }

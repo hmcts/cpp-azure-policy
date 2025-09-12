@@ -1,22 +1,22 @@
 {
+  "id": "/providers/Microsoft.Management/managementGroups/e2995d11-9947-4e78-9de6-d44e0603518e/providers/Microsoft.Authorization/policyDefinitions/46a4e5c2-fd49-4945-ad75-d32b2157c5fe",
+  "name": "Restrict Direct Role Assignment",
   "properties": {
-    "displayName": "Restrict Direct Role Assignment",
-    "policyType": "Custom",
-    "mode": "All",
     "description": "Role Assignments should be assigned at the group level only.",
-    "version": "1.0.0",
+    "displayName": "Restrict Direct Role Assignment",
+    "mode": "All",
     "parameters": {},
     "policyRule": {
       "if": {
         "allOf": [
           {
-            "field": "type",
-            "equals": "Microsoft.Authorization/roleAssignments"
+            "equals": "Microsoft.Authorization/roleAssignments",
+            "field": "type"
           },
           {
             "not": {
-              "field": "Microsoft.Authorization/roleAssignments/createdBy",
-              "equals": "azure-cli-2017-10-31-16-36-34"
+              "equals": "azure-cli-2017-10-31-16-36-34",
+              "field": "Microsoft.Authorization/roleAssignments/createdBy"
             }
           }
         ]
@@ -25,11 +25,11 @@
         "effect": "audit"
       }
     },
+    "policyType": "Custom",
+    "version": "1.0.0",
     "versions": [
       "1.0.0"
     ]
   },
-  "id": "/subscriptions/e6b5053b-4c38-4475-a835-a025aeb3d8c7/providers/Microsoft.Authorization/policyDefinitions/46a4e5c2-fd49-4945-ad75-d32b2157c5fe",
-  "type": "Microsoft.Authorization/policyDefinitions",
-  "name": "Restrict Direct Role Assignment"
+  "type": "Microsoft.Authorization/policyDefinitions"
 }

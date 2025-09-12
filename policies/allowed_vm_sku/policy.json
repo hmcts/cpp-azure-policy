@@ -1,16 +1,12 @@
 {
+  "id": "/providers/Microsoft.Management/managementGroups/e2995d11-9947-4e78-9de6-d44e0603518e/providers/Microsoft.Authorization/policyDefinitions/HMCTSVmSkuSize",
+  "name": "HMCTSVmSkuSize",
   "properties": {
-    "displayName": "This policy enables you to specify a set of virtual machine SKUs sizes that can be deployed in HMCTS",
-    "policyType": "Custom",
     "description": "Restrict the Virtual Machine SKU sizes that can be deployed in HMCTS",
+    "displayName": "This policy enables you to specify a set of virtual machine SKUs sizes that can be deployed in HMCTS",
     "mode": "Indexed",
     "parameters": {
       "allowedSKUs": {
-        "type": "Array",
-        "metadata": {
-          "displayName": "Allowed Virtual Machine SKU Sizes",
-          "description": "The allowed Virtual Machine SKU sizes in HMCTS"
-        },
         "allowedValues": [
           "Standard_D2ds_v5",
           "Standard_D4ds_v5",
@@ -38,15 +34,20 @@
           "Standard_E16ds_v5",
           "Standard_E32ds_v5",
           "Standard_D8ads_v5"
-        ]
+        ],
+        "metadata": {
+          "description": "The allowed Virtual Machine SKU sizes in HMCTS",
+          "displayName": "Allowed Virtual Machine SKU Sizes"
+        },
+        "type": "Array"
       }
     },
     "policyRule": {
       "if": {
         "allOf": [
           {
-            "field": "type",
-            "equals": "Microsoft.Compute/virtualMachines"
+            "equals": "Microsoft.Compute/virtualMachines",
+            "field": "type"
           },
           {
             "field": "Microsoft.Compute/virtualMachines/sku.name",
@@ -57,9 +58,8 @@
       "then": {
         "effect": "Deny"
       }
-    }
+    },
+    "policyType": "Custom"
   },
-  "id": "/providers/Microsoft.Management/managementGroups/e2995d11-9947-4e78-9de6-d44e0603518e/providers/Microsoft.Authorization/policyDefinitions/HMCTSVmSkuSize",
-  "type": "Microsoft.Authorization/policyDefinitions",
-  "name": "HMCTSVmSkuSize"
+  "type": "Microsoft.Authorization/policyDefinitions"
 }

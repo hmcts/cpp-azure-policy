@@ -1,52 +1,52 @@
 {
-    "properties": {
-        "displayName": "Append tags and their values from the resource group",
-        "mode": "Indexed",
-        "metadata": {
-            "category": "Tags"
-        },
-        "parameters": {
-            "expiresaftertag": {
-                "type": "String",
-                "metadata": {
-                    "displayName": "ExpiresAfter Tag",
-                    "description": "Copies the ExpiresAfter tag to a new resource if it exist on the resource group, will only run on sandbox environments"
-                }
-            }
-        },
-        "policyRule": {
-            "if": {
-                "allOf": [
-                    {
-                        "field": "[concat('tags[', parameters('expiresaftertag'), ']')]",
-                        "exists": "false"
-                    },
-                    {
-                        "value": "[resourceGroup().tags['environment']]",
-                        "equals": "sandbox"
-                    },
-                    {
-                        "value": "[resourceGroup().tags[parameters('expiresaftertag')]]",
-                        "exists": "true"
-                    },
-                    {
-                        "value": "[resourceGroup().tags[parameters('expiresaftertag')]]",
-                        "notEquals": ""
-                    }
-                ]
-            },
-            "then": {
-                "effect": "append",
-                "details": [
-                    {
-                        "field": "[concat('tags[', parameters('expiresaftertag'), ']')]",
-                        "value": "[resourceGroup().tags[parameters('expiresaftertag')]]"
-                    }
-                ]
-            }
-        }
+  "id": "/providers/Microsoft.Management/managementGroups/e2995d11-9947-4e78-9de6-d44e0603518e/providers/Microsoft.Authorization/policyDefinitions/HMCTSCopyResourceGroupexpiresafterTag",
+  "name": "HMCTSCopyResourceGroupexpiresafterTag",
+  "properties": {
+    "displayName": "Append tags and their values from the resource group",
+    "metadata": {
+      "category": "Tags"
     },
-    "id": "/providers/Microsoft.Management/managementGroups/e2995d11-9947-4e78-9de6-d44e0603518e/providers/Microsoft.Authorization/policyDefinitions/HMCTSCopyResourceGroupexpiresafterTag",
-    "type": "Microsoft.Authorization/policyDefinitions",
-    "name": "HMCTSCopyResourceGroupexpiresafterTag"
+    "mode": "Indexed",
+    "parameters": {
+      "expiresaftertag": {
+        "metadata": {
+          "description": "Copies the ExpiresAfter tag to a new resource if it exist on the resource group, will only run on sandbox environments",
+          "displayName": "ExpiresAfter Tag"
+        },
+        "type": "String"
+      }
+    },
+    "policyRule": {
+      "if": {
+        "allOf": [
+          {
+            "exists": "false",
+            "field": "[concat('tags[', parameters('expiresaftertag'), ']')]"
+          },
+          {
+            "equals": "sandbox",
+            "value": "[resourceGroup().tags['environment']]"
+          },
+          {
+            "exists": "true",
+            "value": "[resourceGroup().tags[parameters('expiresaftertag')]]"
+          },
+          {
+            "notEquals": "",
+            "value": "[resourceGroup().tags[parameters('expiresaftertag')]]"
+          }
+        ]
+      },
+      "then": {
+        "details": [
+          {
+            "field": "[concat('tags[', parameters('expiresaftertag'), ']')]",
+            "value": "[resourceGroup().tags[parameters('expiresaftertag')]]"
+          }
+        ],
+        "effect": "append"
+      }
+    }
+  },
+  "type": "Microsoft.Authorization/policyDefinitions"
 }
