@@ -26,7 +26,7 @@
             }
         },
         "policyDefinitionId": "/providers/Microsoft.Management/managementGroups/e2995d11-9947-4e78-9de6-d44e0603518e/providers/Microsoft.Authorization/policyDefinitions/HMCTSNSGDiagnostic",
-        "scope": "/subscriptions/17390ec1-5a5e-4a20-afb3-38d8d726ae45/resourceGroups/InternalSpoke-rg"
+        "scope": "/subscriptions/17390ec1-5a5e-4a20-afb3-38d8d726ae45"
     },
     "location": "uksouth",
     "identity": {
@@ -40,6 +40,6 @@
         "tier": "Free"
     },
     "type": "Microsoft.Authorization/policyAssignments",
-    "id": "/subscriptions/17390ec1-5a5e-4a20-afb3-38d8d726ae45/resourceGroups/InternalSpoke-rg/providers/Microsoft.Authorization/policyAssignments/HMCTSNSGDiagnostic_prod",
-    "name": "HMCTSNSGDiagnostic_prod"
+    "id": "/subscriptions/17390ec1-5a5e-4a20-afb3-38d8d726ae45/resourceGroups/InternalSpoke-rg/providers/Microsoft.Authorization/policyAssignments/HMCTSNSGDiagnostic",
+    "name": "HMCTSNSGDiagnostic"
 }

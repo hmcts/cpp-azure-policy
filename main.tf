@@ -40,7 +40,7 @@ resource "azurerm_subscription_policy_assignment" "subscription_assignments" {
     }
   }
 
-  not_scopes = each.value.properties.notScopes
+  not_scopes = try(each.value.properties.notScopes, [])
   parameters = try(jsonencode(each.value.properties.parameters), "{}")
 
   # Need policy assignments to be defined before we can reference them
