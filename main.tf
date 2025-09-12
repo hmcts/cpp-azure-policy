@@ -37,12 +37,12 @@ resource "azurerm_policy_set_definition" "secops_policy" {
 
   policy_definition_reference {
     version              = "1.0.*"
-    policy_definition_id = "/providers/Microsoft.Authorization/policyDefinitions/13d7db1d-fd0e-4286-a665-25bf16a88549"
+    policy_definition_id = "/subscriptions/e6b5053b-4c38-4475-a835-a025aeb3d8c7/providers/Microsoft.Authorization/policyDefinitions/13d7db1d-fd0e-4286-a665-25bf16a88549"
   }
 
   policy_definition_reference {
     version              = "1.0.*"
-    policy_definition_id = "/providers/Microsoft.Authorization/policyDefinitions/13d7db1d-fd0e-4286-a665-25bf16a887f3"
+    policy_definition_id = "/subscriptions/e6b5053b-4c38-4475-a835-a025aeb3d8c7/providers/Microsoft.Authorization/policyDefinitions/13d7db1d-fd0e-4286-a665-25bf16a887f3"
   }
 }
 
