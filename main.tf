@@ -47,7 +47,7 @@ resource "azurerm_subscription_policy_assignment" "subscription_assignments" {
   depends_on = [
     azurerm_policy_definition.policies
   ]
-}
+}*/
 
 resource "azurerm_management_group_policy_assignment" "management_assignments" {
   for_each = local.management_assignments
@@ -74,4 +74,4 @@ resource "azurerm_management_group_policy_assignment" "management_assignments" {
 
   # Need policy assignments to be defined before we can reference them
   depends_on = [azurerm_policy_definition.policies]
-}*/
+}
