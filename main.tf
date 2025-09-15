@@ -70,7 +70,7 @@ resource "azurerm_management_group_policy_assignment" "management_assignments" {
   }
 
   not_scopes = each.value.properties.notScopes
-  parameters = try(jsonencode(each.value.properties.parameters), "{}")
+  parameters = try(jsonencode(each.value.properties.parameters), null)
 
   # Need policy assignments to be defined before we can reference them
   depends_on = [azurerm_policy_definition.policies]

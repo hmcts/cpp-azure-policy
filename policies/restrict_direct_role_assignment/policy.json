@@ -5,7 +5,6 @@
     "description": "Role Assignments should be assigned at the group level only.",
     "displayName": "Restrict Direct Role Assignment",
     "mode": "All",
-    "parameters": {},
     "policyRule": {
       "if": {
         "allOf": [

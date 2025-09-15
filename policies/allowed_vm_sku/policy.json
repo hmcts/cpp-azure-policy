@@ -1,9 +1,9 @@
 {
-  "id": "/providers/Microsoft.Management/managementGroups/e2995d11-9947-4e78-9de6-d44e0603518e/providers/Microsoft.Authorization/policyDefinitions/HMCTSVmSkuSize",
-  "name": "HMCTSVmSkuSize",
+  "id": "/providers/Microsoft.Management/managementGroups/e2995d11-9947-4e78-9de6-d44e0603518e/providers/Microsoft.Authorization/policyDefinitions/CPPVmSkuSize",
+  "name": "CPPVmSkuSize",
   "properties": {
-    "description": "Restrict the Virtual Machine SKU sizes that can be deployed in HMCTS",
-    "displayName": "This policy enables you to specify a set of virtual machine SKUs sizes that can be deployed in HMCTS",
+    "description": "Restrict the Virtual Machine SKU sizes that can be deployed in CPP",
+    "displayName": "This policy enables you to specify a set of virtual machine SKUs sizes that can be deployed in CPP",
     "mode": "Indexed",
     "parameters": {
       "allowedSKUs": {
@@ -60,7 +60,7 @@
           "Standard_F2s_v2"
         ],
         "metadata": {
-          "description": "The allowed Virtual Machine SKU sizes in HMCTS",
+          "description": "The allowed Virtual Machine SKU sizes in CPP",
           "displayName": "Allowed Virtual Machine SKU Sizes"
         },
         "type": "Array"
