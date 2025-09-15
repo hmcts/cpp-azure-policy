@@ -15,7 +15,7 @@ resource "azurerm_policy_definition" "policies" {
   mode         = each.value.properties.mode
 
   policy_rule = jsonencode(each.value.properties.policyRule)
-  parameters  = try(jsonencode(each.value.properties.parameters), "{}")
+  parameters  = try(jsonencode(each.value.properties.parameters), null)
 
   management_group_id = var.management_group
 }
