@@ -1,8 +1,8 @@
 {
-  "id": "/providers/Microsoft.Management/managementGroups/e2995d11-9947-4e78-9de6-d44e0603518e/providers/Microsoft.Authorization/policyDefinitions/HMCTSTagging",
-  "name": "HMCTSTagging",
+  "id": "/providers/Microsoft.Management/managementGroups/e2995d11-9947-4e78-9de6-d44e0603518e/providers/Microsoft.Authorization/policyDefinitions/CPPTagging",
+  "name": "CPPTagging",
   "properties": {
-    "displayName": "HMCTS Tagging",
+    "displayName": "CPP Tagging",
     "mode": "Indexed",
     "parameters": {
       "RequiredTags": {

@@ -1,9 +1,9 @@
 {
-  "id": "/subscriptions/0511a7fe-771b-4ffa-9348-c59e9c4a87bd/providers/Microsoft.Authorization/policyAssignments/HMCTSDiskSkuSize-idam",
-  "name": "HMCTSDiskSkuSize-idam",
+  "id": "/subscriptions/0511a7fe-771b-4ffa-9348-c59e9c4a87bd/providers/Microsoft.Authorization/policyAssignments/CPPDiskSkuSize-idam",
+  "name": "CPPDiskSkuSize-idam",
   "properties": {
-    "description": "Restrict the Disk SKU sizes that can be deployed in HMCTS",
-    "displayName": "HMCTS Restricted Disk SKU Sizes - MoJ-HMCTS-Crime-IdAM-NLE",
+    "description": "Restrict the Disk SKU sizes that can be deployed in CPP",
+    "displayName": "CPP Restricted Disk SKU Sizes - MoJ-CPP-Crime-IdAM-NLE",
     "enforcementMode": "DoNotEnforce",
     "metadata": {
       "assignedBy": "PlatOps"
@@ -15,7 +15,7 @@
     ],
     "notScopes": [],
     "parameters": {},
-    "policyDefinitionId": "/providers/Microsoft.Management/managementGroups/e2995d11-9947-4e78-9de6-d44e0603518e/providers/Microsoft.Authorization/policyDefinitions/HMCTSDiskSkuSize",
+    "policyDefinitionId": "/providers/Microsoft.Management/managementGroups/e2995d11-9947-4e78-9de6-d44e0603518e/providers/Microsoft.Authorization/policyDefinitions/CPPDiskSkuSize",
     "scope": "/subscriptions/0511a7fe-771b-4ffa-9348-c59e9c4a87bd"
   },
   "type": "Microsoft.Authorization/policyAssignments"

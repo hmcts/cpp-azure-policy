@@ -1,9 +1,9 @@
 {
-  "id": "/providers/Microsoft.Management/managementGroups/e2995d11-9947-4e78-9de6-d44e0603518e/providers/Microsoft.Authorization/policyAssignments/HMCTSVmSkuSize",
-  "name": "HMCTSVmSkuSize",
+  "id": "/providers/Microsoft.Management/managementGroups/e2995d11-9947-4e78-9de6-d44e0603518e/providers/Microsoft.Authorization/policyAssignments/CPPVmSkuSize",
+  "name": "CPPVmSkuSize",
   "properties": {
     "description": "Approved Virtual Machine SKU sizes",
-    "displayName": "HMCTS Approved VM SKU Sizes - (CPP nonlive)",
+    "displayName": "CPP Approved VM SKU Sizes - (CPP nonlive)",
     "enforcementMode": "DoNotEnforce",
     "metadata": {
       "assignedBy": "PlatOps"
@@ -15,7 +15,7 @@
     ],
     "notScopes": [],
     "parameters": {},
-    "policyDefinitionId": "/providers/Microsoft.Management/managementGroups/e2995d11-9947-4e78-9de6-d44e0603518e/providers/Microsoft.Authorization/policyDefinitions/HMCTSVmSkuSize",
+    "policyDefinitionId": "/providers/Microsoft.Management/managementGroups/e2995d11-9947-4e78-9de6-d44e0603518e/providers/Microsoft.Authorization/policyDefinitions/CPPVmSkuSize",
     "scope": "/subscriptions/e6b5053b-4c38-4475-a835-a025aeb3d8c7"
   },
   "type": "Microsoft.Authorization/policyAssignments"

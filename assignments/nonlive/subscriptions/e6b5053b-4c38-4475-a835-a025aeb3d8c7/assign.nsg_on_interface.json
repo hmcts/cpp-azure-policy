@@ -1,11 +1,11 @@
 {
-  "id": "/subscriptions/e6b5053b-4c38-4475-a835-a025aeb3d8c7/providers/Microsoft.Authorization/policyAssignments/05fd6e0f8a2c4f54b636c3ea",
+  "id": "/subscriptions/e6b5053b-4c38-4475-a835-a025aeb3d8c7/providers/Microsoft.Authorization/policyAssignments/CPPNsgOnInterface",
   "identity": null,
   "location": null,
-  "name": "05fd6e0f8a2c4f54b636c3ea",
+  "name": "CPPNsgOnInterface",
   "properties": {
     "description": null,
-    "displayName": "NSG-on-Interface",
+    "displayName": "NSG on Interface",
     "enforcementMode": "DoNotEnforce",
     "metadata": {
       "assignedBy": "ashwini.sidhu@hmctsnonlive.onmicrosoft.com ",
