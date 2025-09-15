@@ -37,7 +37,7 @@
         }
       },
       "policyDefinitionId": "/providers/Microsoft.Management/managementGroups/HMCTS/providers/Microsoft.Authorization/policyDefinitions/HMCTSAutoTagging",
-      "scope": "/subscriptions/61432c17-4377-4780-be02-d56e56ef2b07"
+      "scope": "/subscriptions/0511a7fe-771b-4ffa-9348-c59e9c4a87bd7"
     },
     "location": "uksouth",
     "identity": {
@@ -48,6 +48,6 @@
       "tier": "Free"
     },
     "type": "Microsoft.Authorization/policyAssignments",
-    "id": "/subscriptions/61432c17-4377-4780-be02-d56e56ef2b07/providers/Microsoft.Authorization/policyAssignments/HMCTSAutoTagging_BusinessArea_DTS-ARCHIVING-PROD",
+    "id": "/subscriptions/0511a7fe-771b-4ffa-9348-c59e9c4a87bd/providers/Microsoft.Authorization/policyAssignments/HMCTSAutoTagging_BusinessArea_DTS-ARCHIVING-PROD",
     "name": "HMCTSAutoTagging_BusinessArea_DTS-ARCHIVING-PROD"
 }
