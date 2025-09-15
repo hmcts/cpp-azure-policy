@@ -1,0 +1,39 @@
+{
+  "id": "/providers/Microsoft.Management/managementGroups/e2995d11-9947-4e78-9de6-d44e0603518e/providers/Microsoft.Authorization/policyAssignments/HMCTSKVDAGlobal_moj",
+  "identity": {
+    "type": "UserAssigned",
+    "userAssignedIdentities": {
+      "/subscriptions/8ae5b3b6-0b12-4888-b894-4cec33c92292/resourceGroups/soc-core-infra-prod-rg/providers/Microsoft.ManagedIdentity/userAssignedIdentities/soc-prod-eventhub-azure-policy": {}
+    }
+  },
+  "location": "uksouth",
+  "name": "HMCTSKVDAGlobal_moj",
+  "properties": {
+    "description": "Forwards all Keyvault Logs to an Azure Event Hub - MOJ",
+    "displayName": "HMCTS Collect KeyVault Logs - MOJ (CPP nonlive)",
+    "enforcementMode": "DoNotEnforce",
+    "metadata": {
+      "assignedBy": "github.com/hmcts/cpp-azure-policy"
+    },
+    "nonComplianceMessages": [],
+    "notScopes": [],
+    "parameters": {
+      "eventHubAuthRule": {
+        "value": "/subscriptions/8ae5b3b6-0b12-4888-b894-4cec33c92292/resourceGroups/soc-xsiam-eventhubs-prod-rg/providers/Microsoft.EventHub/namespaces/soc-prod-xsiam-eventhubns/authorizationrules/soc-xsiam-eventhub-namespace-sender"
+      },
+      "eventHubName": {
+        "value": "azure-resource-events"
+      },
+      "profileName": {
+        "value": "KeyvaultToEventHubMoj"
+      }
+    },
+    "policyDefinitionId": "/providers/Microsoft.Management/managementGroups/e2995d11-9947-4e78-9de6-d44e0603518e/providers/Microsoft.Authorization/policyDefinitions/HMCTSKeyVault",
+    "scope": "/subscriptions/e6b5053b-4c38-4475-a835-a025aeb3d8c7"
+  },
+  "sku": {
+    "name": "A0",
+    "tier": "Free"
+  },
+  "type": "Microsoft.Authorization/policyAssignments"
+}

@@ -16,6 +16,9 @@ repos:
   rev: v4.4.0
   hooks:
     - id: check-merge-conflict
+    - id: check-json
+    - id: pretty-format-json
+      args: [--autofix]
 - repo: https://github.com/hmcts/cpp-hooks-gitleaks
   rev: 8674df8b3bc84211bf951057daf23b081f5ca56a
   hooks:

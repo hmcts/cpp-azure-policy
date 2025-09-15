@@ -1,0 +1,52 @@
+{
+  "id": "/providers/Microsoft.Management/managementGroups/e2995d11-9947-4e78-9de6-d44e0603518e/providers/Microsoft.Authorization/policyDefinitions/CPPCopyResourceGroupexpiresafterTag",
+  "name": "CPPCopyResourceGroupexpiresafterTag",
+  "properties": {
+    "displayName": "Append tags and their values from the resource group",
+    "metadata": {
+      "category": "Tags"
+    },
+    "mode": "Indexed",
+    "parameters": {
+      "expiresaftertag": {
+        "metadata": {
+          "description": "Copies the ExpiresAfter tag to a new resource if it exist on the resource group",
+          "displayName": "Copy ExpiresAfter Tag"
+        },
+        "type": "String"
+      }
+    },
+    "policyRule": {
+      "if": {
+        "allOf": [
+          {
+            "exists": "false",
+            "field": "[concat('tags[', parameters('expiresaftertag'), ']')]"
+          },
+          {
+            "equals": "sandbox",
+            "value": "[resourceGroup().tags['environment']]"
+          },
+          {
+            "exists": "true",
+            "value": "[resourceGroup().tags[parameters('expiresaftertag')]]"
+          },
+          {
+            "notEquals": "",
+            "value": "[resourceGroup().tags[parameters('expiresaftertag')]]"
+          }
+        ]
+      },
+      "then": {
+        "details": [
+          {
+            "field": "[concat('tags[', parameters('expiresaftertag'), ']')]",
+            "value": "[resourceGroup().tags[parameters('expiresaftertag')]]"
+          }
+        ],
+        "effect": "append"
+      }
+    }
+  },
+  "type": "Microsoft.Authorization/policyDefinitions"
+}

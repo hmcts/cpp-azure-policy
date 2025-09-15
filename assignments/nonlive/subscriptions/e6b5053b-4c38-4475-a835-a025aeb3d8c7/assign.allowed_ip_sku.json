@@ -1,0 +1,21 @@
+{
+  "id": "/providers/Microsoft.Management/managementGroups/e2995d11-9947-4e78-9de6-d44e0603518e/providers/Microsoft.Authorization/policyAssignments/CPPIPSkuSize",
+  "name": "CPPIPSkuSize",
+  "properties": {
+    "description": "Approved IP Address SKU sizes",
+    "displayName": "CPP Approved IP Address SKU Sizes - (CPP nonlive)",
+    "enforcementMode": "DoNotEnforce",
+    "metadata": {
+      "assignedBy": "PlatOps"
+    },
+    "nonComplianceMessages": [
+      {
+        "message": "This IP Address SKU size is not allowed. See https://github.com/hmcts/cpp-azure-policy/blob/master/policies/allowed_ip_sku/README.md"
+      }
+    ],
+    "parameters": {},
+    "policyDefinitionId": "/providers/Microsoft.Management/managementGroups/e2995d11-9947-4e78-9de6-d44e0603518e/providers/Microsoft.Authorization/policyDefinitions/CPPIPSkuSize",
+    "scope": "/subscriptions/e6b5053b-4c38-4475-a835-a025aeb3d8c7"
+  },
+  "type": "Microsoft.Authorization/policyAssignments"
+}

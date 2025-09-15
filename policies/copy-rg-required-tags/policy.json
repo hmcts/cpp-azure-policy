@@ -1,0 +1,97 @@
+{
+  "id": "/providers/Microsoft.Management/managementGroups/e2995d11-9947-4e78-9de6-d44e0603518e/providers/Microsoft.Authorization/policyDefinitions/CPPCopyResourceGroupTags",
+  "name": "CPPCopyResourceGroupTags",
+  "properties": {
+    "description": "Appends the specified tags with their values from the resource group when any resource which is missing these tags is created or updated. Does not modify the tags of resources created before this policy was applied until those resources are changed. New 'modify' effect policies are available that support remediation of tags on existing resources (see https://aka.ms/modifydoc).",
+    "displayName": "Append tags and their values from the resource group",
+    "metadata": {
+      "category": "Tags"
+    },
+    "mode": "Indexed",
+    "parameters": {
+      "tagNames": {
+        "metadata": {
+          "description": "Names of the tags, to be copied from the resource group. The values are set in assign.copy.rg.required.tags policy assignment",
+          "displayName": "Tag Names"
+        },
+        "type": "Array"
+      }
+    },
+    "policyRule": {
+      "if": {
+        "allOf": [
+          {
+            "exists": "false",
+            "field": "[concat('tags[', parameters('tagNames')[0], ']')]"
+          },
+          {
+            "exists": "false",
+            "field": "[concat('tags[', parameters('tagNames')[1], ']')]"
+          },
+          {
+            "exists": "false",
+            "field": "[concat('tags[', parameters('tagNames')[2], ']')]"
+          },
+          {
+            "exists": "false",
+            "field": "[concat('tags[', parameters('tagNames')[3], ']')]"
+          },
+          {
+            "exists": "true",
+            "value": "[resourceGroup().tags[parameters('tagNames')[0]]]"
+          },
+          {
+            "exists": "true",
+            "value": "[resourceGroup().tags[parameters('tagNames')[1]]]"
+          },
+          {
+            "exists": "true",
+            "value": "[resourceGroup().tags[parameters('tagNames')[2]]]"
+          },
+          {
+            "exists": "true",
+            "value": "[resourceGroup().tags[parameters('tagNames')[3]]]"
+          },
+          {
+            "notEquals": "",
+            "value": "[resourceGroup().tags[parameters('tagNames')[0]]]"
+          },
+          {
+            "notEquals": "",
+            "value": "[resourceGroup().tags[parameters('tagNames')[1]]]"
+          },
+          {
+            "notEquals": "",
+            "value": "[resourceGroup().tags[parameters('tagNames')[2]]]"
+          },
+          {
+            "notEquals": "",
+            "value": "[resourceGroup().tags[parameters('tagNames')[3]]]"
+          }
+        ]
+      },
+      "then": {
+        "details": [
+          {
+            "field": "[concat('tags[', parameters('tagNames')[0], ']')]",
+            "value": "[resourceGroup().tags[parameters('tagNames')[0]]]"
+          },
+          {
+            "field": "[concat('tags[', parameters('tagNames')[1], ']')]",
+            "value": "[resourceGroup().tags[parameters('tagNames')[1]]]"
+          },
+          {
+            "field": "[concat('tags[', parameters('tagNames')[2], ']')]",
+            "value": "[resourceGroup().tags[parameters('tagNames')[2]]]"
+          },
+          {
+            "field": "[concat('tags[', parameters('tagNames')[3], ']')]",
+            "value": "[resourceGroup().tags[parameters('tagNames')[3]]]"
+          }
+        ],
+        "effect": "append"
+      }
+    }
+  },
+  "type": "Microsoft.Authorization/policyDefinitions"
+}
