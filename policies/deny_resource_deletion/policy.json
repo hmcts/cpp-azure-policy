@@ -1,6 +1,6 @@
 {
-  "id": "/subscriptions/e6b5053b-4c38-4475-a835-a025aeb3d8c7/providers/Microsoft.Authorization/policyDefinitions/Deny Resource Deletion",
-  "name": "Deny Resource Deletion",
+  "id": "/subscriptions/e6b5053b-4c38-4475-a835-a025aeb3d8c7/providers/Microsoft.Authorization/policyDefinitions/CPPDenyResourceDeletion",
+  "name": "CPPDenyResourceDeletion",
   "properties": {
     "description": "This policy denies the deletion of critical resources such as Storage accounts, Key Vaults, App Insights, Log Analytics, Public IPs, Function Apps, API Management, Application Gateway, Logic Apps, Private DNS Zones, SQL Databases, and Kubernetes Clusters in the 'Strategic Platform - non-live' subscription",
     "displayName": "Deny Deletion of Resources in Strategic Platform - non-live",

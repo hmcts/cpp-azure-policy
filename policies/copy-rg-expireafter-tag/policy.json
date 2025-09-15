@@ -1,6 +1,6 @@
 {
-  "id": "/providers/Microsoft.Management/managementGroups/e2995d11-9947-4e78-9de6-d44e0603518e/providers/Microsoft.Authorization/policyDefinitions/HMCTSCopyResourceGroupexpiresafterTag",
-  "name": "HMCTSCopyResourceGroupexpiresafterTag",
+  "id": "/providers/Microsoft.Management/managementGroups/e2995d11-9947-4e78-9de6-d44e0603518e/providers/Microsoft.Authorization/policyDefinitions/CPPCopyResourceGroupexpiresafterTag",
+  "name": "CPPCopyResourceGroupexpiresafterTag",
   "properties": {
     "displayName": "Append tags and their values from the resource group",
     "metadata": {
@@ -10,8 +10,8 @@
     "parameters": {
       "expiresaftertag": {
         "metadata": {
-          "description": "Copies the ExpiresAfter tag to a new resource if it exist on the resource group, will only run on sandbox environments",
-          "displayName": "ExpiresAfter Tag"
+          "description": "Copies the ExpiresAfter tag to a new resource if it exist on the resource group",
+          "displayName": "Copy ExpiresAfter Tag"
         },
         "type": "String"
       }

@@ -1,9 +1,9 @@
 {
-  "id": "/providers/Microsoft.Management/managementGroups/e2995d11-9947-4e78-9de6-d44e0603518e/providers/Microsoft.Authorization/policyDefinitions/HMCTSIPSkuSize",
-  "name": "HMCTSIPSkuSize",
+  "id": "/providers/Microsoft.Management/managementGroups/e2995d11-9947-4e78-9de6-d44e0603518e/providers/Microsoft.Authorization/policyDefinitions/CPPIPSkuSize",
+  "name": "CPPIPSkuSize",
   "properties": {
-    "description": "Prevent the creation of Basic SKU IP addresses in HMCTS",
-    "displayName": "This policy enables you to specify a set of IP addresses SKUs sizes that can be deployed in HMCTS",
+    "description": "Prevent the creation of Basic SKU Public IP addresses in CPP",
+    "displayName": "This policy enables you to specify a set of Public IP addresses SKUs sizes that can be deployed in CPP",
     "mode": "Indexed",
     "parameters": {
       "allowedSKUs": {
@@ -14,8 +14,8 @@
           "Standard"
         ],
         "metadata": {
-          "description": "The allowed IP Address SKU types in HMCTS",
-          "displayName": "Allowed IP Address SKU Types"
+          "description": "The allowed Public IP Address SKU types in CPP",
+          "displayName": "Allowed Public IP Address SKU Types"
         },
         "type": "Array"
       }

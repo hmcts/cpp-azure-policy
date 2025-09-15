@@ -1,8 +1,8 @@
 {
-  "id": "/providers/Microsoft.Management/managementGroups/e2995d11-9947-4e78-9de6-d44e0603518e/providers/Microsoft.Authorization/policyDefinitions/ExpiresAfterTagging",
-  "name": "ExpiresAfterTagging",
+  "id": "/providers/Microsoft.Management/managementGroups/e2995d11-9947-4e78-9de6-d44e0603518e/providers/Microsoft.Authorization/policyDefinitions/CPPExpiresAfterTagging",
+  "name": "CPPExpiresAfterTagging",
   "properties": {
-    "displayName": "HMCTS Expires After Tagging",
+    "displayName": "CPP Expires After Tagging",
     "mode": "Indexed",
     "parameters": {
       "RequiredTag": {
