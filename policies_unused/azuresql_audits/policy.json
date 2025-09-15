@@ -1,0 +1,245 @@
+{
+  "id": "/providers/Microsoft.Management/managementGroups/e2995d11-9947-4e78-9de6-d44e0603518e/providers/Microsoft.Authorization/policyDefinitions/HMCTSAzureSQLAudit",
+  "name": "HMCTSAzureSQLAudit",
+  "properties": {
+    "description": "Enables auditing settings for Azure SQL servers to stream to the SOC Event Hub. Any Azure SQL server which is missing this settings is updated along with its databases.",
+    "displayName": "Enable Audit Settings for Azure SQL to SOC",
+    "mode": "Indexed",
+    "parameters": {
+      "auditsEnabled": {
+        "allowedValues": [
+          "True",
+          "False"
+        ],
+        "defaultValue": "False",
+        "metadata": {
+          "description": "Whether to enable audit logs stream to the Event Hub  - True or False",
+          "displayName": "Enable audit logs"
+        },
+        "type": "String"
+      },
+      "eventHubAuthRule": {
+        "allowedValues": [
+          "/subscriptions/8ae5b3b6-0b12-4888-b894-4cec33c92292/resourceGroups/soc-xsiam-eventhubs-prod-rg/providers/Microsoft.EventHub/namespaces/soc-prod-xsiam-eventhubns/authorizationrules/soc-xsiam-eventhub-namespace-sender"
+        ],
+        "defaultValue": "/subscriptions/8ae5b3b6-0b12-4888-b894-4cec33c92292/resourceGroups/soc-xsiam-eventhubs-prod-rg/providers/Microsoft.EventHub/namespaces/soc-prod-xsiam-eventhubns/authorizationrules/soc-xsiam-eventhub-namespace-sender",
+        "metadata": {
+          "assignPermissions": true,
+          "description": "The Event Hub authorization rule Id for Azure Diagnostics. The authorization rule needs to be at Event Hub namespace level. e.g. /subscriptions/{subscription Id}/resourceGroups/{resource group}/providers/Microsoft.EventHub/namespaces/{Event Hub namespace}/authorizationrules/{authorization rule}",
+          "displayName": "Event Hub Authorization Rule Id",
+          "strongType": "Microsoft.EventHub/Namespaces/AuthorizationRules"
+        },
+        "type": "String"
+      },
+      "eventHubLocation": {
+        "defaultValue": "",
+        "metadata": {
+          "description": "The location the Event Hub resides in. Only Azure SQL databases in this location will be linked to this Event Hub.",
+          "displayName": "Event Hub Location",
+          "strongType": "location"
+        },
+        "type": "String"
+      },
+      "eventHubName": {
+        "defaultValue": "azure-sql-database",
+        "metadata": {
+          "description": "The event hub for Azure Diagnostics",
+          "displayName": "EventHub Name"
+        },
+        "type": "String"
+      },
+      "logsEnabled": {
+        "allowedValues": [
+          "True",
+          "False"
+        ],
+        "defaultValue": "True",
+        "metadata": {
+          "description": "Whether to enable diagnostic logs stream to the Event Hub  - True or False",
+          "displayName": "Enable diagnostic logs"
+        },
+        "type": "String"
+      },
+      "metricsEnabled": {
+        "allowedValues": [
+          "True",
+          "False"
+        ],
+        "defaultValue": "False",
+        "metadata": {
+          "description": "Whether to enable metrics stream to the Event Hub - True or False",
+          "displayName": "Enable metrics"
+        },
+        "type": "String"
+      },
+      "profileName": {
+        "defaultValue": "AzureSQLAuditToEventHub",
+        "metadata": {
+          "description": "The audit settings profile name",
+          "displayName": "Profile name"
+        },
+        "type": "String"
+      }
+    },
+    "policyRule": {
+      "if": {
+        "allOf": [
+          {
+            "equals": "Microsoft.Sql/servers/databases",
+            "field": "type"
+          },
+          {
+            "anyOf": [
+              {
+                "equals": "",
+                "value": "[parameters('eventHubLocation')]"
+              },
+              {
+                "equals": "[parameters('eventHubLocation')]",
+                "field": "location"
+              }
+            ]
+          }
+        ]
+      },
+      "then": {
+        "details": {
+          "deployment": {
+            "properties": {
+              "mode": "incremental",
+              "parameters": {
+                "auditsEnabled": {
+                  "value": "[parameters('auditsEnabled')]"
+                },
+                "eventHubAuthRule": {
+                  "value": "[parameters('eventHubAuthRule')]"
+                },
+                "eventHubName": {
+                  "value": "[parameters('eventHubName')]"
+                },
+                "fullName": {
+                  "value": "[field('fullName')]"
+                },
+                "location": {
+                  "value": "[field('location')]"
+                },
+                "logsEnabled": {
+                  "value": "[parameters('logsEnabled')]"
+                },
+                "metricsEnabled": {
+                  "value": "[parameters('metricsEnabled')]"
+                },
+                "profileName": {
+                  "value": "[parameters('profileName')]"
+                }
+              },
+              "template": {
+                "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+                "contentVersion": "1.0.0.0",
+                "outputs": {
+                  "policy": {
+                    "type": "string",
+                    "value": "[concat('Enabled audit settings for ', parameters('fullName'))]"
+                  }
+                },
+                "parameters": {
+                  "auditsEnabled": {
+                    "type": "string"
+                  },
+                  "eventHubAuthRule": {
+                    "type": "string"
+                  },
+                  "eventHubName": {
+                    "type": "string"
+                  },
+                  "fullName": {
+                    "type": "string"
+                  },
+                  "location": {
+                    "type": "string"
+                  },
+                  "logsEnabled": {
+                    "type": "string"
+                  },
+                  "metricsEnabled": {
+                    "type": "string"
+                  },
+                  "profileName": {
+                    "type": "string"
+                  }
+                },
+                "resources": [
+                  {
+                    "apiVersion": "2017-05-01-preview",
+                    "dependsOn": [],
+                    "location": "[parameters('location')]",
+                    "name": "[concat(parameters('fullName'), '/', 'Microsoft.Insights/', parameters('profileName'))]",
+                    "properties": {
+                      "eventHubAuthorizationRuleId": "[parameters('eventHubAuthRule')]",
+                      "eventHubName": "[parameters('eventHubName')]",
+                      "logs": [
+                        {
+                          "category": "SQLSecurityAuditEvents",
+                          "enabled": "[parameters('logsEnabled')]"
+                        }
+                      ],
+                      "metrics": [
+                        {
+                          "category": "AllMetrics",
+                          "enabled": "[parameters('metricsEnabled')]",
+                          "retentionPolicy": {
+                            "days": 0,
+                            "enabled": false
+                          }
+                        }
+                      ]
+                    },
+                    "type": "Microsoft.Sql/servers/databases/providers/diagnosticSettings"
+                  }
+                ],
+                "variables": {}
+              }
+            }
+          },
+          "existenceCondition": {
+            "allOf": [
+              {
+                "count": {
+                  "field": "Microsoft.Insights/diagnosticSettings/logs[*]",
+                  "where": {
+                    "equals": "[parameters('logsEnabled')]",
+                    "field": "Microsoft.Insights/diagnosticSettings/logs[*].enabled"
+                  }
+                },
+                "greaterOrEquals": 1
+              },
+              {
+                "count": {
+                  "field": "Microsoft.Insights/diagnosticSettings/metrics[*]",
+                  "where": {
+                    "equals": "[parameters('metricsEnabled')]",
+                    "field": "Microsoft.Insights/diagnosticSettings/metrics[*].enabled"
+                  }
+                },
+                "greaterOrEquals": 1
+              },
+              {
+                "equals": "[parameters('eventHubAuthRule')]",
+                "field": "Microsoft.Insights/diagnosticSettings/eventHubAuthorizationRuleId"
+              }
+            ]
+          },
+          "name": "[parameters('profileName')]",
+          "roleDefinitionIds": [
+            "/providers/microsoft.authorization/roleDefinitions/749f88d5-cbae-40b8-bcfc-e573ddc772fa",
+            "/providers/microsoft.authorization/roleDefinitions/92aaf0da-9dab-42b6-94a3-d43ce8d16293"
+          ],
+          "type": "Microsoft.Insights/diagnosticSettings"
+        },
+        "effect": "DeployIfNotExists"
+      }
+    },
+    "policyType": "Custom"
+  },
+  "type": "Microsoft.Authorization/policyDefinitions"
+}

@@ -15,11 +15,11 @@ resource "azurerm_policy_definition" "policies" {
   mode         = each.value.properties.mode
 
   policy_rule = jsonencode(each.value.properties.policyRule)
-  parameters  = try(jsonencode(each.value.properties.parameters), "{}")
+  parameters  = try(jsonencode(each.value.properties.parameters), null)
 
   management_group_id = var.management_group
 }
-
+/*
 resource "azurerm_subscription_policy_assignment" "subscription_assignments" {
   for_each = local.subscription_assignments
 
@@ -40,12 +40,14 @@ resource "azurerm_subscription_policy_assignment" "subscription_assignments" {
     }
   }
 
-  not_scopes = each.value.properties.notScopes
+  not_scopes = try(each.value.properties.notScopes, [])
   parameters = try(jsonencode(each.value.properties.parameters), "{}")
 
   # Need policy assignments to be defined before we can reference them
-  depends_on = [azurerm_policy_definition.policies]
-}
+  depends_on = [
+    azurerm_policy_definition.policies
+  ]
+}*/
 
 resource "azurerm_management_group_policy_assignment" "management_assignments" {
   for_each = local.management_assignments
@@ -68,7 +70,7 @@ resource "azurerm_management_group_policy_assignment" "management_assignments" {
   }
 
   not_scopes = each.value.properties.notScopes
-  parameters = try(jsonencode(each.value.properties.parameters), "{}")
+  parameters = try(jsonencode(each.value.properties.parameters), null)
 
   # Need policy assignments to be defined before we can reference them
   depends_on = [azurerm_policy_definition.policies]

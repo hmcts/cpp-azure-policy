@@ -1,0 +1,97 @@
+{
+  "id": "/subscriptions/e6b5053b-4c38-4475-a835-a025aeb3d8c7/providers/Microsoft.Authorization/policyDefinitions/CPPDenyResourceDeletion",
+  "name": "CPPDenyResourceDeletion",
+  "properties": {
+    "description": "This policy denies the deletion of critical resources such as Storage accounts, Key Vaults, App Insights, Log Analytics, Public IPs, Function Apps, API Management, Application Gateway, Logic Apps, Private DNS Zones, SQL Databases, and Kubernetes Clusters in the 'Strategic Platform - non-live' subscription",
+    "displayName": "Deny Deletion of Resources in Strategic Platform - non-live",
+    "metadata": {
+      "createdBy": "1a0172bd-5e9d-4017-aab3-0756c7dbd7cf",
+      "createdOn": "2025-04-03T14:18:55.751924Z",
+      "updatedBy": "c40742dd-d68c-4fec-a4c9-25a286eb6974",
+      "updatedOn": "2025-04-08T12:39:24.1969555Z"
+    },
+    "mode": "All",
+    "policyRule": {
+      "if": {
+        "anyOf": [
+          {
+            "equals": "Microsoft.Storage/storageAccounts",
+            "field": "type"
+          },
+          {
+            "equals": "Microsoft.KeyVault/vaults",
+            "field": "type"
+          },
+          {
+            "equals": "Microsoft.Insights/components",
+            "field": "type"
+          },
+          {
+            "equals": "Microsoft.OperationalInsights/workspaces",
+            "field": "type"
+          },
+          {
+            "equals": "Microsoft.Network/publicIPAddresses",
+            "field": "type"
+          },
+          {
+            "equals": "Microsoft.Web/sites",
+            "field": "type"
+          },
+          {
+            "equals": "Microsoft.ApiManagement/service",
+            "field": "type"
+          },
+          {
+            "equals": "Microsoft.Network/applicationGateways",
+            "field": "type"
+          },
+          {
+            "equals": "Microsoft.Logic/workflows",
+            "field": "type"
+          },
+          {
+            "equals": "Microsoft.Network/privateDnsZones",
+            "field": "type"
+          },
+          {
+            "equals": "Microsoft.Sql/servers/databases",
+            "field": "type"
+          },
+          {
+            "equals": "Microsoft.ContainerService/managedClusters",
+            "field": "type"
+          },
+          {
+            "allOf": [
+              {
+                "equals": "Microsoft.Compute/virtualMachines",
+                "field": "type"
+              },
+              {
+                "not": {
+                  "field": "name",
+                  "like": "pkrvm*"
+                }
+              }
+            ]
+          }
+        ]
+      },
+      "then": {
+        "details": {
+          "actionNames": [
+            "delete"
+          ]
+        },
+        "effect": "denyAction"
+      }
+    },
+    "policyType": "Custom",
+    "version": "1.0.0",
+    "versions": [
+      "1.0.0"
+    ]
+  },
+  "type": "Microsoft.Authorization/policyDefinitions"
+}

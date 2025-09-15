@@ -1,0 +1,79 @@
+{
+  "id": "/providers/Microsoft.Management/managementGroups/e2995d11-9947-4e78-9de6-d44e0603518e/providers/Microsoft.Authorization/policyDefinitions/CPPExpiresAfterTagging",
+  "name": "CPPExpiresAfterTagging",
+  "properties": {
+    "displayName": "CPP Expires After Tagging",
+    "mode": "Indexed",
+    "parameters": {
+      "RequiredTag": {
+        "defaultValue": "expiresAfter",
+        "metadata": {
+          "description": "Required expiresAfter tag on resource",
+          "displayName": "Required Tag Name"
+        },
+        "type": "String"
+      },
+      "excludedResourceTypes": {
+        "defaultValue": [
+          "Microsoft.Network/networkWatchers",
+          "Microsoft.RecoveryServices/vaults",
+          "Microsoft.Compute/snapshots",
+          "microsoft.alertsmanagement/smartdetectoralertrules",
+          "microsoft.insights/actiongroups",
+          "Microsoft.Insights/activityLogAlerts",
+          "microsoft.operationsmanagement/solutions",
+          "Microsoft.Compute/virtualMachines/extensions",
+          "Microsoft.ContainerRegistry/registries/tasks",
+          "Microsoft.Network/dnsResolvers/inboundEndpoints",
+          "Microsoft.Network/dnsResolvers/outboundEndpoints",
+          "Microsoft.Network/networkWatchers/flowLogs",
+          "Microsoft.Network/privateDnsZones/virtualNetworkLinks",
+          "Microsoft.Compute/restorePointCollections",
+          "microsoft.network/vpnserverconfigurations",
+          "microsoft.network/virtualhubs",
+          "microsoft.network/virtualwans",
+          "Microsoft.Sql/managedInstances/securityAlertPolicies",
+          "Microsoft.Sql/managedInstances/databases",
+          "Microsoft.Sql/managedInstances/administrators",
+          "Microsoft.Sql/virtualClusters",
+          "Microsoft.Network/networkIntentPolicies",
+          "Microsoft.Network/serviceEndpointPolicies/serviceEndpointPolicyDefinitions",
+          "Microsoft.Network/serviceEndpointPolicies",
+          "Microsoft.Network/FrontDoorWebApplicationFirewallPolicies",
+          "Microsoft.Network/FrontDoors",
+          "Microsoft.Cdn/profiles",
+          "Microsoft.Security/automations",
+          "Microsoft.Web/connections"
+        ],
+        "metadata": {
+          "description": "Resource Types to exclude from compliance results",
+          "displayName": "Resource Types to exclude"
+        },
+        "type": "Array"
+      }
+    },
+    "policyRule": {
+      "if": {
+        "allOf": [
+          {
+            "field": "type",
+            "notIn": "[parameters('excludedResourceTypes')]"
+          },
+          {
+            "anyOf": [
+              {
+                "field": "[concat('tags[', parameters('RequiredTag'), ']')]",
+                "notMatch": "####-##-##"
+              }
+            ]
+          }
+        ]
+      },
+      "then": {
+        "effect": "deny"
+      }
+    },
+    "policyType": "Custom"
+  },
+  "type": "Microsoft.Authorization/policyDefinitions"
+}

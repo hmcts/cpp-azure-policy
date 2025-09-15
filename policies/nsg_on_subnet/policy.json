@@ -1,0 +1,42 @@
+{
+  "id": "/providers/Microsoft.Management/managementGroups/e2995d11-9947-4e78-9de6-d44e0603518e/providers/Microsoft.Authorization/policyDefinitions/13d7db1d-fd0e-4286-a665-25bf16a88549",
+  "name": "NSG On Subnet",
+  "properties": {
+    "displayName": "NSG-on-Subnet",
+    "mode": "All",
+    "policyRule": {
+      "if": {
+        "allOf": [
+          {
+            "equals": "Microsoft.Network/virtualNetworks/subnets",
+            "field": "type"
+          },
+          {
+            "exists": "false",
+            "field": "Microsoft.Network/virtualNetworks/subnets/networkSecurityGroup.id"
+          }
+        ]
+      },
+      "then": {
+        "details": {
+          "existenceCondition": {
+            "field": "Microsoft.Security/complianceResults/resourceStatus",
+            "in": [
+              "OffByPolicy",
+              "Healthy"
+            ]
+          },
+          "name": "networkSecurityGroups",
+          "type": "Microsoft.Security/complianceResults"
+        },
+        "effect": "auditIfNotExists"
+      }
+    },
+    "policyType": "Custom",
+    "version": "1.0.0",
+    "versions": [
+      "1.0.0"
+    ]
+  },
+  "type": "Microsoft.Authorization/policyDefinitions"
+}
