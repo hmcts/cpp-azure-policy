@@ -1,6 +1,6 @@
 {
-  "id": "/subscriptions/0511a7fe-771b-4ffa-9348-c59e9c4a87bd/providers/Microsoft.Authorization/policyAssignments/HMCTSTaggingGlobal",
-  "name": "HMCTSTaggingGlobal",
+  "id": "/subscriptions/0511a7fe-771b-4ffa-9348-c59e9c4a87bd/providers/Microsoft.Authorization/policyAssignments/CppTagging",
+  "name": "CppTagging",
   "properties": {
     "description": "Policy to check required tags",
     "displayName": "HMCTS Tagging (HMCTS MG)",
@@ -35,7 +35,7 @@
       "/subscriptions/0511a7fe-771b-4ffa-9348-c59e9c4a87bd/resourceGroups/temp_pip_rg"
     ],
     "parameters": {},
-    "policyDefinitionId": "/providers/Microsoft.Management/managementGroups/HMCTS/providers/Microsoft.Authorization/policyDefinitions/HMCTSTagging",
+    "policyDefinitionId": "/providers/Microsoft.Management/managementGroups/HMCTS/providers/Microsoft.Authorization/policyDefinitions/CppTagging",
     "scope": "/subscriptions/0511a7fe-771b-4ffa-9348-c59e9c4a87bd"
   },
   "sku": {
