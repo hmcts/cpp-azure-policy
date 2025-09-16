@@ -1,6 +1,6 @@
 {
-  "id": "/providers/Microsoft.Management/managementGroups/e2995d11-9947-4e78-9de6-d44e0603518e/providers/Microsoft.Authorization/policyDefinitions/CPPVmSkuSize",
-  "name": "CPPVmSkuSize",
+  "id": "/providers/Microsoft.Management/managementGroups/e2995d11-9947-4e78-9de6-d44e0603518e/providers/Microsoft.Authorization/policyDefinitions/CppVmSkuSize",
+  "name": "CppVmSkuSize",
   "properties": {
     "description": "Restrict the Virtual Machine SKU sizes that can be deployed in CPP",
     "displayName": "This policy enables you to specify a set of virtual machine SKUs sizes that can be deployed in CPP",

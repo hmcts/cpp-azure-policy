@@ -2,14 +2,11 @@
   "id": "/subscriptions/e6b5053b-4c38-4475-a835-a025aeb3d8c7/providers/Microsoft.Authorization/policyAssignments/Deny-Resource-Deletion-Assignment",
   "name": "Deny-Resource-Deletion-Assignment",
   "properties": {
-    "description": null,
-    "displayName": null,
+    "description": "This policy denies the deletion of resources.",
+    "displayName": "Deny Resource Deletion",
     "enforcementMode": "DoNotEnforce",
     "metadata": {
-      "createdBy": "1a0172bd-5e9d-4017-aab3-0756c7dbd7cf",
-      "createdOn": "2025-04-04T08:30:42.8127277Z",
-      "updatedBy": "1a0172bd-5e9d-4017-aab3-0756c7dbd7cf",
-      "updatedOn": "2025-05-02T15:37:34.2080544Z"
+      "assignedBy": "hmcts/cpp-azure-policy"
     },
     "parameters": {
       "tagNames": {
@@ -21,7 +18,7 @@
         ]
       }
     },
-    "policyDefinitionId": "/subscriptions/e6b5053b-4c38-4475-a835-a025aeb3d8c7/providers/Microsoft.Authorization/policyDefinitions/Deny Resource Deletion",
+    "policyDefinitionId": "/providers/Microsoft.Management/managementGroups/e2995d11-9947-4e78-9de6-d44e0603518e/providers/Microsoft.Authorization/policyDefinitions/CppDenyResourceDeletion",
     "scope": "/subscriptions/e6b5053b-4c38-4475-a835-a025aeb3d8c7"
   },
   "sku": {

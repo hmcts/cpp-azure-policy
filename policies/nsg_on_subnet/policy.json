@@ -1,8 +1,8 @@
 {
-  "id": "/providers/Microsoft.Management/managementGroups/e2995d11-9947-4e78-9de6-d44e0603518e/providers/Microsoft.Authorization/policyDefinitions/13d7db1d-fd0e-4286-a665-25bf16a88549",
-  "name": "NSG On Subnet",
+  "id": "/providers/Microsoft.Management/managementGroups/e2995d11-9947-4e78-9de6-d44e0603518e/providers/Microsoft.Authorization/policyDefinitions/CppNsgOnSubnet",
+  "name": "CppNsgOnSubnet",
   "properties": {
-    "displayName": "NSG-on-Subnet",
+    "displayName": "NSG on Subnet",
     "mode": "All",
     "policyRule": {
       "if": {
