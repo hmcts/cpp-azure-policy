@@ -67,8 +67,6 @@
               "operation": "addOrReplace",
               "value": "[parameters('tagValue')]"
             }
-          ],
-          "roleDefinitionIds": [
           ]
         },
         "effect": "modify"
