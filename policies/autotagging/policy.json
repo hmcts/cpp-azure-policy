@@ -78,7 +78,7 @@
             }
           ]
         },
-        "effect": "modify"
+        "effect": "audit"
       }
     },
     "policyType": "Custom"
