@@ -8,7 +8,7 @@
   "properties": {
     "description": "Policy to auto tag: application",
     "displayName": "HMCTS Auto Tagging - Application - Archiving with Records Management NONLIVE (DTS-ARCHIVING-NONLIVE)",
-    "enforcementMode": "Default",
+    "enforcementMode": "DoNotEnforce",
     "metadata": {
       "assignedBy": "https://github.com/hmcts/cpp-azure-policy"
     },

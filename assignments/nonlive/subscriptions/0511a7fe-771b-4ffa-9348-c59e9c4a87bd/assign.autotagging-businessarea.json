@@ -8,7 +8,7 @@
   "properties": {
     "description": "Policy to auto tag: businessArea",
     "displayName": "HMCTS Auto Tagging - Business Area - Archiving with IdAM nlv",
-    "enforcementMode": "Default",
+    "enforcementMode": "DoNotEnforce",
     "metadata": {
       "assignedBy": "https://github.com/hmcts/azure-policy"
     },

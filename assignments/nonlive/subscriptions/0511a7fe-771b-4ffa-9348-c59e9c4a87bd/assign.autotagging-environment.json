@@ -8,7 +8,7 @@
   "properties": {
     "description": "Policy to auto tag: environment",
     "displayName": "HMCTS Auto Tagging - Environment - Archiving with Records Management PROD (DTS-ARCHIVING-PROD)",
-    "enforcementMode": "Default",
+    "enforcementMode": "DoNotEnforce",
     "metadata": {
       "assignedBy": "https://github.com/hmcts/azure-policy"
     },
