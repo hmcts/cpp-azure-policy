@@ -1,6 +1,6 @@
 {
-  "id": "/providers/Microsoft.Management/managementGroups/HMCTS/providers/Microsoft.Authorization/policyDefinitions/HMCTSAutoTagging",
-  "name": "HMCTSAutoTagging",
+  "id": "/providers/Microsoft.Management/managementGroups/HMCTS/providers/Microsoft.Authorization/policyDefinitions/CPPAutoTagging",
+  "name": "CPPAutoTagging",
   "properties": {
     "displayName": "HMCTS Auto-Tagging Policy",
     "mode": "Indexed",
@@ -69,7 +69,6 @@
             }
           ],
           "roleDefinitionIds": [
-            "/providers/Microsoft.Authorization/roleDefinitions/b24988ac-6180-42a0-ab88-20f7382dd24c"
           ]
         },
         "effect": "modify"

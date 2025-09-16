@@ -1,13 +1,13 @@
 {
-  "id": "/subscriptions/0511a7fe-771b-4ffa-9348-c59e9c4a87bd/providers/Microsoft.Authorization/policyAssignments/HMCTSAutoTagging_BusinessArea_DTS-ARCHIVING-PROD",
+  "id": "/subscriptions/0511a7fe-771b-4ffa-9348-c59e9c4a87bd/providers/Microsoft.Authorization/policyAssignments/HMCTSAutoTagging_BusinessArea_IdAM nlv",
   "identity": {
     "type": "SystemAssigned"
   },
   "location": "uksouth",
-  "name": "HMCTSAutoTagging_BusinessArea_DTS-ARCHIVING-PROD",
+  "name": "HMCTSAutoTagging_BusinessArea_IdAM nlv",
   "properties": {
     "description": "Policy to auto tag: businessArea",
-    "displayName": "HMCTS Auto Tagging - Business Area - Archiving with Records Management PROD (DTS-ARCHIVING-PROD)",
+    "displayName": "HMCTS Auto Tagging - Business Area - Archiving with IdAM nlv",
     "enforcementMode": "Default",
     "metadata": {
       "assignedBy": "https://github.com/hmcts/azure-policy"
