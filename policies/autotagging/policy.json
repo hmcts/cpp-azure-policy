@@ -37,6 +37,15 @@
         },
         "type": "string"
       }
+      ,
+      "remediationRoleDefinitionId": {
+        "type": "String",
+        "metadata": {
+          "description": "Role definition id used by the modify effect to perform remediation",
+          "displayName": "Remediation role definition id"
+        },
+        "defaultValue": "/providers/Microsoft.Authorization/roleDefinitions/b24988ac-6180-42a0-ab88-20f7382dd24c"
+      }
     },
     "policyRule": {
       "if": {
@@ -69,7 +78,7 @@
             }
           ]
         },
-        "effect": "audit"
+        "effect": "modify"
       }
     },
     "policyType": "Custom"
