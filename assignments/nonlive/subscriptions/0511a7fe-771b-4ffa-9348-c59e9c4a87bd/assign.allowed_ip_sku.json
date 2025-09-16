@@ -1,5 +1,5 @@
 {
-  "id": "/providers/Microsoft.Management/managementGroups/e2995d11-9947-4e78-9de6-d44e0603518e/providers/Microsoft.Authorization/policyAssignments/CppIPSkuSize",
+  "id": "/providers/Microsoft.Management/managementGroups/e2995d11-9947-4e78-9de6-d44e0603518e/providers/Microsoft.Authorization/policyAssignments/CppIPSkuSize-Idam",
   "name": "CppIPSkuSize-Idam",
   "properties": {
     "description": "Approved IP Address SKU sizes",
