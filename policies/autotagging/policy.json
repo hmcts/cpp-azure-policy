@@ -1,0 +1,78 @@
+{
+  "id": "/providers/Microsoft.Management/managementGroups/HMCTS/providers/Microsoft.Authorization/policyDefinitions/CPPAutoTagging",
+  "name": "CPPAutoTagging",
+  "properties": {
+    "displayName": "HMCTS Auto-Tagging Policy",
+    "mode": "Indexed",
+    "parameters": {
+      "excludedResourceTypes": {
+        "defaultValue": [
+          "Microsoft.Network/networkWatchers",
+          "microsoft.alertsmanagement/smartdetectoralertrules",
+          "microsoft.insights/actiongroups",
+          "Microsoft.Insights/activityLogAlerts",
+          "microsoft.operationsmanagement/solutions",
+          "Microsoft.ContainerRegistry/registries/tasks",
+          "Microsoft.Web/connections"
+        ],
+        "metadata": {
+          "description": "Resource Types to exclude from compliance results",
+          "displayName": "Resource Types to exclude"
+        },
+        "type": "Array"
+      },
+      "tagName": {
+        "defaultValue": "environment",
+        "metadata": {
+          "description": "The name of the tag. e.g environment",
+          "displayName": "The name of the tag"
+        },
+        "type": "string"
+      },
+      "tagValue": {
+        "defaultValue": "test",
+        "metadata": {
+          "description": "The value the tag should hold. e.g test",
+          "displayName": "The value the tag should hold"
+        },
+        "type": "string"
+      }
+    },
+    "policyRule": {
+      "if": {
+        "allOf": [
+          {
+            "field": "type",
+            "notIn": "[parameters('excludedResourceTypes')]"
+          },
+          {
+            "anyOf": [
+              {
+                "exists": "false",
+                "field": "[concat('tags[', parameters('tagName'), ']')]"
+              },
+              {
+                "equals": "[parameters('tagValue')]",
+                "field": "[concat('tags[', parameters('tagName'), ']')]"
+              }
+            ]
+          }
+        ]
+      },
+      "then": {
+        "details": {
+          "operations": [
+            {
+              "field": "[concat('tags[', parameters('tagName'), ']')]",
+              "operation": "addOrReplace",
+              "value": "[parameters('tagValue')]"
+            }
+          ]
+        },
+        "effect": "audit"
+      }
+    },
+    "policyType": "Custom"
+  },
+  "type": "Microsoft.Authorization/policyDefinitions"
+}
