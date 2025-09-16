@@ -1,16 +1,16 @@
 {
-  "id": "/subscriptions/0511a7fe-771b-4ffa-9348-c59e9c4a87bd/providers/Microsoft.Authorization/policyAssignments/HMCTSAutoTagging_Environment_DTS-ARCHIVING-PROD",
+  "id": "/subscriptions/0511a7fe-771b-4ffa-9348-c59e9c4a87bd/providers/Microsoft.Authorization/policyAssignments/HMCTSAutoTagging_Environment_DTS-IDAM-NONLIVE",
   "identity": {
     "type": "SystemAssigned"
   },
   "location": "uksouth",
-  "name": "HMCTSAutoTagging_Environment_DTS-ARCHIVING-PROD",
+  "name": "HMCTSAutoTagging_Environment_DTS-IDAM-NONLive",
   "properties": {
     "description": "Policy to auto tag: environment",
-    "displayName": "HMCTS Auto Tagging - Environment - Archiving with Records Management PROD (DTS-ARCHIVING-PROD)",
+    "displayName": "HMCTS Auto Tagging - Environment - IDAM-NONLIVE",
     "enforcementMode": "DoNotEnforce",
     "metadata": {
-      "assignedBy": "https://github.com/hmcts/azure-policy"
+      "assignedBy": "https://github.com/hmcts/cpp-azure-policy"
     },
     "nonComplianceMessages": [],
     "notScopes": [

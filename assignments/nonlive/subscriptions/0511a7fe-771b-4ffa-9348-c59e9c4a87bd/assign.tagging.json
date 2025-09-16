@@ -6,7 +6,7 @@
     "displayName": "HMCTS Tagging (HMCTS MG)",
     "enforcementMode": "Default",
     "metadata": {
-      "assignedBy": "github.com/hmcts/azure-policy"
+      "assignedBy": "github.com/hmcts/cpp-azure-policy"
     },
     "nonComplianceMessages": [
       {
