@@ -18,18 +18,7 @@
         ]
       },
       "then": {
-        "details": {
-          "existenceCondition": {
-            "field": "Microsoft.Security/complianceResults/resourceStatus",
-            "in": [
-              "OffByPolicy",
-              "Healthy"
-            ]
-          },
-          "name": "networkSecurityGroups",
-          "type": "Microsoft.Security/complianceResults"
-        },
-        "effect": "auditIfNotExists"
+        "effect": "audit"
       }
     },
     "policyType": "Custom",
