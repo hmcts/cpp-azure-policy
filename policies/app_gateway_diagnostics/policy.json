@@ -1,0 +1,22 @@
+{
+  "id": "/providers/Microsoft.Management/managementGroups/e2995d11-9947-4e78-9de6-d44e0603518e/providers/Microsoft.Authorization/policyDefinitions/CppAppGatewayDiagnostics",
+  "name": "CppAppGatewayDiagnostics",
+  "properties": {
+    "displayName": "Audit Application Gateways without diagnostics settings",
+    "mode": "All",
+    "policyRule": {
+      "if": {
+        "equals": "Microsoft.Network/applicationGateways",
+        "field": "type"
+      },
+      "then": {
+        "details": {
+          "type": "Microsoft.Insights/diagnosticSettings"
+        },
+        "effect": "auditIfNotExists"
+      }
+    },
+    "policyType": "Custom",
+    "version": "1.0.0"
+  }
+}
