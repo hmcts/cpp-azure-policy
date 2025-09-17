@@ -1,6 +1,6 @@
 {
-  "id": "/providers/Microsoft.Management/managementGroups/e2995d11-9947-4e78-9de6-d44e0603518e/providers/Microsoft.Authorization/policyDefinitions/46a4e5c2-fd49-4945-ad75-d32b2157c5fe",
-  "name": "Restrict Direct Role Assignment",
+  "id": "/providers/Microsoft.Management/managementGroups/e2995d11-9947-4e78-9de6-d44e0603518e/providers/Microsoft.Authorization/policyDefinitions/CppRestrictDirectRoleAssignment",
+  "name": "CppRestrictDirectRoleAssignment",
   "properties": {
     "description": "Role Assignments should be assigned at the group level only.",
     "displayName": "Restrict Direct Role Assignment",

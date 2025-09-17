@@ -3,7 +3,7 @@
   "name": "Location_Global",
   "properties": {
     "description": "Policy to check resource locations",
-    "displayName": "HMCTS Location Policy - (CPP NLV)",
+    "displayName": "CPP Location Policy - (NLV)",
     "enforcementMode": "DoNotEnforce",
     "metadata": {
       "assignedBy": "github.com/hmcts/cpp-azure-policy"
@@ -14,7 +14,7 @@
       }
     ],
     "notScopes": [],
-    "policyDefinitionId": "/providers/Microsoft.Management/managementGroups/e2995d11-9947-4e78-9de6-d44e0603518e/providers/Microsoft.Authorization/policyDefinitions/CPPResourceLocationPolicy",
+    "policyDefinitionId": "/providers/Microsoft.Management/managementGroups/e2995d11-9947-4e78-9de6-d44e0603518e/providers/Microsoft.Authorization/policyDefinitions/CppResourceLocationPolicy",
     "scope": "/providers/Microsoft.Management/managementGroups/e2995d11-9947-4e78-9de6-d44e0603518e"
   },
   "sku": {

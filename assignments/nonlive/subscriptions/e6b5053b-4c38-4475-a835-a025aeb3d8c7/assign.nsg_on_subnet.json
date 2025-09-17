@@ -1,23 +1,18 @@
 {
-  "id": "/subscriptions/e6b5053b-4c38-4475-a835-a025aeb3d8c7/providers/Microsoft.Authorization/policyAssignments/CPPNsgOnSubnet",
+  "id": "/subscriptions/e6b5053b-4c38-4475-a835-a025aeb3d8c7/providers/Microsoft.Authorization/policyAssignments/CppNsgOnSubnet",
   "identity": null,
   "location": null,
-  "name": "CPPNsgOnSubnet",
+  "name": "CppNsgOnSubnet",
   "properties": {
     "description": null,
     "displayName": "NSG on Subnet",
     "enforcementMode": "DoNotEnforce",
     "metadata": {
-      "assignedBy": "ashwini.sidhu@hmctsnonlive.onmicrosoft.com ",
-      "createdBy": "42d21776-31c9-4507-8b4e-3f19d1054456",
-      "createdOn": "2019-09-04T09:43:20.1646693Z",
-      "parameterScopes": {},
-      "updatedBy": null,
-      "updatedOn": null
+      "assignedBy": "hmcts/cpp-azure-policy"
     },
     "notScopes": [],
     "parameters": {},
-    "policyDefinitionId": "/subscriptions/e6b5053b-4c38-4475-a835-a025aeb3d8c7/providers/Microsoft.Authorization/policyDefinitions/13d7db1d-fd0e-4286-a665-25bf16a88549",
+    "policyDefinitionId": "/providers/Microsoft.Management/managementGroups/e2995d11-9947-4e78-9de6-d44e0603518e/providers/Microsoft.Authorization/policyDefinitions/CppNsgOnSubnet",
     "scope": "/subscriptions/e6b5053b-4c38-4475-a835-a025aeb3d8c7",
     "systemData": null
   },

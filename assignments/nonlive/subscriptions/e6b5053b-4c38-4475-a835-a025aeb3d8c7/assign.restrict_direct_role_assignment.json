@@ -1,32 +1,20 @@
 {
-  "id": "/subscriptions/e6b5053b-4c38-4475-a835-a025aeb3d8c7/providers/Microsoft.Authorization/policyAssignments/CPPRestrictDirectRoleAssignment",
+  "id": "/subscriptions/e6b5053b-4c38-4475-a835-a025aeb3d8c7/providers/Microsoft.Authorization/policyAssignments/CppRestrictDirectRoleAssignment",
   "identity": null,
   "location": null,
-  "name": "CPPRestrictDirectRoleAssignment",
+  "name": "CppRestrictDirectRoleAssignment",
   "properties": {
-    "description": null,
+    "description": "Role Assignments should be assigned at the group level only.",
     "displayName": "Restrict Direct Role Assignment",
     "enforcementMode": "DoNotEnforce",
     "metadata": {
-      "createdBy": "0dcf5f59-c5ce-4ae5-8c13-11d9f3933a94",
-      "createdOn": "2024-08-06T10:03:07.3795653Z",
-      "parameterScopes": {},
-      "updatedBy": null,
-      "updatedOn": null
+      "assignedBy": "hmcts/cpp-azure-policy"
     },
     "nonComplianceMessages": [],
     "notScopes": [],
     "parameters": {},
-    "policyDefinitionId": "/subscriptions/e6b5053b-4c38-4475-a835-a025aeb3d8c7/providers/Microsoft.Authorization/policyDefinitions/46a4e5c2-fd49-4945-ad75-d32b2157c5fe",
-    "scope": "/subscriptions/e6b5053b-4c38-4475-a835-a025aeb3d8c7",
-    "systemData": {
-      "createdAt": "2024-08-06T10:03:07.348180+00:00",
-      "createdBy": "daniel.alves1@hmctsnonlive.onmicrosoft.com",
-      "createdByType": "User",
-      "lastModifiedAt": "2024-08-06T10:03:07.348180+00:00",
-      "lastModifiedBy": "daniel.alves1@hmctsnonlive.onmicrosoft.com",
-      "lastModifiedByType": "User"
-    }
+    "policyDefinitionId": "/providers/Microsoft.Management/managementGroups/e2995d11-9947-4e78-9de6-d44e0603518e/providers/Microsoft.Authorization/policyDefinitions/CppRestrictDirectRoleAssignment",
+    "scope": "/subscriptions/e6b5053b-4c38-4475-a835-a025aeb3d8c7"
   },
   "type": "Microsoft.Authorization/policyAssignments"
 }

@@ -1,6 +1,6 @@
 {
-  "id": "/providers/Microsoft.Management/managementGroups/e2995d11-9947-4e78-9de6-d44e0603518e/providers/Microsoft.Authorization/policyDefinitions/CPPTagging",
-  "name": "CPPTagging",
+  "id": "/providers/Microsoft.Management/managementGroups/e2995d11-9947-4e78-9de6-d44e0603518e/providers/Microsoft.Authorization/policyDefinitions/CppTagging",
+  "name": "CppTagging",
   "properties": {
     "displayName": "CPP Tagging",
     "mode": "Indexed",
@@ -35,7 +35,12 @@
           "mdv",
           "sit",
           "dev",
-          "nft"
+          "nft",
+          "mpd",
+          "prp",
+          "prx",
+          "prd",
+          "nft02"
         ],
         "metadata": {
           "description": "Allowed environment names such as production or staging",

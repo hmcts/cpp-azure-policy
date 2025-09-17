@@ -1,6 +1,6 @@
 {
-  "id": "/providers/Microsoft.Management/managementGroups/e2995d11-9947-4e78-9de6-d44e0603518e/providers/Microsoft.Authorization/policyDefinitions/CPPDiskSkuSize",
-  "name": "CPPDiskSkuSize",
+  "id": "/providers/Microsoft.Management/managementGroups/e2995d11-9947-4e78-9de6-d44e0603518e/providers/Microsoft.Authorization/policyDefinitions/CppDiskSkuSize",
+  "name": "CppDiskSkuSize",
   "properties": {
     "description": "Restricts disk SKUs that can be deployed in CPP and limits sizes to a maximum of 2TiB",
     "displayName": "This policy enables you to specify a set of disk SKUs that can be deployed in CPP",

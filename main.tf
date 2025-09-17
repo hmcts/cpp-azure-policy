@@ -19,7 +19,7 @@ resource "azurerm_policy_definition" "policies" {
 
   management_group_id = var.management_group
 }
-/*
+
 resource "azurerm_subscription_policy_assignment" "subscription_assignments" {
   for_each = local.subscription_assignments
 
@@ -47,7 +47,7 @@ resource "azurerm_subscription_policy_assignment" "subscription_assignments" {
   depends_on = [
     azurerm_policy_definition.policies
   ]
-}*/
+}
 
 resource "azurerm_management_group_policy_assignment" "management_assignments" {
   for_each = local.management_assignments
