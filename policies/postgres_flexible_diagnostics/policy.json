@@ -6,18 +6,17 @@
     "mode": "All",
     "policyRule": {
       "if": {
-        "allOf": [
-          {
-            "equals": "Microsoft.DBforPostgreSQL/flexibleServers",
-            "field": "type"
-          },
-          {
-            "exists": "false",
-            "field": "Microsoft.DBforPostgreSQL/flexibleServers/diagnosticSettings[*]"
-          }
-        ]
+        "equals": "Microsoft.DBforPostgreSQL/flexibleServers",
+        "field": "type"
       },
       "then": {
+        "details": {
+          "existenceCondition": {
+            "equals": "[field('id')]",
+            "field": "Microsoft.Insights/diagnosticSettings/resourceId"
+          },
+          "type": "Microsoft.Insights/diagnosticSettings"
+        },
         "effect": "auditIfNotExists"
       }
     },
