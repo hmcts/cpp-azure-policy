@@ -12,7 +12,7 @@
       "then": {
         "details": {
           "existenceCondition": {
-            "equals": "true",
+            "exists": "true",
             "field": "Microsoft.Insights/diagnosticSettings/foo"
           },
           "type": "Microsoft.Insights/diagnosticSettings"
