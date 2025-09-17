@@ -35,7 +35,8 @@
           "mdv",
           "sit",
           "dev",
-          "nft"
+          "nft",
+          "nft02"
         ],
         "metadata": {
           "description": "Allowed environment names such as production or staging",

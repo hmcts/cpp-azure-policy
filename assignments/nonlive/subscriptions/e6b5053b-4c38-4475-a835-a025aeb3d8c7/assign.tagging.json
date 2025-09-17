@@ -3,8 +3,8 @@
   "name": "CppTagging",
   "properties": {
     "description": "Policy to check required tags",
-    "displayName": "CPP Tagging (IdAM NLV)",
-    "enforcementMode": "Default",
+    "displayName": "CPP Tagging (nonlive)",
+    "enforcementMode": "DoNotEnforce",
     "metadata": {
       "assignedBy": "github.com/hmcts/cpp-azure-policy"
     },
