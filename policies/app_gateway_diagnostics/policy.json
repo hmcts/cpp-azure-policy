@@ -11,6 +11,26 @@
       },
       "then": {
         "details": {
+          "existenceCondition": {
+            "anyOf": [
+              {
+                "equals": "true",
+                "field": "Microsoft.Insights/diagnosticSettings/logs.enabled"
+              },
+              {
+                "equals": "true",
+                "field": "Microsoft.Insights/diagnosticSettings/metrics.enabled"
+              },
+              {
+                "equals": "true",
+                "field": "Microsoft.Insights/diagnosticSettings/logs[*].enabled"
+              },
+              {
+                "equals": "true",
+                "field": "Microsoft.Insights/diagnosticSettings/metrics[*].enabled"
+              }
+            ]
+          },
           "type": "Microsoft.Insights/diagnosticSettings"
         },
         "effect": "auditIfNotExists"
