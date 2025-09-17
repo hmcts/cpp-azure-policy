@@ -11,6 +11,10 @@
       },
       "then": {
         "details": {
+          "existenceCondition": {
+            "equals": "true",
+            "field": "Microsoft.Insights/diagnosticSettings/foo"
+          },
           "type": "Microsoft.Insights/diagnosticSettings"
         },
         "effect": "auditIfNotExists"
