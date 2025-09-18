@@ -4,7 +4,7 @@
   "properties": {
     "description": "Policy to check resource locations",
     "displayName": "CPP Location Policy - (NLV)",
-    "enforcementMode": "DoNotEnforce",
+    "enforcementMode": "Default",
     "metadata": {
       "assignedBy": "github.com/hmcts/cpp-azure-policy"
     },
