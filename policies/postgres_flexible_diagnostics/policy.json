@@ -1,0 +1,42 @@
+{
+  "id": "/providers/Microsoft.Management/managementGroups/e2995d11-9947-4e78-9de6-d44e0603518e/providers/Microsoft.Authorization/policyDefinitions/CppPostgresFlexibleDiagnostics",
+  "name": "CppPostgresFlexibleDiagnostics",
+  "properties": {
+    "displayName": "Audit PostgreSQL Flexible Servers without diagnostics settings",
+    "mode": "All",
+    "policyRule": {
+      "if": {
+        "equals": "Microsoft.DBforPostgreSQL/flexibleServers",
+        "field": "type"
+      },
+      "then": {
+        "details": {
+          "existenceCondition": {
+            "anyOf": [
+              {
+                "equals": "true",
+                "field": "Microsoft.Insights/diagnosticSettings/logs.enabled"
+              },
+              {
+                "equals": "true",
+                "field": "Microsoft.Insights/diagnosticSettings/metrics.enabled"
+              },
+              {
+                "equals": "true",
+                "field": "Microsoft.Insights/diagnosticSettings/logs[*].enabled"
+              },
+              {
+                "equals": "true",
+                "field": "Microsoft.Insights/diagnosticSettings/metrics[*].enabled"
+              }
+            ]
+          },
+          "type": "Microsoft.Insights/diagnosticSettings"
+        },
+        "effect": "auditIfNotExists"
+      }
+    },
+    "policyType": "Custom",
+    "version": "1.0.0"
+  }
+}
