@@ -1,4 +1,4 @@
-# HMCTS Tagging Policy
+# CPP Tagging Policy
 
 ## Required tags
 Required tags, common and specific to subscription of resource.
