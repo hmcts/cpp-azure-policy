@@ -1,0 +1,26 @@
+{
+  "id": "/subscriptions/e7819cdc-66af-4611-9dba-b9958e5b6d7d/providers/Microsoft.Authorization/policyAssignments/CppTagging-Idam",
+  "name": "CppTagging-Idam",
+  "properties": {
+    "description": "Policy to check required tags",
+    "displayName": "CPP Tagging (IdAM LVE)",
+    "enforcementMode": "DoNotEnforce",
+    "metadata": {
+      "assignedBy": "github.com/hmcts/cpp-azure-policy"
+    },
+    "nonComplianceMessages": [
+      {
+        "message": "Resource doesn't meet the tagging requirements. See https://github.com/hmcts/cpp-azure-policy/blob/master/policies/tagging/README.md"
+      }
+    ],
+    "notScopes": [],
+    "parameters": {},
+    "policyDefinitionId": "/providers/Microsoft.Management/managementGroups/77f54315-6dde-4fe7-9e17-74762c3eb096/providers/Microsoft.Authorization/policyDefinitions/CppTagging",
+    "scope": "/subscriptions/e7819cdc-66af-4611-9dba-b9958e5b6d7d"
+  },
+  "sku": {
+    "name": "A0",
+    "tier": "Free"
+  },
+  "type": "Microsoft.Authorization/policyAssignments"
+}

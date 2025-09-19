@@ -1,0 +1,22 @@
+{
+  "id": "/subscriptions/e7819cdc-66af-4611-9dba-b9958e5b6d7d/providers/Microsoft.Authorization/policyAssignments/CppVmSkuSize-Idam",
+  "name": "CppVmSkuSize-Idam",
+  "properties": {
+    "description": "Restrict the Virtual Machine SKU sizes that can be deployed in CPP",
+    "displayName": "CPP Restricted VM SKU Sizes (IdAM LVE)",
+    "enforcementMode": "DoNotEnforce",
+    "metadata": {
+      "assignedBy": "PlatOps"
+    },
+    "nonComplianceMessages": [
+      {
+        "message": "This VM SKU size is not allowed. See https://tools.hmcts.net/confluence/display/DACS/D.1k+Azure+SKU+Standards+-+In+progress"
+      }
+    ],
+    "notScopes": [],
+    "parameters": {},
+    "policyDefinitionId": "/providers/Microsoft.Management/managementGroups/77f54315-6dde-4fe7-9e17-74762c3eb096/providers/Microsoft.Authorization/policyDefinitions/CppDiskSkuSize",
+    "scope": "/subscriptions/e7819cdc-66af-4611-9dba-b9958e5b6d7d"
+  },
+  "type": "Microsoft.Authorization/policyAssignments"
+}

@@ -1,0 +1,21 @@
+{
+  "id": "/subscriptions/e7819cdc-66af-4611-9dba-b9958e5b6d7d/providers/Microsoft.Authorization/policyAssignments/CppIPSkuSize-Idam",
+  "name": "CppIPSkuSize-Idam",
+  "properties": {
+    "description": "Approved IP Address SKU sizes",
+    "displayName": "CPP Approved IP Address SKU Sizes (IdAM LVE)",
+    "enforcementMode": "DoNotEnforce",
+    "metadata": {
+      "assignedBy": "PlatOps"
+    },
+    "nonComplianceMessages": [
+      {
+        "message": "This IP Address SKU size is not allowed. See https://github.com/hmcts/cpp-azure-policy/blob/master/policies/allowed_ip_sku/README.md"
+      }
+    ],
+    "parameters": {},
+    "policyDefinitionId": "/providers/Microsoft.Management/managementGroups/77f54315-6dde-4fe7-9e17-74762c3eb096/providers/Microsoft.Authorization/policyDefinitions/CppIPSkuSize",
+    "scope": "/subscriptions/e6b5053b-4c38-4475-a835-a025aeb3d8c7"
+  },
+  "type": "Microsoft.Authorization/policyAssignments"
+}
