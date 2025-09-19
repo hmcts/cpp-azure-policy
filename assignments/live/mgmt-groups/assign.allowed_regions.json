@@ -1,0 +1,25 @@
+{
+  "id": "/providers/Microsoft.Management/managementGroups/77f54315-6dde-4fe7-9e17-74762c3eb096/providers/Microsoft.Authorization/policyAssignments/Location_Global",
+  "name": "Location_Global",
+  "properties": {
+    "description": "Policy to check resource locations",
+    "displayName": "CPP Location Policy - (LVE)",
+    "enforcementMode": "DoNotEnforce",
+    "metadata": {
+      "assignedBy": "github.com/hmcts/cpp-azure-policy"
+    },
+    "nonComplianceMessages": [
+      {
+        "message": "Resource doesn't meet location requirements. See https://github.com/hmcts/cpp-azure-policy/blob/master/policies/allowed_regions/README.md"
+      }
+    ],
+    "notScopes": [],
+    "policyDefinitionId": "/providers/Microsoft.Management/managementGroups/77f54315-6dde-4fe7-9e17-74762c3eb096/providers/Microsoft.Authorization/policyDefinitions/CppResourceLocationPolicy",
+    "scope": "/providers/Microsoft.Management/managementGroups/77f54315-6dde-4fe7-9e17-74762c3eb096"
+  },
+  "sku": {
+    "name": "A0",
+    "tier": "Free"
+  },
+  "type": "Microsoft.Authorization/policyAssignments"
+}

@@ -1,0 +1,22 @@
+{
+  "id": "/subscriptions/e7819cdc-66af-4611-9dba-b9958e5b6d7d/providers/Microsoft.Authorization/policyAssignments/CppDiskSkuSize-idam",
+  "name": "CppDiskSkuSize-idam",
+  "properties": {
+    "description": "Restrict the Disk SKU sizes that can be deployed in CPP",
+    "displayName": "CPP Restricted Disk SKU Sizes (IdAM LVE)",
+    "enforcementMode": "DoNotEnforce",
+    "metadata": {
+      "assignedBy": "PlatOps"
+    },
+    "nonComplianceMessages": [
+      {
+        "message": "The selected SKU is not permitted or the size is greater than 2TB. See https://github.com/hmcts/cpp-azure-policy/blob/master/policies/allowed_disk_sku/README.md"
+      }
+    ],
+    "notScopes": [],
+    "parameters": {},
+    "policyDefinitionId": "/providers/Microsoft.Management/managementGroups/77f54315-6dde-4fe7-9e17-74762c3eb096/providers/Microsoft.Authorization/policyDefinitions/CppDiskSkuSize",
+    "scope": "/subscriptions/e7819cdc-66af-4611-9dba-b9958e5b6d7d"
+  },
+  "type": "Microsoft.Authorization/policyAssignments"
+}

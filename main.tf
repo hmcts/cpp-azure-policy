@@ -4,7 +4,7 @@
 
 # Collect all .json.tpl files under assignments/subscriptions/*
 # Create a policy assignment for each file
-
+/*
 resource "azurerm_policy_definition" "policies" {
   for_each = local.policies
 
@@ -75,3 +75,4 @@ resource "azurerm_management_group_policy_assignment" "management_assignments" {
   # Need policy assignments to be defined before we can reference them
   depends_on = [azurerm_policy_definition.policies]
 }
+*/
