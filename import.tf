@@ -13,7 +13,7 @@ resource "azurerm_subscription_policy_assignment" "existing" {
 
 import {
   for_each = var.env == "live" ? [1] : []
-  id       = "/subscriptions/9ab65d81-930d-4cc0-a93d-367e14676bc0/providers/microsoft.authorization/policyassignments/deny-resource-deletion-assignment"
+  id       = "/subscriptions/9ab65d81-930d-4cc0-a93d-367e14676bc0/providers/Microsoft.Authorization/policyAssignments/Deny-Resource-Deletion-Assignment"
   to       = azurerm_subscription_policy_assignment.existing
 
 }
