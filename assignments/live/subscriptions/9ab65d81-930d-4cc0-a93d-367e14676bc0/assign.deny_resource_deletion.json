@@ -4,7 +4,7 @@
   "properties": {
     "description": "This policy denies the deletion of resources.",
     "displayName": "Deny Resource Deletion (LVE)",
-    "enforcementMode": "DoNotEnforce",
+    "enforcementMode": "Default",
     "metadata": {
       "assignedBy": "hmcts/cpp-azure-policy"
     },
