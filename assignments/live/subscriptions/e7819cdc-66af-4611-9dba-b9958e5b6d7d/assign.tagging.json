@@ -25,7 +25,9 @@
       "/subscriptions/e7819cdc-66af-4611-9dba-b9958e5b6d7d/resourceGroups/RG-TMP-IDM1-01",
       "/subscriptions/e7819cdc-66af-4611-9dba-b9958e5b6d7d/resourceGroups/AzureBackupRG_uksouth_1",
       "/subscriptions/e7819cdc-66af-4611-9dba-b9958e5b6d7d/resourceGroups/resource-graph-queries",
-      "/subscriptions/e7819cdc-66af-4611-9dba-b9958e5b6d7d/resourceGroups/azureapp-auto-alerts-1c9710-babu_nawa_hmctslive_onmicrosoft_com"
+      "/subscriptions/e7819cdc-66af-4611-9dba-b9958e5b6d7d/resourceGroups/azureapp-auto-alerts-1c9710-babu_nawa_hmctslive_onmicrosoft_com",
+      "/subscriptions/e7819cdc-66af-4611-9dba-b9958e5b6d7d/resourcegroups/cloud-shell-storage-westeurope/providers/microsoft.insights/workbooks/41c3b00f-eb23-4e97-8c5a-bd2879f3d009",
+      "/subscriptions/e7819cdc-66af-4611-9dba-b9958e5b6d7d/resourcegroups/cloud-shell-storage-westeurope/providers/microsoft.storage/storageaccounts/csb10032002d8521ced"
     ],
     "parameters": {},
     "policyDefinitionId": "/providers/Microsoft.Management/managementGroups/77f54315-6dde-4fe7-9e17-74762c3eb096/providers/Microsoft.Authorization/policyDefinitions/CppTagging",
