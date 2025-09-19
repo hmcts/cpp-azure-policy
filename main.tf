@@ -4,7 +4,7 @@
 
 # Collect all .json.tpl files under assignments/subscriptions/*
 # Create a policy assignment for each file
-/*
+
 resource "azurerm_policy_definition" "policies" {
   for_each = local.policies
 
@@ -19,7 +19,7 @@ resource "azurerm_policy_definition" "policies" {
 
   management_group_id = var.management_group
 }
-
+/*
 resource "azurerm_subscription_policy_assignment" "subscription_assignments" {
   for_each = local.subscription_assignments
 
