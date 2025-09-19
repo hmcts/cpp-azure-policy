@@ -13,7 +13,15 @@
         "message": "Resource doesn't meet location requirements. See https://github.com/hmcts/cpp-azure-policy/blob/master/policies/allowed_regions/README.md"
       }
     ],
-    "notScopes": [],
+    "notScopes": [
+      "/subscriptions/9ab65d81-930d-4cc0-a93d-367e14676bc0/resourceGroups/cloud-shell-storage-northeurope/providers/Microsoft.Storage/storageAccounts/csa9ab65d81930dx4cc0xa93",
+      "/subscriptions/9ab65d81-930d-4cc0-a93d-367e14676bc0/resourceGroups/cloud-shell-storage-westeurope/providers/Microsoft.Storage/storageAccounts/csb10032001ecef4a70",
+      "/subscriptions/e7819cdc-66af-4611-9dba-b9958e5b6d7d/resourceGroups/cloud-shell-storage-westeurope/providers/Microsoft.Storage/storageAccounts/csb10032002d8521ced",
+      "/subscriptions/9ab65d81-930d-4cc0-a93d-367e14676bc0/resourceGroups/RG-MPD-ADDS-01/providers/Microsoft.Compute/virtualMachines/MPDADDSMGT01",
+      "/subscriptions/9ab65d81-930d-4cc0-a93d-367e14676bc0/resourceGroups/RG-MPD-INT-01/providers/Microsoft.DBforPostgreSQL/flexibleServers/ps-mpd-artrepo",
+      "/subscriptions/9ab65d81-930d-4cc0-a93d-367e14676bc0/resourceGroups/RG-MPD-INT-01/providers/Microsoft.DBforPostgreSQL/flexibleServers/psf-mpd-artrepo",
+      "/subscriptions/9ab65d81-930d-4cc0-a93d-367e14676bc0/resourceGroups/RG-MPD-SHARED-01/providers/Microsoft.Storage/storageAccounts/sampdcs01"
+    ],
     "policyDefinitionId": "/providers/Microsoft.Management/managementGroups/77f54315-6dde-4fe7-9e17-74762c3eb096/providers/Microsoft.Authorization/policyDefinitions/CppResourceLocationPolicy",
     "scope": "/providers/Microsoft.Management/managementGroups/77f54315-6dde-4fe7-9e17-74762c3eb096"
   },
