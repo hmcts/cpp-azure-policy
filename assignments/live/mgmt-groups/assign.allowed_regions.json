@@ -4,7 +4,7 @@
   "properties": {
     "description": "Policy to check resource locations",
     "displayName": "CPP Location Policy - (LVE)",
-    "enforcementMode": "DoNotEnforce",
+    "enforcementMode": "Default",
     "metadata": {
       "assignedBy": "github.com/hmcts/cpp-azure-policy"
     },
@@ -14,14 +14,18 @@
       }
     ],
     "notScopes": [
-      "/subscriptions/9ab65d81-930d-4cc0-a93d-367e14676bc0/resourceGroups/cloud-shell-storage-northeurope/providers/Microsoft.Storage/storageAccounts/csa9ab65d81930dx4cc0xa93",
-      "/subscriptions/9ab65d81-930d-4cc0-a93d-367e14676bc0/resourceGroups/cloud-shell-storage-westeurope/providers/Microsoft.Storage/storageAccounts/csb10032001ecef4a70",
-      "/subscriptions/e7819cdc-66af-4611-9dba-b9958e5b6d7d/resourceGroups/cloud-shell-storage-westeurope/providers/Microsoft.Storage/storageAccounts/csb10032002d8521ced",
-      "/subscriptions/9ab65d81-930d-4cc0-a93d-367e14676bc0/resourceGroups/RG-MPD-ADDS-01/providers/Microsoft.Compute/virtualMachines/MPDADDSMGT01",
-      "/subscriptions/9ab65d81-930d-4cc0-a93d-367e14676bc0/resourceGroups/RG-MPD-INT-01/providers/Microsoft.DBforPostgreSQL/flexibleServers/ps-mpd-artrepo",
-      "/subscriptions/9ab65d81-930d-4cc0-a93d-367e14676bc0/resourceGroups/RG-MPD-INT-01/providers/Microsoft.DBforPostgreSQL/flexibleServers/psf-mpd-artrepo",
-      "/subscriptions/9ab65d81-930d-4cc0-a93d-367e14676bc0/resourceGroups/RG-MPD-SHARED-01/providers/Microsoft.Storage/storageAccounts/sampdcs01",
-      "/subscriptions/e7819cdc-66af-4611-9dba-b9958e5b6d7d/resourcegroups/cloud-shell-storage-westeurope/providers/microsoft.insights/workbooks/41c3b00f-eb23-4e97-8c5a-bd2879f3d009"
+      "/subscriptions/9ab65d81-930d-4cc0-a93d-367e14676bc0/resourceGroups/cloud-shell-storage-northeurope",
+      "/subscriptions/9ab65d81-930d-4cc0-a93d-367e14676bc0/resourceGroups/cloud-shell-storage-westeurope",
+      "/subscriptions/e7819cdc-66af-4611-9dba-b9958e5b6d7d/resourcegroups/cloud-shell-storage-westeurope",
+      "/subscriptions/9ab65d81-930d-4cc0-a93d-367e14676bc0/resourceGroups/RG-MPD-ADDS-01",
+      "/subscriptions/9ab65d81-930d-4cc0-a93d-367e14676bc0/resourceGroups/RG-MPD-INT-01",
+      "/subscriptions/9ab65d81-930d-4cc0-a93d-367e14676bc0/resourceGroups/RG-MPD-SHARED-01",
+      "/subscriptions/9ab65d81-930d-4cc0-a93d-367e14676bc0/resourcegroups/networkwatcherrg",
+      "/subscriptions/9ab65d81-930d-4cc0-a93d-367e14676bc0/resourcegroups/defaultresourcegroup-weu",
+      "/subscriptions/9ab65d81-930d-4cc0-a93d-367e14676bc0/resourcegroups/rg-prp-ccm-01/providers/microsoft.compute/sshpublickeys/sshkey-prp-ccm-01-pentest",
+      "/subscriptions/9ab65d81-930d-4cc0-a93d-367e14676bc0/resourcegroups/dashboards/providers/microsoft.portal/dashboards/f7c32e2f-a50b-48d3-b449-45d6332b6113",
+      "/subscriptions/9ab65d81-930d-4cc0-a93d-367e14676bc0/resourcegroups/dashboards/providers/microsoft.portal/dashboards/63cd0a42-e389-4b54-a7fd-9c5bbf9ea03a",
+      "/subscriptions/9ab65d81-930d-4cc0-a93d-367e14676bc0/resourcegroups/dashboards/providers/microsoft.portal/dashboards/959764b9-3305-4f1c-8726-93db2a2f33f9"
     ],
     "policyDefinitionId": "/providers/Microsoft.Management/managementGroups/77f54315-6dde-4fe7-9e17-74762c3eb096/providers/Microsoft.Authorization/policyDefinitions/CppResourceLocationPolicy",
     "scope": "/providers/Microsoft.Management/managementGroups/77f54315-6dde-4fe7-9e17-74762c3eb096"
