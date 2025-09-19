@@ -13,7 +13,20 @@
         "message": "Resource doesn't meet the tagging requirements. See https://github.com/hmcts/cpp-azure-policy/blob/master/policies/tagging/README.md"
       }
     ],
-    "notScopes": [],
+    "notScopes": [
+      "/subscriptions/e7819cdc-66af-4611-9dba-b9958e5b6d7d/resourceGroups/NetworkWatcherRG",
+      "/subscriptions/e7819cdc-66af-4611-9dba-b9958e5b6d7d/resourceGroups/RG-PRP-IDM1-OPS-01",
+      "/subscriptions/e7819cdc-66af-4611-9dba-b9958e5b6d7d/resourceGroups/RG-PRP-IDM1-CORE-01",
+      "/subscriptions/e7819cdc-66af-4611-9dba-b9958e5b6d7d/resourceGroups/RG-PRP-IDM2-CORE-01",
+      "/subscriptions/e7819cdc-66af-4611-9dba-b9958e5b6d7d/resourceGroups/RG-PRD-IDM2-CORE-01",
+      "/subscriptions/e7819cdc-66af-4611-9dba-b9958e5b6d7d/resourceGroups/RG-PRD-IDM1-CORE-01",
+      "/subscriptions/e7819cdc-66af-4611-9dba-b9958e5b6d7d/resourceGroups/RG-PRD-IDM1-OPS-01",
+      "/subscriptions/e7819cdc-66af-4611-9dba-b9958e5b6d7d/resourceGroups/RG-PRD-CCP0101-CASEFILTER",
+      "/subscriptions/e7819cdc-66af-4611-9dba-b9958e5b6d7d/resourceGroups/RG-TMP-IDM1-01",
+      "/subscriptions/e7819cdc-66af-4611-9dba-b9958e5b6d7d/resourceGroups/AzureBackupRG_uksouth_1",
+      "/subscriptions/e7819cdc-66af-4611-9dba-b9958e5b6d7d/resourceGroups/resource-graph-queries",
+      "/subscriptions/e7819cdc-66af-4611-9dba-b9958e5b6d7d/resourceGroups/azureapp-auto-alerts-1c9710-babu_nawa_hmctslive_onmicrosoft_com"
+    ],
     "parameters": {},
     "policyDefinitionId": "/providers/Microsoft.Management/managementGroups/77f54315-6dde-4fe7-9e17-74762c3eb096/providers/Microsoft.Authorization/policyDefinitions/CppTagging",
     "scope": "/subscriptions/e7819cdc-66af-4611-9dba-b9958e5b6d7d"
