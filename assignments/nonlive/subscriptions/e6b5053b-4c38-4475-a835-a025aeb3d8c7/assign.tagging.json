@@ -313,7 +313,8 @@
       "/subscriptions/e6b5053b-4c38-4475-a835-a025aeb3d8c7/resourcegroups/RG-DEV-CCP0101-SCSL",
       "/subscriptions/e6b5053b-4c38-4475-a835-a025aeb3d8c7/resourcegroups/RG-SIT-CCP0101-SCSL",
       "/subscriptions/e6b5053b-4c38-4475-a835-a025aeb3d8c7/resourcegroups/RG-NFT-CCP0101-SCSL",
-      "/subscriptions/e6b5053b-4c38-4475-a835-a025aeb3d8c7/resourcegroups/RG-DEV-HELLO-WORLD"
+      "/subscriptions/e6b5053b-4c38-4475-a835-a025aeb3d8c7/resourcegroups/RG-DEV-HELLO-WORLD",
+      "/subscriptions/e6b5053b-4c38-4475-a835-a025aeb3d8c7/resourceGroups/RG-NFT-CCP0101-CASEFILTER-2"
     ],
     "parameters": {},
     "policyDefinitionId": "/providers/Microsoft.Management/managementGroups/e2995d11-9947-4e78-9de6-d44e0603518e/providers/Microsoft.Authorization/policyDefinitions/CppTagging",
