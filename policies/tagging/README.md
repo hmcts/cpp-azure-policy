@@ -29,6 +29,12 @@ environment:
 - prx
 - prd
 - nft02
+- ccm_dev
+- ccm_sit
+- ccm_nft
+- ccm_prx
+- ccm_prp
+- ccm_prd
 
 businessArea:
  - CFT
