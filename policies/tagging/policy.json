@@ -43,13 +43,7 @@
           "idm_nft",
           "idm_prp",
           "idm_prd",
-          "nft02",
-          "ccm_dev",
-          "ccm_sit",
-          "ccm_nft",
-          "ccm_prx",
-          "ccm_prp",
-          "ccm_prd"
+          "nft02"
         ],
         "metadata": {
           "description": "Allowed environment names such as production or staging",
