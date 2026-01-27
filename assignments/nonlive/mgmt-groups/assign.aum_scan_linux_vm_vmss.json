@@ -9,7 +9,7 @@
   "location": "uksouth",
   "name": "CrimeAumScanLinux",
   "properties": {
-    "description": "Configure periodic checking for missing system updates on Ubuntu 24.04 LTS virtual machines and VMSS in Crime. Excludes RHEL, CentOS, and other Linux distributions.",
+    "description": "Configure periodic checking for missing system updates on Linux Azure VM's & VMSS Ubuntu 24.04.",
     "displayName": "Scan Ubuntu 24.04 VMs & VMSS for Missing Patches - (Crime MG)",
     "enforcementMode": "Default",
     "metadata": {

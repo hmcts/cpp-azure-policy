@@ -1,7 +1,8 @@
 {
   "name": "CppUbuntu24AumVMSS",
   "properties": {
-    "description": "Configure periodic checking for missing system updates on Ubuntu 24.04 LTS virtual machine scale sets using Azure Update Manager. Targets only Ubuntu 24.04 VMSS by filtering on Canonical publisher and Ubuntu 24.04 image properties. Excludes RHEL, CentOS, and other Linux distributions.",
+    "description": "Configure periodic checking for missing system updates on Linux Azure VMSS Ubuntu 24.04",
+    
     "displayName": "Configure Azure Update Manager for Ubuntu 24.04 LTS VMSS Only",
     "metadata": {
       "category": "Update Management",

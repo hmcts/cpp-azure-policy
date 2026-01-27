@@ -1,7 +1,7 @@
 {
   "name": "CppUbuntu24AumInitiative",
   "properties": {
-    "description": "Policy initiative that configures periodic checking for missing system updates on Ubuntu 24.04 LTS virtual machines and virtual machine scale sets. Excludes RHEL, CentOS, and other Linux distributions.",
+    "description": "Policy initiative that donfigures periodic checking for missing system updates on Linux Azure VM's & VMSS Ubuntu 24.04.",
     "displayName": "Configure Azure Update Manager for Ubuntu 24.04 LTS (VMs + VMSS)",
     "metadata": {
       "category": "Update Management",
