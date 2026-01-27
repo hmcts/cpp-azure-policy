@@ -1,0 +1,142 @@
+{
+  "name": "CppUbuntu24AumVMSS",
+  "properties": {
+    "description": "Configure periodic checking for missing system updates on Ubuntu 24.04 LTS virtual machine scale sets using Azure Update Manager. Targets only Ubuntu 24.04 VMSS by filtering on Canonical publisher and Ubuntu 24.04 image properties. Excludes RHEL, CentOS, and other Linux distributions.",
+    "displayName": "Configure Azure Update Manager for Ubuntu 24.04 LTS VMSS Only",
+    "mode": "Indexed",
+    "metadata": {
+      "category": "Update Management",
+      "version": "1.0.0"
+    },
+    "parameters": {
+      "assessmentMode": {
+        "type": "String",
+        "metadata": {
+          "displayName": "Assessment Mode",
+          "description": "Assessment mode for Ubuntu 24.04 VMSS"
+        },
+        "allowedValues": [
+          "AutomaticByPlatform",
+          "ImageDefault"
+        ],
+        "defaultValue": "AutomaticByPlatform"
+      },
+      "effect": {
+        "type": "String",
+        "metadata": {
+          "displayName": "Effect",
+          "description": "Enable or disable the execution of the policy"
+        },
+        "allowedValues": [
+          "DeployIfNotExists",
+          "Disabled"
+        ],
+        "defaultValue": "DeployIfNotExists"
+      }
+    },
+    "policyRule": {
+      "if": {
+        "allOf": [
+          {
+            "field": "type",
+            "equals": "Microsoft.Compute/virtualMachineScaleSets"
+          },
+          {
+            "field": "Microsoft.Compute/virtualMachineScaleSets/virtualMachineProfile.storageProfile.imageReference.publisher",
+            "equals": "Canonical"
+          },
+          {
+            "anyOf": [
+              {
+                "field": "Microsoft.Compute/virtualMachineScaleSets/virtualMachineProfile.storageProfile.imageReference.offer",
+                "like": "*ubuntu-24_04*"
+              },
+              {
+                "field": "Microsoft.Compute/virtualMachineScaleSets/virtualMachineProfile.storageProfile.imageReference.offer",
+                "like": "*noble*"
+              },
+              {
+                "allOf": [
+                  {
+                    "field": "Microsoft.Compute/virtualMachineScaleSets/virtualMachineProfile.storageProfile.imageReference.sku",
+                    "like": "*24_04*"
+                  },
+                  {
+                    "field": "Microsoft.Compute/virtualMachineScaleSets/virtualMachineProfile.storageProfile.imageReference.offer",
+                    "like": "*ubuntu*"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      "then": {
+        "effect": "[parameters('effect')]",
+        "details": {
+          "type": "Microsoft.Compute/virtualMachineScaleSets",
+          "roleDefinitionIds": [
+            "/providers/microsoft.authorization/roleDefinitions/9980e02c-c2be-4d73-94e8-173b1dc7cf3c"
+          ],
+          "existenceCondition": {
+            "field": "Microsoft.Compute/virtualMachineScaleSets/virtualMachineProfile.osProfile.linuxConfiguration.patchSettings.assessmentMode",
+            "equals": "[parameters('assessmentMode')]"
+          },
+          "deployment": {
+            "properties": {
+              "mode": "incremental",
+              "template": {
+                "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+                "contentVersion": "1.0.0.0",
+                "parameters": {
+                  "vmssName": {
+                    "type": "string"
+                  },
+                  "location": {
+                    "type": "string"
+                  },
+                  "assessmentMode": {
+                    "type": "string"
+                  }
+                },
+                "resources": [
+                  {
+                    "type": "Microsoft.Compute/virtualMachineScaleSets",
+                    "apiVersion": "2023-09-01",
+                    "name": "[parameters('vmssName')]",
+                    "location": "[parameters('location')]",
+                    "properties": {
+                      "virtualMachineProfile": {
+                        "osProfile": {
+                          "linuxConfiguration": {
+                            "patchSettings": {
+                              "assessmentMode": "[parameters('assessmentMode')]",
+                              "automaticByPlatformSettings": {
+                                "rebootSetting": "IfRequired"
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                ]
+              },
+              "parameters": {
+                "vmssName": {
+                  "value": "[field('name')]"
+                },
+                "location": {
+                  "value": "[field('location')]"
+                },
+                "assessmentMode": {
+                  "value": "[parameters('assessmentMode')]"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

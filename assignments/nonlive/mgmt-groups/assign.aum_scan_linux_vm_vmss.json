@@ -9,15 +9,15 @@
   "location": "uksouth",
   "name": "CrimeAumScanLinux",
   "properties": {
-    "description": "Configure periodic checking for missing system updates on Linux Azure virtual machines in Crime",
-    "displayName": "Scan Linux VMs for Missing Patches - (Crime MG)",
+    "description": "Configure periodic checking for missing system updates on Ubuntu 24.04 LTS virtual machines and VMSS in Crime. Excludes RHEL, CentOS, and other Linux distributions.",
+    "displayName": "Scan Ubuntu 24.04 VMs & VMSS for Missing Patches - (Crime MG)",
     "enforcementMode": "Default",
     "metadata": {
       "assignedBy": "github.com/hmcts/cpp-azure-policy"
     },
     "nonComplianceMessages": [
       {
-        "message": "VM doesn't meet the update scanning requirement."
+        "message": "Ubuntu 24.04 VM or VMSS doesn't meet the update scanning requirement."
       }
     ],
     "notScopes": [],
@@ -25,20 +25,11 @@
       "assessmentMode": {
         "value": "AutomaticByPlatform"
       },
-      "locations": {
-        "value": []
-      },
-      "osType": {
-        "value": "Linux"
-      },
-      "tagOperator": {
-        "value": "Any"
-      },
-      "tagValues": {
-        "value": {}
+      "effect": {
+        "value": "DeployIfNotExists"
       }
     },
-    "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/59efceea-0c96-497e-a4a1-4eb2290dac15",
+    "policyDefinitionId": "/providers/Microsoft.Management/managementGroups/e2995d11-9947-4e78-9de6-d44e0603518e/providers/Microsoft.Authorization/policySetDefinitions/CppUbuntu24AumInitiative",
     "scope": "/providers/Microsoft.Management/managementGroups/Crime"
   },
   "type": "Microsoft.Authorization/policyAssignments"

@@ -1,0 +1,64 @@
+{
+  "name": "CppUbuntu24AumInitiative",
+  "properties": {
+    "displayName": "Configure Azure Update Manager for Ubuntu 24.04 LTS (VMs + VMSS)",
+    "description": "Policy initiative that configures periodic checking for missing system updates on Ubuntu 24.04 LTS virtual machines and virtual machine scale sets. Excludes RHEL, CentOS, and other Linux distributions.",
+    "policyType": "Custom",
+    "metadata": {
+      "category": "Update Management",
+      "version": "1.0.0"
+    },
+    "parameters": {
+      "assessmentMode": {
+        "type": "String",
+        "metadata": {
+          "displayName": "Assessment Mode",
+          "description": "Assessment mode for Ubuntu 24.04 resources"
+        },
+        "allowedValues": [
+          "AutomaticByPlatform",
+          "ImageDefault"
+        ],
+        "defaultValue": "AutomaticByPlatform"
+      },
+      "effect": {
+        "type": "String",
+        "metadata": {
+          "displayName": "Effect",
+          "description": "Enable or disable the execution of the policy"
+        },
+        "allowedValues": [
+          "DeployIfNotExists",
+          "Disabled"
+        ],
+        "defaultValue": "DeployIfNotExists"
+      }
+    },
+    "policyDefinitions": [
+      {
+        "policyDefinitionId": "/providers/Microsoft.Management/managementGroups/e2995d11-9947-4e78-9de6-d44e0603518e/providers/Microsoft.Authorization/policyDefinitions/CppUbuntu24AumVMs",
+        "policyDefinitionReferenceId": "Ubuntu24VMs",
+        "parameters": {
+          "assessmentMode": {
+            "value": "[parameters('assessmentMode')]"
+          },
+          "effect": {
+            "value": "[parameters('effect')]"
+          }
+        }
+      },
+      {
+        "policyDefinitionId": "/providers/Microsoft.Management/managementGroups/e2995d11-9947-4e78-9de6-d44e0603518e/providers/Microsoft.Authorization/policyDefinitions/CppUbuntu24AumVMSS",
+        "policyDefinitionReferenceId": "Ubuntu24VMSS",
+        "parameters": {
+          "assessmentMode": {
+            "value": "[parameters('assessmentMode')]"
+          },
+          "effect": {
+            "value": "[parameters('effect')]"
+          }
+        }
+      }
+    ]
+  }
+}
