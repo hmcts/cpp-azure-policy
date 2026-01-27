@@ -1,0 +1,45 @@
+{
+  "id": "/providers/Microsoft.Management/managementGroups/Crime/providers/Microsoft.Authorization/policyAssignments/CrimeAumScanLinuxVMSS",
+  "identity": {
+    "type": "UserAssigned",
+    "userAssignedIdentities": {
+      "/subscriptions/8ae5b3b6-0b12-4888-b894-4cec33c92292/resourceGroups/soc-core-infra-prod-rg/providers/Microsoft.ManagedIdentity/userAssignedIdentities/soc-prod-eventhub-azure-policy": {}
+    }
+  },
+  "location": "uksouth",
+  "name": "CrimeAumScanLinuxVMSS",
+  "properties": {
+    "description": "Configure periodic checking for missing system updates on Linux Azure virtual machine scale sets in Crime",
+    "displayName": "Scan Linux VMSS for Missing Patches - (Crime MG)",
+    "enforcementMode": "Default",
+    "metadata": {
+      "assignedBy": "github.com/hmcts/cpp-azure-policy"
+    },
+    "nonComplianceMessages": [
+      {
+        "message": "VMSS doesn't meet the update scanning requirement."
+      }
+    ],
+    "notScopes": [],
+    "parameters": {
+      "assessmentMode": {
+        "value": "AutomaticByPlatform"
+      },
+      "locations": {
+        "value": []
+      },
+      "osType": {
+        "value": "Linux"
+      },
+      "tagOperator": {
+        "value": "Any"
+      },
+      "tagValues": {
+        "value": {}
+      }
+    },
+    "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/bfea026e-043f-4ff4-9d1b-bf301ca7ff46",
+    "scope": "/providers/Microsoft.Management/managementGroups/Crime"
+  },
+  "type": "Microsoft.Authorization/policyAssignments"
+}
