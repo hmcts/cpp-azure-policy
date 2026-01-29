@@ -5,14 +5,13 @@
     "displayName": "Configure Azure Update Manager for Ubuntu 24.04 LTS VMSS Only",
     "metadata": {
       "category": "Update Management",
-      "version": "1.0.0"
+      "version": "1.0.1"
     },
     "mode": "Indexed",
     "parameters": {
       "assessmentMode": {
         "allowedValues": [
-          "AutomaticByPlatform",
-          "ImageDefault"
+          "AutomaticByPlatform"
         ],
         "defaultValue": "AutomaticByPlatform",
         "metadata": {
