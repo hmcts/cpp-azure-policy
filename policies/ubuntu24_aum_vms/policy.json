@@ -52,6 +52,10 @@
               },
               {
                 "field": "Microsoft.Compute/virtualMachines/storageProfile.imageReference.offer",
+                "like": "*ubuntu-24_10*"
+              },
+              {
+                "field": "Microsoft.Compute/virtualMachines/storageProfile.imageReference.offer",
                 "like": "*noble*"
               },
               {
@@ -59,6 +63,18 @@
                   {
                     "field": "Microsoft.Compute/virtualMachines/storageProfile.imageReference.sku",
                     "like": "*24_04*"
+                  },
+                  {
+                    "field": "Microsoft.Compute/virtualMachines/storageProfile.imageReference.offer",
+                    "like": "*ubuntu*"
+                  }
+                ]
+              },
+              {
+                "allOf": [
+                  {
+                    "field": "Microsoft.Compute/virtualMachines/storageProfile.imageReference.sku",
+                    "like": "*24_10*"
                   },
                   {
                     "field": "Microsoft.Compute/virtualMachines/storageProfile.imageReference.offer",
