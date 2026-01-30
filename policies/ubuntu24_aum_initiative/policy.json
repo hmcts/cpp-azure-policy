@@ -21,8 +21,7 @@
       },
       "effect": {
         "allowedValues": [
-          "DeployIfNotExists",
-          "Disabled"
+          "DeployIfNotExists"
         ],
         "defaultValue": "DeployIfNotExists",
         "metadata": {
