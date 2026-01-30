@@ -1,0 +1,22 @@
+{
+  "id": "/providers/Microsoft.Management/managementGroups/e2995d11-9947-4e78-9de6-d44e0603518e/providers/Microsoft.Authorization/policyAssignments/CppSASku",
+  "name": "CppSASku",
+  "properties": {
+    "description": "Approved Storage Account SKUs",
+    "displayName": "CPP Approved Storage Account SKUs - (CPP nonlive)",
+    "enforcementMode": "DoNotEnforce",
+    "metadata": {
+      "assignedBy": "hmcts/cpp-azure-policy"
+    },
+    "nonComplianceMessages": [
+      {
+        "message": "This Storage Account SKU is not allowed. See https://github.com/hmcts/cpp-azure-policy/blob/master/policies/allowed_sa_sku/README.md"
+      }
+    ],
+    "notScopes": [],
+    "parameters": {},
+    "policyDefinitionId": "/providers/Microsoft.Management/managementGroups/e2995d11-9947-4e78-9de6-d44e0603518e/providers/Microsoft.Authorization/policyDefinitions/CppSASku",
+    "scope": "/subscriptions/e6b5053b-4c38-4475-a835-a025aeb3d8c7"
+  },
+  "type": "Microsoft.Authorization/policyAssignments"
+}
