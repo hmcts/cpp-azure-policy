@@ -1,0 +1,155 @@
+{
+  "name": "CppUbuntu24AumVMs",
+  "properties": {
+    "description": "Configure periodic checking for missing system updates on Linux Azure VMs Ubuntu 24.04",
+    "displayName": "Configure Azure Update Manager for Ubuntu 24.04 LTS VMs Only",
+    "metadata": {
+      "category": "Update Management",
+      "version": "1.0.1"
+    },
+    "mode": "Indexed",
+    "parameters": {
+      "assessmentMode": {
+        "allowedValues": [
+          "AutomaticByPlatform"
+        ],
+        "defaultValue": "AutomaticByPlatform",
+        "metadata": {
+          "description": "Assessment mode for Ubuntu 24.04 VMs",
+          "displayName": "Assessment Mode"
+        },
+        "type": "String"
+      },
+      "effect": {
+        "allowedValues": [
+          "DeployIfNotExists",
+          "Disabled"
+        ],
+        "defaultValue": "DeployIfNotExists",
+        "metadata": {
+          "description": "Enable or disable the execution of the policy",
+          "displayName": "Effect"
+        },
+        "type": "String"
+      }
+    },
+    "policyRule": {
+      "if": {
+        "allOf": [
+          {
+            "equals": "Microsoft.Compute/virtualMachines",
+            "field": "type"
+          },
+          {
+            "equals": "Canonical",
+            "field": "Microsoft.Compute/virtualMachines/storageProfile.imageReference.publisher"
+          },
+          {
+            "anyOf": [
+              {
+                "field": "Microsoft.Compute/virtualMachines/storageProfile.imageReference.offer",
+                "like": "*ubuntu-24_04*"
+              },
+              {
+                "field": "Microsoft.Compute/virtualMachines/storageProfile.imageReference.offer",
+                "like": "*ubuntu-24_10*"
+              },
+              {
+                "field": "Microsoft.Compute/virtualMachines/storageProfile.imageReference.offer",
+                "like": "*noble*"
+              },
+              {
+                "allOf": [
+                  {
+                    "field": "Microsoft.Compute/virtualMachines/storageProfile.imageReference.sku",
+                    "like": "*24_04*"
+                  },
+                  {
+                    "field": "Microsoft.Compute/virtualMachines/storageProfile.imageReference.offer",
+                    "like": "*ubuntu*"
+                  }
+                ]
+              },
+              {
+                "allOf": [
+                  {
+                    "field": "Microsoft.Compute/virtualMachines/storageProfile.imageReference.sku",
+                    "like": "*24_10*"
+                  },
+                  {
+                    "field": "Microsoft.Compute/virtualMachines/storageProfile.imageReference.offer",
+                    "like": "*ubuntu*"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      "then": {
+        "details": {
+          "deployment": {
+            "properties": {
+              "mode": "incremental",
+              "parameters": {
+                "assessmentMode": {
+                  "value": "[parameters('assessmentMode')]"
+                },
+                "location": {
+                  "value": "[field('location')]"
+                },
+                "vmName": {
+                  "value": "[field('name')]"
+                }
+              },
+              "template": {
+                "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+                "contentVersion": "1.0.0.0",
+                "parameters": {
+                  "assessmentMode": {
+                    "type": "string"
+                  },
+                  "location": {
+                    "type": "string"
+                  },
+                  "vmName": {
+                    "type": "string"
+                  }
+                },
+                "resources": [
+                  {
+                    "apiVersion": "2023-09-01",
+                    "location": "[parameters('location')]",
+                    "name": "[parameters('vmName')]",
+                    "properties": {
+                      "osProfile": {
+                        "linuxConfiguration": {
+                          "patchSettings": {
+                            "assessmentMode": "[parameters('assessmentMode')]",
+                            "automaticByPlatformSettings": {
+                              "rebootSetting": "IfRequired"
+                            }
+                          }
+                        }
+                      }
+                    },
+                    "type": "Microsoft.Compute/virtualMachines"
+                  }
+                ]
+              }
+            }
+          },
+          "existenceCondition": {
+            "equals": "[parameters('assessmentMode')]",
+            "field": "Microsoft.Compute/virtualMachines/osProfile.linuxConfiguration.patchSettings.assessmentMode"
+          },
+          "roleDefinitionIds": [
+            "/providers/microsoft.authorization/roleDefinitions/9980e02c-c2be-4d73-94e8-173b1dc7cf3c"
+          ],
+          "type": "Microsoft.Compute/virtualMachines"
+        },
+        "effect": "[parameters('effect')]"
+      }
+    }
+  }
+}

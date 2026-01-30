@@ -1,0 +1,63 @@
+{
+  "name": "CppUbuntu24AumInitiative",
+  "properties": {
+    "description": "Policy initiative that donfigures periodic checking for missing system updates on Linux Azure VM's & VMSS Ubuntu 24.04.",
+    "displayName": "Configure Azure Update Manager for Ubuntu 24.04 LTS (VMs + VMSS)",
+    "metadata": {
+      "category": "Update Management",
+      "version": "1.0.1"
+    },
+    "parameters": {
+      "assessmentMode": {
+        "allowedValues": [
+          "AutomaticByPlatform"
+        ],
+        "defaultValue": "AutomaticByPlatform",
+        "metadata": {
+          "description": "Assessment mode for Ubuntu 24.04 resources",
+          "displayName": "Assessment Mode"
+        },
+        "type": "String"
+      },
+      "effect": {
+        "allowedValues": [
+          "DeployIfNotExists",
+          "Disabled"
+        ],
+        "defaultValue": "DeployIfNotExists",
+        "metadata": {
+          "description": "Enable or disable the execution of the policy",
+          "displayName": "Effect"
+        },
+        "type": "String"
+      }
+    },
+    "policyDefinitions": [
+      {
+        "parameters": {
+          "assessmentMode": {
+            "value": "[parameters('assessmentMode')]"
+          },
+          "effect": {
+            "value": "[parameters('effect')]"
+          }
+        },
+        "policyDefinitionId": "/providers/Microsoft.Management/managementGroups/e2995d11-9947-4e78-9de6-d44e0603518e/providers/Microsoft.Authorization/policyDefinitions/CppUbuntu24AumVMs",
+        "policyDefinitionReferenceId": "Ubuntu24VMs"
+      },
+      {
+        "parameters": {
+          "assessmentMode": {
+            "value": "[parameters('assessmentMode')]"
+          },
+          "effect": {
+            "value": "[parameters('effect')]"
+          }
+        },
+        "policyDefinitionId": "/providers/Microsoft.Management/managementGroups/e2995d11-9947-4e78-9de6-d44e0603518e/providers/Microsoft.Authorization/policyDefinitions/CppUbuntu24AumVMSS",
+        "policyDefinitionReferenceId": "Ubuntu24VMSS"
+      }
+    ],
+    "policyType": "Custom"
+  }
+}
