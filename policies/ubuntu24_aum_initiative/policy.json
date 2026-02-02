@@ -1,11 +1,11 @@
 {
   "name": "CppUbuntu24AumInitiative",
   "properties": {
-    "description": "Policy initiative that donfigures periodic checking for missing system updates on Linux Azure VM's & VMSS Ubuntu 24.04.",
-    "displayName": "Configure Azure Update Manager for Ubuntu 24.04 (VMs + VMSS)",
+    "description": "Policy initiative that configures periodic checking for missing system updates on Linux Azure VMs & VMSS Ubuntu 24.x",
+    "displayName": "Configure Azure Update Manager for Ubuntu 24.x (VMs + VMSS)",
     "metadata": {
       "category": "Update Management",
-      "version": "1.0.1"
+      "version": "1.0.2"
     },
     "parameters": {
       "assessmentMode": {
@@ -14,7 +14,7 @@
         ],
         "defaultValue": "AutomaticByPlatform",
         "metadata": {
-          "description": "Assessment mode for Ubuntu 24.04 resources",
+          "description": "Assessment mode for Ubuntu 24.x resources",
           "displayName": "Assessment Mode"
         },
         "type": "String"

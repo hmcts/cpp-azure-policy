@@ -9,15 +9,15 @@
   "location": "uksouth",
   "name": "Ubuntu24AumScanLinux",
   "properties": {
-    "description": "Policy initiative that configures periodic checking for missing system updates on Ubuntu 24.04 LTS virtual machines and virtual machine scale sets in test resource group. Excludes RHEL, CentOS, and other Linux distributions.",
-    "displayName": "Scan Ubuntu 24.04 VMs & VMSS for Missing Patches - (RG-MDV-TEST-01)",
+    "description": "Policy initiative that configures periodic checking for missing system updates on Ubuntu 24.x virtual machines and virtual machine scale sets in test resource group. Excludes RHEL, CentOS, and other Linux distributions.",
+    "displayName": "Scan Ubuntu 24.x VMs & VMSS for Missing Patches - (RG-MDV-TEST-01)",
     "enforcementMode": "Default",
     "metadata": {
       "assignedBy": "github.com/hmcts/cpp-azure-policy"
     },
     "nonComplianceMessages": [
       {
-        "message": "Ubuntu 24.04 VM or VMSS doesn't meet the update scanning requirement."
+        "message": "Ubuntu 24.x VM or VMSS doesn't meet the update scanning requirement."
       }
     ],
     "notScopes": [],
