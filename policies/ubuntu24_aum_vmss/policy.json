@@ -26,7 +26,7 @@
         ],
         "defaultValue": "DeployIfNotExists",
         "metadata": {
-          "description": "Enable, disable, or audit the execution of the policy",
+          "description": "Enable the execution of the policy",
           "displayName": "Effect"
         },
         "type": "String"
