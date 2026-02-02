@@ -9,7 +9,7 @@
   "location": "uksouth",
   "name": "Ubuntu24AumScanLinux",
   "properties": {
-    "description": "Policy that configures periodic checking for missing system updates on Ubuntu 24.x virtual machines in test resource group. Excludes RHEL, CentOS, and other Linux distributions.",
+    "description": "Policy that configures periodic checking for missing system updates on Ubuntu 24.x virtual machines in test rg RG-MDV-TEST-01.",
     "displayName": "Scan Ubuntu 24.x VMs for Missing Patches - (RG-MDV-TEST-01)",
     "enforcementMode": "Default",
     "metadata": {
