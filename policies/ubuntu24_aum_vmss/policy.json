@@ -1,11 +1,11 @@
 {
   "name": "CppUbuntu24AumVMSS",
   "properties": {
-    "description": "Configure periodic checking for missing system updates on Linux Azure VMSS Ubuntu 24.04",
-    "displayName": "Configure Azure Update Manager for Ubuntu 24.04 LTS VMSS Only",
+    "description": "Configure periodic checking for missing system updates on Linux Azure VMSS Ubuntu 24.x",
+    "displayName": "Configure Azure Update Manager for Ubuntu 24.x VMSS Only",
     "metadata": {
       "category": "Update Management",
-      "version": "1.0.1"
+      "version": "1.0.4"
     },
     "mode": "Indexed",
     "parameters": {
@@ -15,19 +15,18 @@
         ],
         "defaultValue": "AutomaticByPlatform",
         "metadata": {
-          "description": "Assessment mode for Ubuntu 24.04 VMSS",
+          "description": "Assessment mode for Ubuntu 24.x VMSS",
           "displayName": "Assessment Mode"
         },
         "type": "String"
       },
       "effect": {
         "allowedValues": [
-          "DeployIfNotExists",
-          "Disabled"
+          "DeployIfNotExists"
         ],
         "defaultValue": "DeployIfNotExists",
         "metadata": {
-          "description": "Enable or disable the execution of the policy",
+          "description": "Enable the execution of the policy",
           "displayName": "Effect"
         },
         "type": "String"
@@ -41,46 +40,33 @@
             "field": "type"
           },
           {
-            "equals": "Canonical",
-            "field": "Microsoft.Compute/virtualMachineScaleSets/virtualMachineProfile.storageProfile.imageReference.publisher"
+            "field": "Microsoft.Compute/virtualMachineScaleSets/virtualMachineProfile.storageProfile.imageReference.publisher",
+            "in": [
+              "Canonical",
+              "canonical"
+            ]
           },
           {
             "anyOf": [
               {
-                "field": "Microsoft.Compute/virtualMachineScaleSets/virtualMachineProfile.storageProfile.imageReference.offer",
-                "like": "*ubuntu-24_04*"
+                "equals": "ubuntu-24_04-lts",
+                "field": "Microsoft.Compute/virtualMachineScaleSets/virtualMachineProfile.storageProfile.imageReference.offer"
               },
               {
-                "field": "Microsoft.Compute/virtualMachineScaleSets/virtualMachineProfile.storageProfile.imageReference.offer",
-                "like": "*ubuntu-24_10*"
+                "equals": "0001-com-ubuntu-server-noble",
+                "field": "Microsoft.Compute/virtualMachineScaleSets/virtualMachineProfile.storageProfile.imageReference.offer"
               },
               {
-                "field": "Microsoft.Compute/virtualMachineScaleSets/virtualMachineProfile.storageProfile.imageReference.offer",
-                "like": "*noble*"
+                "equals": "0001-com-ubuntu-pro-noble",
+                "field": "Microsoft.Compute/virtualMachineScaleSets/virtualMachineProfile.storageProfile.imageReference.offer"
               },
               {
-                "allOf": [
-                  {
-                    "field": "Microsoft.Compute/virtualMachineScaleSets/virtualMachineProfile.storageProfile.imageReference.sku",
-                    "like": "*24_04*"
-                  },
-                  {
-                    "field": "Microsoft.Compute/virtualMachineScaleSets/virtualMachineProfile.storageProfile.imageReference.offer",
-                    "like": "*ubuntu*"
-                  }
-                ]
+                "equals": "ubuntu-24_10",
+                "field": "Microsoft.Compute/virtualMachineScaleSets/virtualMachineProfile.storageProfile.imageReference.offer"
               },
               {
-                "allOf": [
-                  {
-                    "field": "Microsoft.Compute/virtualMachineScaleSets/virtualMachineProfile.storageProfile.imageReference.sku",
-                    "like": "*24_10*"
-                  },
-                  {
-                    "field": "Microsoft.Compute/virtualMachineScaleSets/virtualMachineProfile.storageProfile.imageReference.offer",
-                    "like": "*ubuntu*"
-                  }
-                ]
+                "equals": "0001-com-ubuntu-server-oracular",
+                "field": "Microsoft.Compute/virtualMachineScaleSets/virtualMachineProfile.storageProfile.imageReference.offer"
               }
             ]
           }
@@ -118,7 +104,7 @@
                 },
                 "resources": [
                   {
-                    "apiVersion": "2023-09-01",
+                    "apiVersion": "2024-03-01",
                     "location": "[parameters('location')]",
                     "name": "[parameters('vmssName')]",
                     "properties": {
@@ -152,6 +138,7 @@
         },
         "effect": "[parameters('effect')]"
       }
-    }
+    },
+    "policyType": "Custom"
   }
 }
