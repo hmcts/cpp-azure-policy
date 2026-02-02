@@ -12,7 +12,7 @@ resource "azurerm_policy_definition" "policies" {
   display_name = try(each.value.properties.displayName, each.key)
   description  = try(each.value.properties.description, "")
   policy_type  = try(each.value.properties.policyType, "Custom")
-  mode         = each.value.properties.mode
+  mode         = try(each.value.properties.mode, "All")
 
   policy_rule = jsonencode(each.value.properties.policyRule)
   parameters  = try(jsonencode(each.value.properties.parameters), null)
