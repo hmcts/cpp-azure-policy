@@ -17,9 +17,17 @@ locals {
     jsondecode(file(join("", [local.subscription_dir, assignment])))
   ]
 
+  # Split assignments by scope type; either subscription or resource group
   subscription_assignments = {
     for a in local.subscription_assignment_files :
     a.name => a
+    if length(split("/", a.properties.scope)) == 3 # /subscriptions/{guid}
+  }
+
+  resource_group_assignments = {
+    for a in local.subscription_assignment_files :
+    a.name => a
+    if length(split("/", a.properties.scope)) == 5 # /subscriptions/{guid}/resourceGroups/{rg}
   }
 
   management_assignment_files = [
