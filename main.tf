@@ -25,7 +25,7 @@ resource "azurerm_subscription_policy_assignment" "subscription_assignments" {
 
   name = each.value.name
 
-  subscription_id      = element(split("/", each.value.properties.scope), 2)
+  subscription_id      = "/subscriptions/${element(split("/", each.value.properties.scope), 2)}"
   policy_definition_id = each.value.properties.policyDefinitionId
 
   location = try(each.value.location, null)
