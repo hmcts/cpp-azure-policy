@@ -3,7 +3,7 @@
   "identity": {
     "type": "UserAssigned",
     "userAssignedIdentities": {
-      "/subscriptions/e6b5053b-4c38-4475-a835-a025aeb3d8c7/resourceGroups/RG-DEV-ARTEMIS-08/providers/Microsoft.ManagedIdentity/userAssignedIdentities/nl-azure-aum-policy": {}
+      "/subscriptions/e6b5053b-4c38-4475-a835-a025aeb3d8c7/resourceGroups/RG-DEV-ARTEMIS-08/providers/Microsoft.ManagedIdentity/userAssignedIdentities/nl-azure-update-manager-policy": {}
     }
   },
   "location": "uksouth",
