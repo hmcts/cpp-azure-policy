@@ -111,6 +111,7 @@
                       "osProfile": {
                         "linuxConfiguration": {
                           "patchSettings": {
+                            "patchMode": "AutomaticByPlatform",
                             "assessmentMode": "[parameters('assessmentMode')]",
                             "automaticByPlatformSettings": {
                               "rebootSetting": "IfRequired"
