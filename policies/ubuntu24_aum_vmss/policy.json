@@ -115,7 +115,8 @@
                               "assessmentMode": "[parameters('assessmentMode')]",
                               "automaticByPlatformSettings": {
                                 "rebootSetting": "IfRequired"
-                              }
+                              },
+                              "patchMode": "AutomaticByPlatform"
                             }
                           }
                         }
