@@ -9,7 +9,7 @@
   "location": "uksouth",
   "name": "NlAumScanUbuntu24VMSS",
   "properties": {
-    "description": "Configure periodic checking for missing system updates on Linux Azure VMSS Ubuntu 24.x in nlv.",
+    "description": "Configure periodic checking for missing system updates on Linux Azure VMSS Ubuntu 24.x in Nonlive.",
     "displayName": "Scan Ubuntu 24.x VMSS for Missing Patches - (Nonlive MG)",
     "enforcementMode": "Default",
     "metadata": {
