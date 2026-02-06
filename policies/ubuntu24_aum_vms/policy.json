@@ -1,4 +1,5 @@
 {
+  "id": "/providers/Microsoft.Management/managementGroups/e2995d11-9947-4e78-9de6-d44e0603518e/providers/Microsoft.Authorization/policyDefinitions/CppUbuntu24AumVMs",
   "name": "CppUbuntu24AumVMs",
   "properties": {
     "description": "Configure periodic checking for missing system updates on Linux Azure VMs Ubuntu 24.x",
@@ -77,8 +78,8 @@
                 ]
               },
               {
-                "field": "Microsoft.Compute/virtualMachines/storageProfile.imageReference.id",
-                "contains": "artemis_2_18_j11_24"
+                "contains": "artemis_2_18_j11_24",
+                "field": "Microsoft.Compute/virtualMachines/storageProfile.imageReference.id"
               },
               {
                 "field": "Microsoft.Compute/virtualMachines/storageProfile.imageReference.id",

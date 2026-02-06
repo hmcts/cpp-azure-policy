@@ -1,4 +1,5 @@
 {
+  "id": "/providers/Microsoft.Management/managementGroups/e2995d11-9947-4e78-9de6-d44e0603518e/providers/Microsoft.Authorization/policyDefinitions/CppUbuntu24AumVMSS",
   "name": "CppUbuntu24AumVMSS",
   "properties": {
     "description": "Configure periodic checking for missing system updates on Linux Azure VMSS Ubuntu 24.x",
@@ -77,8 +78,8 @@
                 ]
               },
               {
-                "field": "Microsoft.Compute/virtualMachineScaleSets/virtualMachineProfile.storageProfile.imageReference.id",
-                "contains": "artemis_2_18_j11_24"
+                "contains": "artemis_2_18_j11_24",
+                "field": "Microsoft.Compute/virtualMachineScaleSets/virtualMachineProfile.storageProfile.imageReference.id"
               },
               {
                 "field": "Microsoft.Compute/virtualMachineScaleSets/virtualMachineProfile.storageProfile.imageReference.id",
