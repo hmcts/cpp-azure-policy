@@ -1,8 +1,8 @@
 {
   "name": "CppUbuntu24AumVMs",
   "properties": {
-    "description": "Configure periodic checking for missing system updates on Linux Azure VM's Ubuntu 24.x",
-    "displayName": "Configure Azure Update Manager for Ubuntu 24.x",
+    "description": "Configure periodic checking for missing system updates on Linux Azure VMs Ubuntu 24.x",
+    "displayName": "Configure Azure Update Manager for Ubuntu 24.x for VMs only",
     "metadata": {
       "category": "Update Management",
       "version": "1.0.4"

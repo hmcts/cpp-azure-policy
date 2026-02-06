@@ -2,7 +2,7 @@
   "name": "CppUbuntu24AumVMSS",
   "properties": {
     "description": "Configure periodic checking for missing system updates on Linux Azure VMSS Ubuntu 24.x",
-    "displayName": "Configure Azure Update Manager for Ubuntu 24.x VMSS Only",
+    "displayName": "Configure Azure Update Manager for Ubuntu 24.x VMSS only",
     "metadata": {
       "category": "Update Management",
       "version": "1.0.4"

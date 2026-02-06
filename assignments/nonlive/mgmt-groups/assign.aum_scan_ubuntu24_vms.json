@@ -1,5 +1,5 @@
 {
-  "id": "/subscriptions/e6b5053b-4c38-4475-a835-a025aeb3d8c7/resourceGroups/RG-MDV-TEST-01/providers/Microsoft.Authorization/policyAssignments/Ubuntu24AumScanLinux",
+  "id": "/providers/Microsoft.Management/managementGroups/e2995d11-9947-4e78-9de6-d44e0603518e/providers/Microsoft.Authorization/policyAssignments/NlAumScanUbuntu24VMs",
   "identity": {
     "type": "UserAssigned",
     "userAssignedIdentities": {
@@ -7,10 +7,10 @@
     }
   },
   "location": "uksouth",
-  "name": "Ubuntu24AumScanLinux",
+  "name": "NlAumScanUbuntu24VMs",
   "properties": {
-    "description": "Policy that configures periodic checking for missing system updates on Ubuntu 24.x virtual machines in test rg RG-MDV-TEST-01.",
-    "displayName": "Scan Ubuntu 24.x VMs for Missing Patches - (RG-MDV-TEST-01)",
+    "description": "Configure periodic checking for missing system updates on Linux Azure VMs Ubuntu 24.x in Nonlive.",
+    "displayName": "Scan Ubuntu 24.x VMs for Missing Patches - (Nonlive MG)",
     "enforcementMode": "Default",
     "metadata": {
       "assignedBy": "github.com/hmcts/cpp-azure-policy"
@@ -30,7 +30,7 @@
       }
     },
     "policyDefinitionId": "/providers/Microsoft.Management/managementGroups/e2995d11-9947-4e78-9de6-d44e0603518e/providers/Microsoft.Authorization/policyDefinitions/CppUbuntu24AumVMs",
-    "scope": "/subscriptions/e6b5053b-4c38-4475-a835-a025aeb3d8c7/resourceGroups/RG-MDV-TEST-01"
+    "scope": "/providers/Microsoft.Management/managementGroups/e2995d11-9947-4e78-9de6-d44e0603518e"
   },
   "type": "Microsoft.Authorization/policyAssignments"
 }
