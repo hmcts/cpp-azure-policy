@@ -78,12 +78,8 @@
                 ]
               },
               {
-                "contains": "artemis_2_18_j11_24",
+                "contains": "artemis_2_18_j11",
                 "field": "Microsoft.Compute/virtualMachines/storageProfile.imageReference.id"
-              },
-              {
-                "field": "Microsoft.Compute/virtualMachines/storageProfile.imageReference.id",
-                "like": "*/artemis_2_18_j11/*"
               }
             ]
           }
