@@ -78,8 +78,20 @@
                 ]
               },
               {
-                "contains": "artemis_2_18_j11",
-                "field": "Microsoft.Compute/virtualMachines/storageProfile.imageReference.id"
+                "anyOf": [
+                  {
+                    "contains": "artemis_2_18_j11",
+                    "field": "Microsoft.Compute/virtualMachines/storageProfile.imageReference.id"
+                  },
+                  {
+                    "contains": "artemis_ubuntu_24_image",
+                    "field": "Microsoft.Compute/virtualMachines/storageProfile.imageReference.id"
+                  },
+                  {
+                    "contains": "ubuntu_24_image",
+                    "field": "Microsoft.Compute/virtualMachines/storageProfile.imageReference.id"
+                  }
+                ]
               }
             ]
           }
