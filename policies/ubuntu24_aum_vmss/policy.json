@@ -6,7 +6,7 @@
     "displayName": "Configure Azure Update Manager for Ubuntu 24.x VMSS only",
     "metadata": {
       "category": "Update Management",
-      "version": "1.0.5"
+      "version": "1.0.6"
     },
     "mode": "Indexed",
     "parameters": {
@@ -89,6 +89,10 @@
                   },
                   {
                     "contains": "ubuntu_24_image",
+                    "field": "Microsoft.Compute/virtualMachineScaleSets/virtualMachineProfile.storageProfile.imageReference.id"
+                  },
+                  {
+                    "contains": "packer_shareimages/images/artemis_image",
                     "field": "Microsoft.Compute/virtualMachineScaleSets/virtualMachineProfile.storageProfile.imageReference.id"
                   }
                 ]
