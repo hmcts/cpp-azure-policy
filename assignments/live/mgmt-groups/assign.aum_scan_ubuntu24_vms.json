@@ -3,7 +3,7 @@
   "identity": {
     "type": "UserAssigned",
     "userAssignedIdentities": {
-      "/subscriptions/9ab65d81-930d-4cc0-a93d-367e14676bc0/resourceGroups/RG-PRD-ARTEMIS-01/providers/Microsoft.ManagedIdentity/userAssignedIdentities/lv-azure-update-manager-policy": {}
+      "/subscriptions/9ab65d81-930d-4cc0-a93d-367e14676bc0/resourceGroups/RG-PRP-CCM-01/providers/Microsoft.ManagedIdentity/userAssignedIdentities/lv-azure-update-manager-policy": {}
     }
   },
   "location": "uksouth",
