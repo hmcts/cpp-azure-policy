@@ -6,7 +6,7 @@
     "displayName": "Configure Azure Update Manager for Ubuntu 24.x for VMs only",
     "metadata": {
       "category": "Update Management",
-      "version": "1.0.6"
+      "version": "1.0.7"
     },
     "mode": "Indexed",
     "parameters": {
@@ -140,11 +140,7 @@
                       "osProfile": {
                         "linuxConfiguration": {
                           "patchSettings": {
-                            "assessmentMode": "[parameters('assessmentMode')]",
-                            "automaticByPlatformSettings": {
-                              "rebootSetting": "IfRequired"
-                            },
-                            "patchMode": "AutomaticByPlatform"
+                            "assessmentMode": "[parameters('assessmentMode')]"
                           }
                         }
                       }
