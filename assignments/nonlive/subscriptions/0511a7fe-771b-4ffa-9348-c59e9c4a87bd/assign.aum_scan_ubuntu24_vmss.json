@@ -1,5 +1,5 @@
 {
-  "id": "/subscriptions/0511a7fe-771b-4ffa-9348-c59e9c4a87bd/providers/Microsoft.Authorization/policyAssignments/NlAumScanUbuntu24VMSS",
+  "id": "/subscriptions/0511a7fe-771b-4ffa-9348-c59e9c4a87bd/providers/Microsoft.Authorization/policyAssignments/NlAumScanUbuntu24VMSS-idam",
   "identity": {
     "type": "UserAssigned",
     "userAssignedIdentities": {
@@ -7,7 +7,7 @@
     }
   },
   "location": "uksouth",
-  "name": "NlAumScanUbuntu24VMSS",
+  "name": "NlAumScanUbuntu24VMSS-idam",
   "properties": {
     "description": "Configure periodic checking for missing system updates on Linux Azure VMSS Ubuntu 24.x in Nonlive IdAM.",
     "displayName": "Scan Ubuntu 24.x VMSS for Missing Patches - (IdAM NLV)",
