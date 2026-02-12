@@ -9,27 +9,27 @@
   "location": "uksouth",
   "name": "NlAumScanUbuntu24VMSS-idam",
   "properties": {
-    "description": "Configure periodic checking for missing system updates on Linux Azure VMSS Ubuntu 24.x in Nonlive IdAM.",
-    "displayName": "Scan Ubuntu 24.x VMSS for Missing Patches - (IdAM NLV)",
+    "description": "Enable maintenance schedule patching for Ubuntu 24.x VMSS in Nonlive IdAM",
+    "displayName": "Ubuntu 24.x VMSS Maintenance Patching - (IdAM NLV)",
     "enforcementMode": "Default",
     "metadata": {
       "assignedBy": "github.com/hmcts/cpp-azure-policy"
     },
     "nonComplianceMessages": [
       {
-        "message": "Ubuntu 24.x VMSS doesn't meet the update scanning requirement."
+        "message": "VMSS not configured for maintenance patching (requires patchMode: AutomaticByPlatform, assessmentMode: ImageDefault)"
       }
     ],
     "notScopes": [],
     "parameters": {
-      "patchMode": {
-        "value": "AutomaticByPlatform"
-      },
       "assessmentMode": {
         "value": "ImageDefault"
       },
       "effect": {
         "value": "DeployIfNotExists"
+      },
+      "patchMode": {
+        "value": "AutomaticByPlatform"
       }
     },
     "policyDefinitionId": "/providers/Microsoft.Management/managementGroups/e2995d11-9947-4e78-9de6-d44e0603518e/providers/Microsoft.Authorization/policyDefinitions/CppUbuntu24AumVMSS",

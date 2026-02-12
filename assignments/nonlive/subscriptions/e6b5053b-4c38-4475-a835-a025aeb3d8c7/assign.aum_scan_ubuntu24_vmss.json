@@ -9,27 +9,27 @@
   "location": "uksouth",
   "name": "NlAumScanUbuntu24VMSS",
   "properties": {
-    "description": "Configure periodic checking for missing system updates on Linux Azure VMSS Ubuntu 24.x in Nonlive.",
-    "displayName": "Scan Ubuntu 24.x VMSS for Missing Patches - (Nonlive)",
+    "description": "Configure Ubuntu 24.x VMSS for maintenance schedule-based patching in Nonlive. Assessment and patching occur during scheduled maintenance windows.",
+    "displayName": "Enable Maintenance Schedule Patching for Ubuntu 24.x VMSS - (Nonlive)",
     "enforcementMode": "Default",
     "metadata": {
       "assignedBy": "github.com/hmcts/cpp-azure-policy"
     },
     "nonComplianceMessages": [
       {
-        "message": "Ubuntu 24.x VMSS doesn't meet the update scanning requirement."
+        "message": "VMSS not configured for maintenance patching (requires patchMode: AutomaticByPlatform, assessmentMode: ImageDefault)"
       }
     ],
     "notScopes": [],
     "parameters": {
-      "patchMode": {
-        "value": "AutomaticByPlatform"
-      },
       "assessmentMode": {
         "value": "ImageDefault"
       },
       "effect": {
         "value": "DeployIfNotExists"
+      },
+      "patchMode": {
+        "value": "AutomaticByPlatform"
       }
     },
     "policyDefinitionId": "/providers/Microsoft.Management/managementGroups/e2995d11-9947-4e78-9de6-d44e0603518e/providers/Microsoft.Authorization/policyDefinitions/CppUbuntu24AumVMSS",

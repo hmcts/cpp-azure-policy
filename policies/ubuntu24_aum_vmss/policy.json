@@ -2,25 +2,14 @@
   "id": "/providers/Microsoft.Management/managementGroups/e2995d11-9947-4e78-9de6-d44e0603518e/providers/Microsoft.Authorization/policyDefinitions/CppUbuntu24AumVMSS",
   "name": "CppUbuntu24AumVMSS",
   "properties": {
-    "description": "Configure periodic checking for missing system updates on Linux Azure VMSS Ubuntu 24.x",
-    "displayName": "Configure Azure Update Manager for Ubuntu 24.x VMSS only",
+    "description": "Configure Ubuntu 24.x VMSS for maintenance schedule patching",
+    "displayName": "Ubuntu 24.x VMSS Maintenance Schedule Configuration",
     "metadata": {
       "category": "Update Management",
       "version": "1.0.0"
     },
     "mode": "Indexed",
     "parameters": {
-      "patchMode": {
-        "allowedValues": [
-          "AutomaticByPlatform"
-        ],
-        "defaultValue": "AutomaticByPlatform",
-        "metadata": {
-          "description": "Patch mode for Ubuntu 24.x VMSS - required for maintenance schedules",
-          "displayName": "Patch Mode"
-        },
-        "type": "String"
-      },
       "assessmentMode": {
         "allowedValues": [
           "ImageDefault"
@@ -41,6 +30,17 @@
         "metadata": {
           "description": "Enable or disable the execution of the policy",
           "displayName": "Effect"
+        },
+        "type": "String"
+      },
+      "patchMode": {
+        "allowedValues": [
+          "AutomaticByPlatform"
+        ],
+        "defaultValue": "AutomaticByPlatform",
+        "metadata": {
+          "description": "Patch mode for Ubuntu 24.x VMSS - required for maintenance schedules",
+          "displayName": "Patch Mode"
         },
         "type": "String"
       }
@@ -119,14 +119,14 @@
             "properties": {
               "mode": "incremental",
               "parameters": {
-                "patchMode": {
-                  "value": "[parameters('patchMode')]"
-                },
                 "assessmentMode": {
                   "value": "[parameters('assessmentMode')]"
                 },
                 "location": {
                   "value": "[field('location')]"
+                },
+                "patchMode": {
+                  "value": "[parameters('patchMode')]"
                 },
                 "vmssName": {
                   "value": "[field('name')]"
@@ -136,13 +136,13 @@
                 "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
                 "contentVersion": "1.0.0.0",
                 "parameters": {
-                  "patchMode": {
-                    "type": "string"
-                  },
                   "assessmentMode": {
                     "type": "string"
                   },
                   "location": {
+                    "type": "string"
+                  },
+                  "patchMode": {
                     "type": "string"
                   },
                   "vmssName": {
@@ -159,8 +159,8 @@
                         "osProfile": {
                           "linuxConfiguration": {
                             "patchSettings": {
-                              "patchMode": "[parameters('patchMode')]",
-                              "assessmentMode": "[parameters('assessmentMode')]"
+                              "assessmentMode": "[parameters('assessmentMode')]",
+                              "patchMode": "[parameters('patchMode')]"
                             }
                           }
                         }
