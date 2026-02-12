@@ -1,0 +1,36 @@
+{
+  "id": "/subscriptions/e7819cdc-66af-4611-9dba-b9958e5b6d7d/providers/Microsoft.Authorization/policyAssignments/LvAumScanUbuntu24VMSS-idam",
+  "identity": {
+    "type": "UserAssigned",
+    "userAssignedIdentities": {
+      "/subscriptions/9ab65d81-930d-4cc0-a93d-367e14676bc0/resourceGroups/RG-PRP-CCM-01/providers/Microsoft.ManagedIdentity/userAssignedIdentities/lv-azure-update-manager-policy": {}
+    }
+  },
+  "location": "uksouth",
+  "name": "LvAumScanUbuntu24VMSS-idam",
+  "properties": {
+    "description": "Configure periodic checking for missing system updates on Linux Azure VMSS Ubuntu 24.x in Live.",
+    "displayName": "Scan Ubuntu 24.x VMSS for Missing Patches - (Live IdAM)",
+    "enforcementMode": "Default",
+    "metadata": {
+      "assignedBy": "github.com/hmcts/cpp-azure-policy"
+    },
+    "nonComplianceMessages": [
+      {
+        "message": "Ubuntu 24.x VMSS doesn't meet the update scanning requirement."
+      }
+    ],
+    "notScopes": [],
+    "parameters": {
+      "assessmentMode": {
+        "value": "AutomaticByPlatform"
+      },
+      "effect": {
+        "value": "DeployIfNotExists"
+      }
+    },
+    "policyDefinitionId": "/providers/Microsoft.Management/managementGroups/77f54315-6dde-4fe7-9e17-74762c3eb096/providers/Microsoft.Authorization/policyDefinitions/CppUbuntu24AumVMSS",
+    "scope": "/subscriptions/e7819cdc-66af-4611-9dba-b9958e5b6d7d"
+  },
+  "type": "Microsoft.Authorization/policyAssignments"
+}
