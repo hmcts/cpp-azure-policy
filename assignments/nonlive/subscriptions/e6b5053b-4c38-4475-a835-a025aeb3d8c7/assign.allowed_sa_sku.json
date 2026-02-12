@@ -13,7 +13,19 @@
         "message": "This Storage Account SKU is not allowed. See https://github.com/hmcts/cpp-azure-policy/blob/master/policies/allowed_sa_sku/README.md"
       }
     ],
-    "notScopes": [],
+    "notScopes": [
+      "/subscriptions/e6b5053b-4c38-4475-a835-a025aeb3d8c7/resourcegroups/rg-dev-ccp0105-hearingres/providers/microsoft.storage/storageaccounts/sadevccp05funcdata",
+      "/subscriptions/e6b5053b-4c38-4475-a835-a025aeb3d8c7/resourcegroups/rg-dev-ccp0102-hearingres/providers/microsoft.storage/storageaccounts/sadevccp0102funcdata",
+      "/subscriptions/e6b5053b-4c38-4475-a835-a025aeb3d8c7/resourcegroups/rg-mdv-imz-01/providers/microsoft.storage/storageaccounts/samdvimz01",
+      "/subscriptions/e6b5053b-4c38-4475-a835-a025aeb3d8c7/resourcegroups/rg-mdv-int-01/providers/microsoft.storage/storageaccounts/samdvint01",
+      "/subscriptions/e6b5053b-4c38-4475-a835-a025aeb3d8c7/resourcegroups/rg-sit-ccm-01/providers/microsoft.storage/storageaccounts/sasitccm01",
+      "/subscriptions/e6b5053b-4c38-4475-a835-a025aeb3d8c7/resourcegroups/rg-nft-ccp0102-hearingres/providers/microsoft.storage/storageaccounts/sanftccp02funcdata",
+      "/subscriptions/e6b5053b-4c38-4475-a835-a025aeb3d8c7/resourcegroups/rg-mdv-dmz-01/providers/microsoft.storage/storageaccounts/samdvdmz01",
+      "/subscriptions/e6b5053b-4c38-4475-a835-a025aeb3d8c7/resourcegroups/rg-sit-ccp0101-hearingres/providers/microsoft.storage/storageaccounts/sasitccp01funcdata",
+      "/subscriptions/e6b5053b-4c38-4475-a835-a025aeb3d8c7/resourcegroups/rg-sit-rot-01/providers/microsoft.storage/storageaccounts/sasitrot01",
+      "/subscriptions/e6b5053b-4c38-4475-a835-a025aeb3d8c7/resourcegroups/rg-mdv-sbz-01/providers/microsoft.storage/storageaccounts/samdvsbz01",
+      "/subscriptions/e6b5053b-4c38-4475-a835-a025aeb3d8c7/resourcegroups/rg-nft-ccm-01/providers/microsoft.storage/storageaccounts/sanftccp01"
+    ],
     "parameters": {},
     "policyDefinitionId": "/providers/Microsoft.Management/managementGroups/e2995d11-9947-4e78-9de6-d44e0603518e/providers/Microsoft.Authorization/policyDefinitions/CppSASku",
     "scope": "/subscriptions/e6b5053b-4c38-4475-a835-a025aeb3d8c7"
