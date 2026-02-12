@@ -22,8 +22,11 @@
     ],
     "notScopes": [],
     "parameters": {
-      "assessmentMode": {
+      "patchMode": {
         "value": "AutomaticByPlatform"
+      },
+      "assessmentMode": {
+        "value": "ImageDefault"
       },
       "effect": {
         "value": "DeployIfNotExists"
