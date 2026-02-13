@@ -21,6 +21,29 @@
         },
         "type": "String"
       },
+      "patchMode": {
+        "allowedValues": [
+          "AutomaticByPlatform"
+        ],
+        "defaultValue": "AutomaticByPlatform",
+        "metadata": {
+          "description": "Patch mode for Ubuntu 24.x VMs",
+          "displayName": "Patch Mode"
+        },
+        "type": "String"
+      },
+      "bypassPlatformSafetyChecksOnUserSchedule": {
+        "allowedValues": [
+          true,
+          false
+        ],
+        "defaultValue": true,
+        "metadata": {
+          "description": "Bypass platform safety checks on user schedule for Ubuntu 24.x VMs",
+          "displayName": "Bypass Platform Safety Checks On User Schedule"
+        },
+        "type": "Boolean"
+      },
       "effect": {
         "allowedValues": [
           "DeployIfNotExists"
@@ -110,6 +133,12 @@
                 "assessmentMode": {
                   "value": "[parameters('assessmentMode')]"
                 },
+                "patchMode": {
+                  "value": "[parameters('patchMode')]"
+                },
+                "bypassPlatformSafetyChecksOnUserSchedule": {
+                  "value": "[parameters('bypassPlatformSafetyChecksOnUserSchedule')]"
+                },
                 "location": {
                   "value": "[field('location')]"
                 },
@@ -123,6 +152,12 @@
                 "parameters": {
                   "assessmentMode": {
                     "type": "string"
+                  },
+                  "patchMode": {
+                    "type": "string"
+                  },
+                  "bypassPlatformSafetyChecksOnUserSchedule": {
+                    "type": "boolean"
                   },
                   "location": {
                     "type": "string"
@@ -140,7 +175,12 @@
                       "osProfile": {
                         "linuxConfiguration": {
                           "patchSettings": {
-                            "assessmentMode": "[parameters('assessmentMode')]"
+                            "assessmentMode": "[parameters('assessmentMode')]",
+                            "patchMode": "[parameters('patchMode')]",
+                            "automicByPlatformSettings": {
+                              "bypassPlatformSafetyChecksOnUserSchedule": "[parameters('bypassPlatformSafetyChecksOnUserSchedule')]",
+                              "rebootSetting": "NeverReboot" 
+                            }
                           }
                         }
                       }
@@ -152,8 +192,20 @@
             }
           },
           "existenceCondition": {
+            "allOf": [
+              {
             "equals": "[parameters('assessmentMode')]",
             "field": "Microsoft.Compute/virtualMachines/osProfile.linuxConfiguration.patchSettings.assessmentMode"
+          },
+          {
+            "equals": "[parameters('patchMode')]",
+            "field": "Microsoft.Compute/virtualMachines/osProfile.linuxConfiguration.patchSettings.patchMode"
+          },
+          {
+            "equals": "[parameters('bypassPlatformSafetyChecksOnUserSchedule')]",
+            "field": "Microsoft.Compute/virtualMachines/osProfile.linuxConfiguration.patchSettings.automicByPlatformSettings.bypassPlatformSafetyChecksOnUserSchedule"
+          }
+            ]
           },
           "roleDefinitionIds": [
             "/providers/microsoft.authorization/roleDefinitions/9980e02c-c2be-4d73-94e8-173b1dc7cf3c"
