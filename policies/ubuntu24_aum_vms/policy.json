@@ -177,7 +177,7 @@
                           "patchSettings": {
                             "assessmentMode": "[parameters('assessmentMode')]",
                             "patchMode": "[parameters('patchMode')]",
-                            "automicByPlatformSettings": {
+                            "automaticByPlatformSettings": {
                               "bypassPlatformSafetyChecksOnUserSchedule": "[parameters('bypassPlatformSafetyChecksOnUserSchedule')]",
                               "rebootSetting": "NeverReboot" 
                             }
@@ -194,17 +194,17 @@
           "existenceCondition": {
             "allOf": [
               {
-            "equals": "[parameters('assessmentMode')]",
-            "field": "Microsoft.Compute/virtualMachines/osProfile.linuxConfiguration.patchSettings.assessmentMode"
-          },
-          {
-            "equals": "[parameters('patchMode')]",
-            "field": "Microsoft.Compute/virtualMachines/osProfile.linuxConfiguration.patchSettings.patchMode"
-          },
-          {
-            "equals": "[parameters('bypassPlatformSafetyChecksOnUserSchedule')]",
-            "field": "Microsoft.Compute/virtualMachines/osProfile.linuxConfiguration.patchSettings.automicByPlatformSettings.bypassPlatformSafetyChecksOnUserSchedule"
-          }
+                "equals": "[parameters('assessmentMode')]",
+                "field": "Microsoft.Compute/virtualMachines/osProfile.linuxConfiguration.patchSettings.assessmentMode"
+              },
+              {
+                "equals": "[parameters('patchMode')]",
+                "field": "Microsoft.Compute/virtualMachines/osProfile.linuxConfiguration.patchSettings.patchMode"
+              },
+              {
+                "equals": "[parameters('bypassPlatformSafetyChecksOnUserSchedule')]",
+                "field": "Microsoft.Compute/virtualMachines/osProfile.linuxConfiguration.patchSettings.automaticByPlatformSettings.bypassPlatformSafetyChecksOnUserSchedule"
+              }
             ]
           },
           "roleDefinitionIds": [
