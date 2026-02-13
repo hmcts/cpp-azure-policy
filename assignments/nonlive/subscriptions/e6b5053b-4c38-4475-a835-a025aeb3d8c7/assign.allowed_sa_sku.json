@@ -4,7 +4,7 @@
   "properties": {
     "description": "Approved Storage Account SKUs",
     "displayName": "CPP Approved Storage Account SKUs - (CPP nonlive)",
-    "enforcementMode": "DoNotEnforce",
+    "enforcementMode": "Default",
     "metadata": {
       "assignedBy": "hmcts/cpp-azure-policy"
     },
