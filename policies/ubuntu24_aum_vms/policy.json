@@ -11,7 +11,9 @@
     "mode": "Indexed",
     "parameters": {
       "assessmentMode": {
-        "allowedValues": ["AutomaticByPlatform"],
+        "allowedValues": [
+          "AutomaticByPlatform"
+        ],
         "defaultValue": "AutomaticByPlatform",
         "metadata": {
           "description": "Assessment mode for Ubuntu 24.x VMs",
@@ -19,17 +21,11 @@
         },
         "type": "String"
       },
-      "patchMode": {
-        "allowedValues": ["AutomaticByPlatform"],
-        "defaultValue": "AutomaticByPlatform",
-        "metadata": {
-          "description": "Patch mode for Ubuntu 24.x VMs",
-          "displayName": "Patch Mode"
-        },
-        "type": "String"
-      },
       "bypassPlatformSafetyChecksOnUserSchedule": {
-        "allowedValues": [true, false],
+        "allowedValues": [
+          true,
+          false
+        ],
         "defaultValue": true,
         "metadata": {
           "description": "Bypass platform safety checks on user schedule for Ubuntu 24.x VMs",
@@ -38,11 +34,24 @@
         "type": "Boolean"
       },
       "effect": {
-        "allowedValues": ["DeployIfNotExists"],
+        "allowedValues": [
+          "DeployIfNotExists"
+        ],
         "defaultValue": "DeployIfNotExists",
         "metadata": {
           "description": "Enable the execution of the policy",
           "displayName": "Effect"
+        },
+        "type": "String"
+      },
+      "patchMode": {
+        "allowedValues": [
+          "AutomaticByPlatform"
+        ],
+        "defaultValue": "AutomaticByPlatform",
+        "metadata": {
+          "description": "Patch mode for Ubuntu 24.x VMs",
+          "displayName": "Patch Mode"
         },
         "type": "String"
       }
@@ -60,7 +69,10 @@
                 "allOf": [
                   {
                     "field": "Microsoft.Compute/virtualMachines/storageProfile.imageReference.publisher",
-                    "in": ["Canonical", "canonical"]
+                    "in": [
+                      "Canonical",
+                      "canonical"
+                    ]
                   },
                   {
                     "anyOf": [
@@ -121,14 +133,14 @@
                 "assessmentMode": {
                   "value": "[parameters('assessmentMode')]"
                 },
-                "patchMode": {
-                  "value": "[parameters('patchMode')]"
-                },
                 "bypassPlatformSafetyChecksOnUserSchedule": {
                   "value": "[parameters('bypassPlatformSafetyChecksOnUserSchedule')]"
                 },
                 "location": {
                   "value": "[field('location')]"
+                },
+                "patchMode": {
+                  "value": "[parameters('patchMode')]"
                 },
                 "vmName": {
                   "value": "[field('name')]"
@@ -141,13 +153,13 @@
                   "assessmentMode": {
                     "type": "string"
                   },
-                  "patchMode": {
-                    "type": "string"
-                  },
                   "bypassPlatformSafetyChecksOnUserSchedule": {
                     "type": "boolean"
                   },
                   "location": {
+                    "type": "string"
+                  },
+                  "patchMode": {
                     "type": "string"
                   },
                   "vmName": {
@@ -164,11 +176,11 @@
                         "linuxConfiguration": {
                           "patchSettings": {
                             "assessmentMode": "[parameters('assessmentMode')]",
-                            "patchMode": "[parameters('patchMode')]",
                             "automaticByPlatformSettings": {
                               "bypassPlatformSafetyChecksOnUserSchedule": "[parameters('bypassPlatformSafetyChecksOnUserSchedule')]",
                               "rebootSetting": "NeverReboot"
-                            }
+                            },
+                            "patchMode": "[parameters('patchMode')]"
                           }
                         }
                       }
