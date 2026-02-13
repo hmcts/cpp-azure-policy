@@ -2,33 +2,45 @@
   "id": "/providers/Microsoft.Management/managementGroups/e2995d11-9947-4e78-9de6-d44e0603518e/providers/Microsoft.Authorization/policyDefinitions/CppUbuntu24AumVMSS",
   "name": "CppUbuntu24AumVMSS",
   "properties": {
-    "description": "Configure periodic checking for missing system updates on Linux Azure VMSS Ubuntu 24.x",
-    "displayName": "Configure Azure Update Manager for Ubuntu 24.x VMSS only",
+    "description": "Configure Ubuntu 24.x VMSS for maintenance schedule patching",
+    "displayName": "Ubuntu 24.x VMSS Maintenance Schedule Configuration",
     "metadata": {
       "category": "Update Management",
-      "version": "1.0.7"
+      "version": "1.0.0"
     },
     "mode": "Indexed",
     "parameters": {
       "assessmentMode": {
         "allowedValues": [
-          "AutomaticByPlatform"
+          "ImageDefault"
         ],
-        "defaultValue": "AutomaticByPlatform",
+        "defaultValue": "ImageDefault",
         "metadata": {
-          "description": "Assessment mode for Ubuntu 24.x VMSS",
+          "description": "Assessment mode for Ubuntu 24.x VMSS - ImageDefault is the only supported mode for VMSS",
           "displayName": "Assessment Mode"
         },
         "type": "String"
       },
       "effect": {
         "allowedValues": [
-          "DeployIfNotExists"
+          "DeployIfNotExists",
+          "Disabled"
         ],
         "defaultValue": "DeployIfNotExists",
         "metadata": {
-          "description": "Enable the execution of the policy",
+          "description": "Enable or disable the execution of the policy",
           "displayName": "Effect"
+        },
+        "type": "String"
+      },
+      "patchMode": {
+        "allowedValues": [
+          "AutomaticByPlatform"
+        ],
+        "defaultValue": "AutomaticByPlatform",
+        "metadata": {
+          "description": "Patch mode for Ubuntu 24.x VMSS - required for maintenance schedules",
+          "displayName": "Patch Mode"
         },
         "type": "String"
       }
@@ -113,6 +125,9 @@
                 "location": {
                   "value": "[field('location')]"
                 },
+                "patchMode": {
+                  "value": "[parameters('patchMode')]"
+                },
                 "vmssName": {
                   "value": "[field('name')]"
                 }
@@ -125,6 +140,9 @@
                     "type": "string"
                   },
                   "location": {
+                    "type": "string"
+                  },
+                  "patchMode": {
                     "type": "string"
                   },
                   "vmssName": {
@@ -141,7 +159,8 @@
                         "osProfile": {
                           "linuxConfiguration": {
                             "patchSettings": {
-                              "assessmentMode": "[parameters('assessmentMode')]"
+                              "assessmentMode": "[parameters('assessmentMode')]",
+                              "patchMode": "[parameters('patchMode')]"
                             }
                           }
                         }
@@ -154,8 +173,16 @@
             }
           },
           "existenceCondition": {
-            "equals": "[parameters('assessmentMode')]",
-            "field": "Microsoft.Compute/virtualMachineScaleSets/virtualMachineProfile.osProfile.linuxConfiguration.patchSettings.assessmentMode"
+            "allOf": [
+              {
+                "equals": "[parameters('patchMode')]",
+                "field": "Microsoft.Compute/virtualMachineScaleSets/virtualMachineProfile.osProfile.linuxConfiguration.patchSettings.patchMode"
+              },
+              {
+                "equals": "[parameters('assessmentMode')]",
+                "field": "Microsoft.Compute/virtualMachineScaleSets/virtualMachineProfile.osProfile.linuxConfiguration.patchSettings.assessmentMode"
+              }
+            ]
           },
           "roleDefinitionIds": [
             "/providers/microsoft.authorization/roleDefinitions/9980e02c-c2be-4d73-94e8-173b1dc7cf3c"
