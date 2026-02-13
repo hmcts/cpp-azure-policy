@@ -11,9 +11,7 @@
     "mode": "Indexed",
     "parameters": {
       "assessmentMode": {
-        "allowedValues": [
-          "AutomaticByPlatform"
-        ],
+        "allowedValues": ["AutomaticByPlatform"],
         "defaultValue": "AutomaticByPlatform",
         "metadata": {
           "description": "Assessment mode for Ubuntu 24.x VMs",
@@ -22,9 +20,7 @@
         "type": "String"
       },
       "patchMode": {
-        "allowedValues": [
-          "AutomaticByPlatform"
-        ],
+        "allowedValues": ["AutomaticByPlatform"],
         "defaultValue": "AutomaticByPlatform",
         "metadata": {
           "description": "Patch mode for Ubuntu 24.x VMs",
@@ -33,10 +29,7 @@
         "type": "String"
       },
       "bypassPlatformSafetyChecksOnUserSchedule": {
-        "allowedValues": [
-          true,
-          false
-        ],
+        "allowedValues": [true, false],
         "defaultValue": true,
         "metadata": {
           "description": "Bypass platform safety checks on user schedule for Ubuntu 24.x VMs",
@@ -45,9 +38,7 @@
         "type": "Boolean"
       },
       "effect": {
-        "allowedValues": [
-          "DeployIfNotExists"
-        ],
+        "allowedValues": ["DeployIfNotExists"],
         "defaultValue": "DeployIfNotExists",
         "metadata": {
           "description": "Enable the execution of the policy",
@@ -69,10 +60,7 @@
                 "allOf": [
                   {
                     "field": "Microsoft.Compute/virtualMachines/storageProfile.imageReference.publisher",
-                    "in": [
-                      "Canonical",
-                      "canonical"
-                    ]
+                    "in": ["Canonical", "canonical"]
                   },
                   {
                     "anyOf": [
@@ -179,7 +167,7 @@
                             "patchMode": "[parameters('patchMode')]",
                             "automaticByPlatformSettings": {
                               "bypassPlatformSafetyChecksOnUserSchedule": "[parameters('bypassPlatformSafetyChecksOnUserSchedule')]",
-                              "rebootSetting": "NeverReboot" 
+                              "rebootSetting": "NeverReboot"
                             }
                           }
                         }
