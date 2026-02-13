@@ -9,8 +9,8 @@
   "location": "uksouth",
   "name": "NlAumScanUbuntu24VMSS-idam",
   "properties": {
-    "description": "Enable maintenance schedule patching for Ubuntu 24.x VMSS in Nonlive IdAM",
-    "displayName": "Ubuntu 24.x VMSS Maintenance Patching - (IdAM NLV)",
+    "description": "Configure Ubuntu 24.x VMSS for maintenance schedule-based patching in Nonlive IdAM. Assessment and patching occur during scheduled maintenance windows.",
+    "displayName": "Enable Maintenance Schedule Patching for Ubuntu 24.x VMSS - (Nonlive IdAM)",
     "enforcementMode": "Default",
     "metadata": {
       "assignedBy": "github.com/hmcts/cpp-azure-policy"
