@@ -46,6 +46,20 @@ Use a subscription scope when you are testing out a policy or if you only want a
 
 Use a management group scope when you want a policy to apply to all subscriptions in the tenant.
 
+Use a resource group scope when you want to test a policy on a single resource group before rolling out to broader scopes.
+
+### Testing on a Resource Group
+
+To test a policy on a specific resource group, simply change the `scope` property in your assignment JSON file:
+
+
+**Resource group scope:**
+```json
+"scope": "/subscriptions/9ab65d81-930d-4cc0-a93d-367e14676bc0/resourceGroups/test-resource-group-name"
+```
+
+The Terraform code automatically detects the scope type and applies the policy accordingly. No code changes needed!
+
 **If a tagging policy exception is required, please use the notScopes in assignments/mgmt-groups/mg-HMCTS/assign.tagging.json**
 
 ## How to add a new subscription
