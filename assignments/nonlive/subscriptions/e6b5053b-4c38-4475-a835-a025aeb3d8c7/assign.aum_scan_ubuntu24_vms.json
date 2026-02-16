@@ -25,14 +25,14 @@
       "assessmentMode": {
         "value": "AutomaticByPlatform"
       },
-      "patchMode": {
-        "value": "AutomaticByPlatform"
-      },
       "bypassPlatformSafetyChecksOnUserSchedule": {
         "value": true
       },
       "effect": {
         "value": "DeployIfNotExists"
+      },
+      "patchMode": {
+        "value": "AutomaticByPlatform"
       }
     },
     "policyDefinitionId": "/providers/Microsoft.Management/managementGroups/e2995d11-9947-4e78-9de6-d44e0603518e/providers/Microsoft.Authorization/policyDefinitions/CppUbuntu24AumVMs",
