@@ -32,7 +32,7 @@
         "value": "AutomaticByPlatform"
       }
     },
-    "policyDefinitionId": "/providers/Microsoft.Management/managementGroups/e2995d11-9947-4e78-9de6-d44e0603518e/providers/Microsoft.Authorization/policyDefinitions/CppUbuntu24AumVMSS",
+    "policyDefinitionId": "/providers/Microsoft.Management/managementGroups/77f54315-6dde-4fe7-9e17-74762c3eb096/providers/Microsoft.Authorization/policyDefinitions/CppUbuntu24AumVMSS",
     "scope": "/subscriptions/e7819cdc-66af-4611-9dba-b9958e5b6d7d"
   },
   "type": "Microsoft.Authorization/policyAssignments"
