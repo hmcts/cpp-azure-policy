@@ -25,6 +25,12 @@
       "assessmentMode": {
         "value": "AutomaticByPlatform"
       },
+      "patchMode": {
+        "value": "AutomaticByPlatform"
+      },
+      "bypassPlatformSafetyChecksOnUserSchedule": {
+        "value": true
+      },
       "effect": {
         "value": "DeployIfNotExists"
       }
