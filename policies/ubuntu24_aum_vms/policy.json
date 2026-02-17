@@ -54,6 +54,18 @@
           "displayName": "Patch Mode"
         },
         "type": "String"
+      },
+      "rebootSetting": {
+        "allowedValues": [
+          "NeverReboot",
+          "IfRequired"
+        ],
+        "defaultValue": "NeverReboot",
+        "metadata": {
+          "description": "Reboot setting after patching for Ubuntu 24.x VMs",
+          "displayName": "Reboot Setting"
+        },
+        "type": "String"
       }
     },
     "policyRule": {
@@ -142,6 +154,9 @@
                 "patchMode": {
                   "value": "[parameters('patchMode')]"
                 },
+                "rebootSetting": {
+                  "value": "[parameters('rebootSetting')]"
+                },
                 "vmName": {
                   "value": "[field('name')]"
                 }
@@ -162,6 +177,9 @@
                   "patchMode": {
                     "type": "string"
                   },
+                  "rebootSetting": {
+                    "type": "string"
+                  },
                   "vmName": {
                     "type": "string"
                   }
@@ -178,7 +196,7 @@
                             "assessmentMode": "[parameters('assessmentMode')]",
                             "automaticByPlatformSettings": {
                               "bypassPlatformSafetyChecksOnUserSchedule": "[parameters('bypassPlatformSafetyChecksOnUserSchedule')]",
-                              "rebootSetting": "NeverReboot"
+                              "rebootSetting": "[parameters('rebootSetting')]"
                             },
                             "patchMode": "[parameters('patchMode')]"
                           }
@@ -204,6 +222,10 @@
               {
                 "equals": "[parameters('bypassPlatformSafetyChecksOnUserSchedule')]",
                 "field": "Microsoft.Compute/virtualMachines/osProfile.linuxConfiguration.patchSettings.automaticByPlatformSettings.bypassPlatformSafetyChecksOnUserSchedule"
+              },
+              {
+                "equals": "[parameters('rebootSetting')]",
+                "field": "Microsoft.Compute/virtualMachines/osProfile.linuxConfiguration.patchSettings.automaticByPlatformSettings.rebootSetting"
               }
             ]
           },
