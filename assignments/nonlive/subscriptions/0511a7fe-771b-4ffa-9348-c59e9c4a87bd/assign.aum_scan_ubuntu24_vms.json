@@ -9,8 +9,8 @@
   "location": "uksouth",
   "name": "NlAumScanUbuntu24VMs-idam",
   "properties": {
-    "description": "Configure periodic checking for missing system updates on Linux Azure VMs Ubuntu 24.x in Nonlive IdAM.",
-    "displayName": "Scan Ubuntu 24.x VMs for Missing Patches - (IdAM NLV)",
+    "description": "Configure Azure Update Manager for patching on Ubuntu 24.x VMs in Nonlive IdAM.",
+    "displayName": "Configure Azure Update Manager for Ubuntu 24.x for VMs - (IdAM NLV)",
     "enforcementMode": "Default",
     "metadata": {
       "assignedBy": "github.com/hmcts/cpp-azure-policy"

@@ -10,7 +10,7 @@
   "name": "LvAumScanUbuntu24VMSS",
   "properties": {
     "description": "Configure Ubuntu 24.x VMSS for maintenance schedule-based patching in Live. Assessment and patching occur during scheduled maintenance windows.",
-    "displayName": "Enable Maintenance Schedule Patching for Ubuntu 24.x VMSS - (Live)",
+    "displayName": "Configure Azure Update Manager for Ubuntu 24.x for VMSS - (Live)",
     "enforcementMode": "Default",
     "metadata": {
       "assignedBy": "github.com/hmcts/cpp-azure-policy"

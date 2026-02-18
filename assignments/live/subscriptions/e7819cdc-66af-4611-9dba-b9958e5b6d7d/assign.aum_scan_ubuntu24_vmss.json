@@ -10,7 +10,7 @@
   "name": "LvAumScanUbuntu24VMSS-idam",
   "properties": {
     "description": "Configure Ubuntu 24.x VMSS for maintenance schedule-based patching in Live IdAM. Assessment and patching occur during scheduled maintenance windows.",
-    "displayName": "Enable Maintenance Schedule Patching for Ubuntu 24.x VMSS - (Live IdAM)",
+    "displayName": "Configure Azure Update Manager for Ubuntu 24.x for VMSS - (Live IdAM)",
     "enforcementMode": "Default",
     "metadata": {
       "assignedBy": "github.com/hmcts/cpp-azure-policy"
