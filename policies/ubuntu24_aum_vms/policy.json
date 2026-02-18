@@ -179,11 +179,11 @@
                         "linuxConfiguration": {
                           "patchSettings": {
                             "assessmentMode": "[parameters('assessmentMode')]",
-                            "patchMode": "[parameters('patchMode')]",
                             "automaticByPlatformSettings": {
                               "bypassPlatformSafetyChecksOnUserSchedule": "[parameters('bypassPlatformSafetyChecksOnUserSchedule')]",
                               "rebootSetting": "[parameters('rebootSetting')]"
-                            }
+                            },
+                            "patchMode": "[parameters('patchMode')]"
                           }
                         }
                       }
