@@ -11,9 +11,7 @@
     "mode": "Indexed",
     "parameters": {
       "assessmentMode": {
-        "allowedValues": [
-          "AutomaticByPlatform"
-        ],
+        "allowedValues": ["AutomaticByPlatform"],
         "defaultValue": "AutomaticByPlatform",
         "metadata": {
           "description": "Assessment mode for Ubuntu 24.x VMs",
@@ -22,10 +20,7 @@
         "type": "String"
       },
       "bypassPlatformSafetyChecksOnUserSchedule": {
-        "allowedValues": [
-          true,
-          false
-        ],
+        "allowedValues": [true, false],
         "defaultValue": true,
         "metadata": {
           "description": "Bypass platform safety checks on user schedule for Ubuntu 24.x VMs",
@@ -34,9 +29,7 @@
         "type": "Boolean"
       },
       "effect": {
-        "allowedValues": [
-          "DeployIfNotExists"
-        ],
+        "allowedValues": ["DeployIfNotExists"],
         "defaultValue": "DeployIfNotExists",
         "metadata": {
           "description": "Enable the execution of the policy",
@@ -45,9 +38,7 @@
         "type": "String"
       },
       "patchMode": {
-        "allowedValues": [
-          "AutomaticByPlatform"
-        ],
+        "allowedValues": ["AutomaticByPlatform"],
         "defaultValue": "AutomaticByPlatform",
         "metadata": {
           "description": "Patch mode for Ubuntu 24.x VMs",
@@ -56,10 +47,7 @@
         "type": "String"
       },
       "rebootSetting": {
-        "allowedValues": [
-          "NeverReboot",
-          "IfRequired"
-        ],
+        "allowedValues": ["NeverReboot", "IfRequired"],
         "defaultValue": "NeverReboot",
         "metadata": {
           "description": "Reboot setting after patching for Ubuntu 24.x VMs",
@@ -81,10 +69,7 @@
                 "allOf": [
                   {
                     "field": "Microsoft.Compute/virtualMachines/storageProfile.imageReference.publisher",
-                    "in": [
-                      "Canonical",
-                      "canonical"
-                    ]
+                    "in": ["Canonical", "canonical"]
                   },
                   {
                     "anyOf": [
@@ -194,11 +179,11 @@
                         "linuxConfiguration": {
                           "patchSettings": {
                             "assessmentMode": "[parameters('assessmentMode')]",
+                            "patchMode": "[parameters('patchMode')]",
                             "automaticByPlatformSettings": {
                               "bypassPlatformSafetyChecksOnUserSchedule": "[parameters('bypassPlatformSafetyChecksOnUserSchedule')]",
                               "rebootSetting": "[parameters('rebootSetting')]"
-                            },
-                            "patchMode": "[parameters('patchMode')]"
+                            }
                           }
                         }
                       }
