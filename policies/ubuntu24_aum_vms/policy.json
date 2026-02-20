@@ -57,10 +57,9 @@
       },
       "rebootSetting": {
         "allowedValues": [
-          "NeverReboot",
-          "IfRequired"
+          "Never"
         ],
-        "defaultValue": "NeverReboot",
+        "defaultValue": "Never",
         "metadata": {
           "description": "Reboot setting after patching for Ubuntu 24.x VMs",
           "displayName": "Reboot Setting"
