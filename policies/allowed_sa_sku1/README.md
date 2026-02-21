@@ -16,4 +16,4 @@ The specific SA SKUs that are enforced by the policy:
 
 ## Exemptions
 
-Send a pull request to [assignments/mgmt-groups/mg-HMCTS/assign.allowed_sa_sku_lve.json](https://github.com/hmcts/cpp-azure-policy/blob/HEAD/assignments/mgmt-groups/mg-HMCTS/assign.allowed_sa_sku_lve.json) with justification for why you need to use one not on the standard list.
+Send a pull request to [assignments/mgmt-groups/mg-HMCTS/assign.allowed_sa_sku1.json](https://github.com/hmcts/cpp-azure-policy/blob/HEAD/assignments/mgmt-groups/mg-HMCTS/assign.allowed_sa_sku1.json) with justification for why you need to use one not on the standard list.

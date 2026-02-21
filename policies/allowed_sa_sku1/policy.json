@@ -1,6 +1,6 @@
 {
-  "id": "/providers/Microsoft.Management/managementGroups/e2995d11-9947-4e78-9de6-d44e0603518e/providers/Microsoft.Authorization/policyDefinitions/CppSASkuLve",
-  "name": "CppSASkuLve",
+  "id": "/providers/Microsoft.Management/managementGroups/e2995d11-9947-4e78-9de6-d44e0603518e/providers/Microsoft.Authorization/policyDefinitions/CppSASku1",
+  "name": "CppSASku1",
   "properties": {
     "description": "Restrict the Storage Account SKUs that can be deployed in CPP",
     "displayName": "This policy enables you to specify a set of storage account SKUs that can be deployed in CPP",
