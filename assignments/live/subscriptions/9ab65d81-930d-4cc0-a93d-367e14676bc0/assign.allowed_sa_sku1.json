@@ -13,7 +13,10 @@
         "message": "This Storage Account SKU is not allowed. See https://github.com/hmcts/cpp-azure-policy/blob/master/policies/allowed_sa_sku1/README.md"
       }
     ],
-    "notScopes": [],
+    "notScopes": [
+      "/subscriptions/9ab65d81-930d-4cc0-a93d-367e14676bc0/resourceGroups/RG-PRD-CCP0101-HEARINGRES/providers/Microsoft.Storage/storageAccounts/saprdccp01funcdata",
+      "/subscriptions/9ab65d81-930d-4cc0-a93d-367e14676bc0/resourceGroups/RG-PRP-CCP0101-HEARINGRES/providers/Microsoft.Storage/storageAccounts/saprpccp01funcdata"
+    ],
     "parameters": {},
     "policyDefinitionId": "/providers/Microsoft.Management/managementGroups/77f54315-6dde-4fe7-9e17-74762c3eb096/providers/Microsoft.Authorization/policyDefinitions/CppSASku1",
     "scope": "/subscriptions/9ab65d81-930d-4cc0-a93d-367e14676bc0"
