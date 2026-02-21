@@ -1,0 +1,47 @@
+{
+  "id": "/providers/Microsoft.Management/managementGroups/e2995d11-9947-4e78-9de6-d44e0603518e/providers/Microsoft.Authorization/policyDefinitions/CppSASkuLve",
+  "name": "CppSASkuLve",
+  "properties": {
+    "description": "Restrict the Storage Account SKUs that can be deployed in CPP",
+    "displayName": "This policy enables you to specify a set of storage account SKUs that can be deployed in CPP",
+    "mode": "Indexed",
+    "parameters": {
+      "allowedSKUs": {
+        "allowedValues": [
+          "Standard_GZRS",
+          "Standard_LRS",
+          "Standard_ZRS"
+        ],
+        "defaultValue": [
+          "Standard_GZRS",
+          "Standard_LRS",
+          "Standard_ZRS"
+        ],
+        "metadata": {
+          "description": "The allowed Storage Account SKUs in CPP",
+          "displayName": "Allowed Storage Account SKUs"
+        },
+        "type": "Array"
+      }
+    },
+    "policyRule": {
+      "if": {
+        "allOf": [
+          {
+            "equals": "Microsoft.Storage/storageAccounts",
+            "field": "type"
+          },
+          {
+            "field": "Microsoft.Storage/storageAccounts/sku.name",
+            "notIn": "[parameters('allowedSKUs')]"
+          }
+        ]
+      },
+      "then": {
+        "effect": "Deny"
+      }
+    },
+    "policyType": "Custom"
+  },
+  "type": "Microsoft.Authorization/policyDefinitions"
+}
