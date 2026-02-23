@@ -9,21 +9,24 @@
   "location": "uksouth",
   "name": "NlAumScanUbuntu24VMSS",
   "properties": {
-    "description": "Configure Ubuntu 24.x VMSS for maintenance schedule-based patching in Nonlive. Assessment and patching occur during scheduled maintenance windows.",
-    "displayName": "Configure Azure Update Manager for Ubuntu 24.x for VMSS - (Nonlive)",
+    "description": "Configure Ubuntu 24.x Uniform VMSS for maintenance schedule-based patching in Nonlive using Azure Update Manager.",
+    "displayName": "Configure Azure Update Manager for Ubuntu 24.x Uniform VMSS - (Nonlive)",
     "enforcementMode": "Default",
     "metadata": {
       "assignedBy": "github.com/hmcts/cpp-azure-policy"
     },
     "nonComplianceMessages": [
       {
-        "message": "VMSS not configured for maintenance patching (requires patchMode: AutomaticByPlatform, assessmentMode: ImageDefault)"
+        "message": "Ubuntu 24.x Uniform VMSS requires both patchMode and assessmentMode set to AutomaticByPlatform to enable Azure Update Manager in-guest patching with maintenance schedules."
       }
     ],
     "notScopes": [],
     "parameters": {
       "assessmentMode": {
-        "value": "ImageDefault"
+        "value": "AutomaticByPlatform"
+      },
+      "bypassPlatformSafetyChecksOnUserSchedule": {
+        "value": true
       },
       "effect": {
         "value": "DeployIfNotExists"
