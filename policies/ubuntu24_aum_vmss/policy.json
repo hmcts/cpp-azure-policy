@@ -65,8 +65,22 @@
             "field": "type"
           },
           {
-            "equals": "Uniform",
-            "field": "Microsoft.Compute/virtualMachineScaleSets/orchestrationMode"
+            "anyOf": [
+              {
+                "equals": "Uniform",
+                "field": "Microsoft.Compute/virtualMachineScaleSets/orchestrationMode"
+              },
+              {
+                "exists": "false",
+                "field": "Microsoft.Compute/virtualMachineScaleSets/orchestrationMode"
+              }
+            ]
+          },
+          {
+            "not": {
+              "equals": "TrustedLaunch",
+              "field": "Microsoft.Compute/virtualMachineScaleSets/virtualMachineProfile.securityProfile.securityType"
+            }
           },
           {
             "anyOf": [
