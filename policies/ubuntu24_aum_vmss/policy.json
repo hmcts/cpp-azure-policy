@@ -182,7 +182,6 @@
                     "apiVersion": "2024-03-01",
                     "location": "[parameters('location')]",
                     "name": "[parameters('vmssName')]",
-                    "sku": "[parameters('sku')]",
                     "properties": {
                       "virtualMachineProfile": {
                         "osProfile": {
@@ -198,6 +197,7 @@
                         }
                       }
                     },
+                    "sku": "[parameters('sku')]",
                     "type": "Microsoft.Compute/virtualMachineScaleSets"
                   }
                 ]
