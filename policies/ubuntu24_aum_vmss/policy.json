@@ -2,24 +2,36 @@
   "id": "/providers/Microsoft.Management/managementGroups/e2995d11-9947-4e78-9de6-d44e0603518e/providers/Microsoft.Authorization/policyDefinitions/CppUbuntu24AumVMSS",
   "name": "CppUbuntu24AumVMSS",
   "properties": {
-    "description": "Configure Ubuntu 24.x VMSS for maintenance schedule patching",
-    "displayName": "Ubuntu 24.x VMSS Maintenance Schedule Configuration",
+    "description": "Configure Ubuntu 24.x Uniform VMSS for Azure Update Manager In-Guest patching using maintenance schedules.",
+    "displayName": "Ubuntu 24.x Uniform VMSS Maintenance Schedule Configuration",
     "metadata": {
       "category": "Update Management",
-      "version": "1.0.0"
+      "version": "1.0.1"
     },
     "mode": "Indexed",
     "parameters": {
       "assessmentMode": {
         "allowedValues": [
-          "ImageDefault"
+          "AutomaticByPlatform"
         ],
-        "defaultValue": "ImageDefault",
+        "defaultValue": "AutomaticByPlatform",
         "metadata": {
-          "description": "Assessment mode for Ubuntu 24.x VMSS - ImageDefault is the only supported mode for VMSS",
+          "description": "Assessment mode for Ubuntu 24.x Uniform VMSS",
           "displayName": "Assessment Mode"
         },
         "type": "String"
+      },
+      "bypassPlatformSafetyChecksOnUserSchedule": {
+        "allowedValues": [
+          true,
+          false
+        ],
+        "defaultValue": true,
+        "metadata": {
+          "description": "Bypass platform safety checks on user schedule - required for Maintenance Control to honour schedule",
+          "displayName": "Bypass Platform Safety Checks On User Schedule"
+        },
+        "type": "Boolean"
       },
       "effect": {
         "allowedValues": [
@@ -51,6 +63,24 @@
           {
             "equals": "Microsoft.Compute/virtualMachineScaleSets",
             "field": "type"
+          },
+          {
+            "anyOf": [
+              {
+                "equals": "Uniform",
+                "field": "Microsoft.Compute/virtualMachineScaleSets/orchestrationMode"
+              },
+              {
+                "exists": "false",
+                "field": "Microsoft.Compute/virtualMachineScaleSets/orchestrationMode"
+              }
+            ]
+          },
+          {
+            "not": {
+              "equals": "TrustedLaunch",
+              "field": "Microsoft.Compute/virtualMachineScaleSets/virtualMachineProfile.securityProfile.securityType"
+            }
           },
           {
             "anyOf": [
@@ -122,6 +152,9 @@
                 "assessmentMode": {
                   "value": "[parameters('assessmentMode')]"
                 },
+                "bypassPlatformSafetyChecksOnUserSchedule": {
+                  "value": "[parameters('bypassPlatformSafetyChecksOnUserSchedule')]"
+                },
                 "location": {
                   "value": "[field('location')]"
                 },
@@ -138,6 +171,9 @@
                 "parameters": {
                   "assessmentMode": {
                     "type": "string"
+                  },
+                  "bypassPlatformSafetyChecksOnUserSchedule": {
+                    "type": "boolean"
                   },
                   "location": {
                     "type": "string"
@@ -160,6 +196,9 @@
                           "linuxConfiguration": {
                             "patchSettings": {
                               "assessmentMode": "[parameters('assessmentMode')]",
+                              "automaticByPlatformSettings": {
+                                "bypassPlatformSafetyChecksOnUserSchedule": "[parameters('bypassPlatformSafetyChecksOnUserSchedule')]"
+                              },
                               "patchMode": "[parameters('patchMode')]"
                             }
                           }
@@ -181,6 +220,10 @@
               {
                 "equals": "[parameters('assessmentMode')]",
                 "field": "Microsoft.Compute/virtualMachineScaleSets/virtualMachineProfile.osProfile.linuxConfiguration.patchSettings.assessmentMode"
+              },
+              {
+                "equals": "true",
+                "field": "Microsoft.Compute/virtualMachineScaleSets/virtualMachineProfile.osProfile.linuxConfiguration.patchSettings.automaticByPlatformSettings.bypassPlatformSafetyChecksOnUserSchedule"
               }
             ]
           },
