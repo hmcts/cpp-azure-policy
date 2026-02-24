@@ -147,9 +147,6 @@
                 "patchMode": {
                   "value": "[parameters('patchMode')]"
                 },
-                "sku": {
-                  "value": "[field('sku')]"
-                },
                 "vmssName": {
                   "value": "[field('name')]"
                 }
@@ -169,9 +166,6 @@
                   },
                   "patchMode": {
                     "type": "string"
-                  },
-                  "sku": {
-                    "type": "object"
                   },
                   "vmssName": {
                     "type": "string"
@@ -197,7 +191,6 @@
                         }
                       }
                     },
-                    "sku": "[parameters('sku')]",
                     "type": "Microsoft.Compute/virtualMachineScaleSets"
                   }
                 ]
