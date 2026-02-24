@@ -6,7 +6,7 @@
     "displayName": "Ubuntu 24.x Uniform VMSS Maintenance Schedule Configuration",
     "metadata": {
       "category": "Update Management",
-      "version": "1.0.0"
+      "version": "1.0.1"
     },
     "mode": "Indexed",
     "parameters": {
@@ -222,7 +222,7 @@
                 "field": "Microsoft.Compute/virtualMachineScaleSets/virtualMachineProfile.osProfile.linuxConfiguration.patchSettings.assessmentMode"
               },
               {
-                "equals": "[parameters('bypassPlatformSafetyChecksOnUserSchedule')]",
+                "equals": "true",
                 "field": "Microsoft.Compute/virtualMachineScaleSets/virtualMachineProfile.osProfile.linuxConfiguration.patchSettings.automaticByPlatformSettings.bypassPlatformSafetyChecksOnUserSchedule"
               }
             ]
