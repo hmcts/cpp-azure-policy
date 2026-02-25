@@ -17,13 +17,13 @@
     },
     "nonComplianceMessages": [
       {
-        "message": "VMSS not configured for maintenance patching (requires patchMode: AutomaticByPlatform, assessmentMode: ImageDefault)"
+        "message": "VMSS not configured for maintenance patching (requires patchMode: AutomaticByPlatform, assessmentMode: AutomaticByPlatform)"
       }
     ],
     "notScopes": [],
     "parameters": {
       "assessmentMode": {
-        "value": "ImageDefault"
+        "value": "AutomaticByPlatform"
       },
       "effect": {
         "value": "DeployIfNotExists"
