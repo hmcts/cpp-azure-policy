@@ -6,7 +6,7 @@
     "displayName": "Ubuntu 24.x Uniform VMSS Maintenance Schedule Configuration",
     "metadata": {
       "category": "Update Management",
-      "version": "1.0.1"
+      "version": "1.0.0"
     },
     "mode": "Indexed",
     "parameters": {
@@ -65,22 +65,8 @@
             "field": "type"
           },
           {
-            "anyOf": [
-              {
-                "equals": "Uniform",
-                "field": "Microsoft.Compute/virtualMachineScaleSets/orchestrationMode"
-              },
-              {
-                "exists": "false",
-                "field": "Microsoft.Compute/virtualMachineScaleSets/orchestrationMode"
-              }
-            ]
-          },
-          {
-            "not": {
-              "equals": "TrustedLaunch",
-              "field": "Microsoft.Compute/virtualMachineScaleSets/virtualMachineProfile.securityProfile.securityType"
-            }
+            "equals": "Uniform",
+            "field": "Microsoft.Compute/virtualMachineScaleSets/orchestrationMode"
           },
           {
             "anyOf": [
