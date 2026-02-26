@@ -89,7 +89,8 @@
           "Microsoft.ResourceGraph/queries",
           "Microsoft.Web/connections",
           "Microsoft.ManagedIdentity/userAssignedIdentities",
-          "Microsoft.ManagedIdentity/systemAssignedIdentities"
+          "Microsoft.ManagedIdentity/systemAssignedIdentities",
+          "Microsoft.Maintenance/maintenanceConfigurations"
         ],
         "metadata": {
           "description": "Resource Types to exclude from compliance results",
