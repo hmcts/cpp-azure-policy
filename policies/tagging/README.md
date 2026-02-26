@@ -40,7 +40,6 @@ environment:
 - ccm_prx
 - ccm_prp
 - ccm_prd
-- testing
 
 businessArea:
 

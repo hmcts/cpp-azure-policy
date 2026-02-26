@@ -50,8 +50,7 @@
           "ccm_nft",
           "ccm_prx",
           "ccm_prp",
-          "ccm_prd",
-          "testing"
+          "ccm_prd"
         ],
         "metadata": {
           "description": "Allowed environment names such as production or staging",
@@ -90,7 +89,8 @@
           "Microsoft.ResourceGraph/queries",
           "Microsoft.Web/connections",
           "Microsoft.ManagedIdentity/userAssignedIdentities",
-          "Microsoft.ManagedIdentity/systemAssignedIdentities"
+          "Microsoft.ManagedIdentity/systemAssignedIdentities",
+          "Microsoft.Maintenance/maintenanceConfigurations"
         ],
         "metadata": {
           "description": "Resource Types to exclude from compliance results",
