@@ -6,7 +6,7 @@
     "displayName": "Ubuntu 24.x Uniform VMSS Maintenance Schedule Configuration",
     "metadata": {
       "category": "Update Management",
-      "version": "1.0.2"
+      "version": "1.0.3"
     },
     "mode": "Indexed",
     "parameters": {
@@ -211,6 +211,7 @@
               }
             }
           },
+          "evaluationDelay": "AfterProvisioningSuccess",
           "existenceCondition": {
             "allOf": [
               {
