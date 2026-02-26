@@ -19,11 +19,7 @@
         "type": "Array"
       },
       "allowedBusinessAreaNames": {
-        "defaultValue": [
-          "CFT",
-          "crime",
-          "Cross-Cutting"
-        ],
+        "defaultValue": ["CFT", "crime", "Cross-Cutting"],
         "metadata": {
           "description": "Allowed businessArea names such as CFT or crime",
           "displayName": "Allowed businessArea names"
@@ -50,7 +46,8 @@
           "ccm_nft",
           "ccm_prx",
           "ccm_prp",
-          "ccm_prd"
+          "ccm_prd",
+          "testing"
         ],
         "metadata": {
           "description": "Allowed environment names such as production or staging",

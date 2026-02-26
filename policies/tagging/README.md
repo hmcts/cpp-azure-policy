@@ -1,18 +1,22 @@
 # CPP Tagging Policy
 
 ## Required tags
+
 Required tags, common and specific to subscription of resource.
 
 All environments and resources:
- - environment
- - application
- - businessArea
- - builtFrom
+
+- environment
+- application
+- businessArea
+- builtFrom
 
 Sandbox only:
- - expiresAfter
+
+- expiresAfter
 
 ## Allowed values
+
 Tags and their allowed values.
 
 application:
@@ -20,6 +24,7 @@ application:
 Name of the application or service
 
 environment:
+
 - mdv
 - sit
 - dev
@@ -35,15 +40,17 @@ environment:
 - ccm_prx
 - ccm_prp
 - ccm_prd
+- testing
 
 businessArea:
- - CFT
- - crime
- - Cross-Cutting
+
+- CFT
+- crime
+- Cross-Cutting
 
 builtFrom:
- - Name or URL of repository
 
+- Name or URL of repository
 
 ## Check compliance
 
