@@ -6,7 +6,7 @@
     "displayName": "Ubuntu 24.x Uniform VMSS Maintenance Schedule Configuration",
     "metadata": {
       "category": "Update Management",
-      "version": "1.0.5"
+      "version": "1.0.6"
     },
     "mode": "Indexed",
     "parameters": {
@@ -177,6 +177,9 @@
                 "rebootSetting": {
                   "value": "[parameters('rebootSetting')]"
                 },
+                "resourceGroupName": {
+                  "value": "[resourceGroup().name]"
+                },
                 "vmssName": {
                   "value": "[field('name')]"
                 }
@@ -198,6 +201,9 @@
                     "type": "string"
                   },
                   "rebootSetting": {
+                    "type": "string"
+                  },
+                  "resourceGroupName": {
                     "type": "string"
                   },
                   "vmssName": {
@@ -225,6 +231,7 @@
                         }
                       }
                     },
+                    "resourceGroup": "[parameters('resourceGroupName')]",
                     "type": "Microsoft.Compute/virtualMachineScaleSets"
                   }
                 ]
