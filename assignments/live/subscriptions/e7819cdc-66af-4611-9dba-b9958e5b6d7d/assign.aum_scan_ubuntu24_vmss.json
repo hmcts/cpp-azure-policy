@@ -17,13 +17,16 @@
     },
     "nonComplianceMessages": [
       {
-        "message": "VMSS not configured for maintenance patching (requires patchMode: AutomaticByPlatform, assessmentMode: AutomaticByPlatform)"
+        "message": "Ubuntu 24.x Uniform VMSS requires both patchMode and assessmentMode set to AutomaticByPlatform to enable Azure Update Manager in-guest patching with maintenance schedules."
       }
     ],
     "notScopes": [],
     "parameters": {
       "assessmentMode": {
         "value": "AutomaticByPlatform"
+      },
+      "bypassPlatformSafetyChecksOnUserSchedule": {
+        "value": true
       },
       "effect": {
         "value": "DeployIfNotExists"

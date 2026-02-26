@@ -65,22 +65,8 @@
             "field": "type"
           },
           {
-            "anyOf": [
-              {
-                "equals": "Uniform",
-                "field": "Microsoft.Compute/virtualMachineScaleSets/orchestrationMode"
-              },
-              {
-                "exists": "false",
-                "field": "Microsoft.Compute/virtualMachineScaleSets/orchestrationMode"
-              }
-            ]
-          },
-          {
-            "not": {
-              "equals": "TrustedLaunch",
-              "field": "Microsoft.Compute/virtualMachineScaleSets/virtualMachineProfile.securityProfile.securityType"
-            }
+            "equals": "Uniform",
+            "field": "Microsoft.Compute/virtualMachineScaleSets/orchestrationMode"
           },
           {
             "anyOf": [
@@ -222,7 +208,7 @@
                 "field": "Microsoft.Compute/virtualMachineScaleSets/virtualMachineProfile.osProfile.linuxConfiguration.patchSettings.assessmentMode"
               },
               {
-                "equals": "true",
+                "equals": "[parameters('bypassPlatformSafetyChecksOnUserSchedule')]",
                 "field": "Microsoft.Compute/virtualMachineScaleSets/virtualMachineProfile.osProfile.linuxConfiguration.patchSettings.automaticByPlatformSettings.bypassPlatformSafetyChecksOnUserSchedule"
               }
             ]
