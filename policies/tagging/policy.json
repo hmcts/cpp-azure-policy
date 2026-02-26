@@ -19,7 +19,11 @@
         "type": "Array"
       },
       "allowedBusinessAreaNames": {
-        "defaultValue": ["CFT", "crime", "Cross-Cutting"],
+        "defaultValue": [
+          "CFT",
+          "crime",
+          "Cross-Cutting"
+        ],
         "metadata": {
           "description": "Allowed businessArea names such as CFT or crime",
           "displayName": "Allowed businessArea names"
