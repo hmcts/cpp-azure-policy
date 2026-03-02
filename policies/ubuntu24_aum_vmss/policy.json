@@ -6,7 +6,7 @@
     "displayName": "Ubuntu 24.x Uniform VMSS Maintenance Schedule Configuration",
     "metadata": {
       "category": "Update Management",
-      "version": "1.0.7"
+      "version": "1.0.8"
     },
     "mode": "Indexed",
     "parameters": {
@@ -88,12 +88,6 @@
                 "field": "Microsoft.Compute/virtualMachineScaleSets/orchestrationMode"
               }
             ]
-          },
-          {
-            "not": {
-              "equals": "TrustedLaunch",
-              "field": "Microsoft.Compute/virtualMachineScaleSets/virtualMachineProfile.securityProfile.securityType"
-            }
           },
           {
             "anyOf": [
@@ -206,13 +200,14 @@
                 },
                 "resources": [
                   {
-                    "apiVersion": "2022-11-01",
+                    "apiVersion": "2024-03-01",
                     "location": "[parameters('location')]",
                     "name": "[parameters('vmssName')]",
                     "properties": {
                       "virtualMachineProfile": {
                         "osProfile": {
                           "linuxConfiguration": {
+                            "enableVmAgentPlatformUpdates": true,
                             "patchSettings": {
                               "assessmentMode": "[parameters('assessmentMode')]",
                               "automaticByPlatformSettings": {
