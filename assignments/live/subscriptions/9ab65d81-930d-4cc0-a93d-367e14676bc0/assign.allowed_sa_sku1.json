@@ -4,7 +4,7 @@
   "properties": {
     "description": "Approved Storage Account SKUs",
     "displayName": "CPP Approved Storage Account SKUs - (CPP Live)",
-    "enforcementMode": "DoNotEnforce",
+    "enforcementMode": "Default",
     "metadata": {
       "assignedBy": "hmcts/cpp-azure-policy"
     },
@@ -15,7 +15,12 @@
     ],
     "notScopes": [
       "/subscriptions/9ab65d81-930d-4cc0-a93d-367e14676bc0/resourceGroups/RG-PRD-CCP0101-HEARINGRES/providers/Microsoft.Storage/storageAccounts/saprdccp01funcdata",
-      "/subscriptions/9ab65d81-930d-4cc0-a93d-367e14676bc0/resourceGroups/RG-PRP-CCP0101-HEARINGRES/providers/Microsoft.Storage/storageAccounts/saprpccp01funcdata"
+      "/subscriptions/9ab65d81-930d-4cc0-a93d-367e14676bc0/resourceGroups/RG-PRP-CCP0101-HEARINGRES/providers/Microsoft.Storage/storageAccounts/saprpccp01funcdata",
+      "/subscriptions/9ab65d81-930d-4cc0-a93d-367e14676bc0/resourceGroups/RG-PRD-CCM-01/providers/Microsoft.Storage/storageAccounts/saprdccm01",
+      "/subscriptions/9ab65d81-930d-4cc0-a93d-367e14676bc0/resourcegroups/rg-prd-int-01/providers/microsoft.storage/storageaccounts/saprdint01",
+      "/subscriptions/9ab65d81-930d-4cc0-a93d-367e14676bc0/resourcegroups/rg-prd-rot-01/providers/microsoft.storage/storageaccounts/saprdrot01",
+      "/subscriptions/9ab65d81-930d-4cc0-a93d-367e14676bc0/resourcegroups/saprdccmdatabasebackups/providers/microsoft.storage/storageaccounts/saprdccmdatabasebackups1",
+      "/subscriptions/9ab65d81-930d-4cc0-a93d-367e14676bc0/resourcegroups/rg-prd-dmz-01/providers/microsoft.storage/storageaccounts/saprddmz01"
     ],
     "parameters": {},
     "policyDefinitionId": "/providers/Microsoft.Management/managementGroups/77f54315-6dde-4fe7-9e17-74762c3eb096/providers/Microsoft.Authorization/policyDefinitions/CppSASku1",
