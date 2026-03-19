@@ -6,41 +6,50 @@
     "displayName": "Configure Azure Update Manager periodic assessment for Ubuntu (Canonical) VMs (assessment only)",
     "metadata": {
       "category": "Update Management",
-      "version": "1.0.0",
       "notes": [
         "JSON does not support comments; documentation is stored in metadata.notes.",
         "Targets Marketplace Ubuntu images via storageProfile.imageReference.publisher == Canonical (case-insensitive) AND offer like '*ubuntu*'.",
         "Remediation sets only osProfile.linuxConfiguration.patchSettings.assessmentMode to avoid enforcing patchMode/reboot settings.",
         "Use excludedResourceNamePatterns to opt out specific VMs by name if required."
-      ]
+      ],
+      "version": "1.0.0"
     },
     "mode": "Indexed",
     "parameters": {
       "effect": {
-        "allowedValues": ["DeployIfNotExists", "Disabled"],
+        "allowedValues": [
+          "DeployIfNotExists",
+          "Disabled"
+        ],
         "defaultValue": "DeployIfNotExists",
         "metadata": {
-          "displayName": "Effect",
-          "description": "Deploys the configuration when it is missing or misconfigured."
+          "description": "Deploys the configuration when it is missing or misconfigured.",
+          "displayName": "Effect"
         },
         "type": "String"
       },
       "excludedResourceNamePatterns": {
-        "type": "Array",
         "defaultValue": [],
         "metadata": {
-          "displayName": "Excluded VM name patterns",
-          "description": "Optional list of VM name patterns to exclude. Supports '*' wildcards. Empty array means no exclusions."
-        }
+          "description": "Optional list of VM name patterns to exclude. Supports '*' wildcards. Empty array means no exclusions.",
+          "displayName": "Excluded VM name patterns"
+        },
+        "type": "Array"
       }
     },
     "policyRule": {
       "if": {
         "allOf": [
-          { "field": "type", "equals": "Microsoft.Compute/virtualMachines" },
+          {
+            "equals": "Microsoft.Compute/virtualMachines",
+            "field": "type"
+          },
           {
             "field": "Microsoft.Compute/virtualMachines/storageProfile.imageReference.publisher",
-            "in": ["Canonical", "canonical"]
+            "in": [
+              "Canonical",
+              "canonical"
+            ]
           },
           {
             "field": "Microsoft.Compute/virtualMachines/storageProfile.imageReference.offer",
@@ -49,9 +58,12 @@
           {
             "not": {
               "count": {
-                "value": "[parameters('excludedResourceNamePatterns')]",
                 "name": "pattern",
-                "where": { "field": "name", "like": "[current('pattern')]" }
+                "value": "[parameters('excludedResourceNamePatterns')]",
+                "where": {
+                  "field": "name",
+                  "like": "[current('pattern')]"
+                }
               },
               "greater": 0
             }
@@ -59,40 +71,34 @@
         ]
       },
       "then": {
-        "effect": "[parameters('effect')]",
         "details": {
-          "type": "Microsoft.Compute/virtualMachines",
-          "roleDefinitionIds": [
-            "/providers/microsoft.authorization/roleDefinitions/9980e02c-c2be-4d73-94e8-173b1dc7cf3c"
-          ],
-          "existenceCondition": {
-            "allOf": [
-              {
-                "field": "Microsoft.Compute/virtualMachines/osProfile.linuxConfiguration.patchSettings.assessmentMode",
-                "equals": "AutomaticByPlatform"
-              }
-            ]
-          },
           "deployment": {
             "properties": {
               "mode": "incremental",
               "parameters": {
-                "location": { "value": "[field('location')]" },
-                "vmName": { "value": "[field('name')]" }
+                "location": {
+                  "value": "[field('location')]"
+                },
+                "vmName": {
+                  "value": "[field('name')]"
+                }
               },
               "template": {
                 "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
                 "contentVersion": "1.0.0.0",
                 "parameters": {
-                  "location": { "type": "string" },
-                  "vmName": { "type": "string" }
+                  "location": {
+                    "type": "string"
+                  },
+                  "vmName": {
+                    "type": "string"
+                  }
                 },
                 "resources": [
                   {
-                    "type": "Microsoft.Compute/virtualMachines",
                     "apiVersion": "2022-11-01",
-                    "name": "[parameters('vmName')]",
                     "location": "[parameters('location')]",
+                    "name": "[parameters('vmName')]",
                     "properties": {
                       "osProfile": {
                         "linuxConfiguration": {
@@ -101,13 +107,27 @@
                           }
                         }
                       }
-                    }
+                    },
+                    "type": "Microsoft.Compute/virtualMachines"
                   }
                 ]
               }
             }
-          }
-        }
+          },
+          "existenceCondition": {
+            "allOf": [
+              {
+                "equals": "AutomaticByPlatform",
+                "field": "Microsoft.Compute/virtualMachines/osProfile.linuxConfiguration.patchSettings.assessmentMode"
+              }
+            ]
+          },
+          "roleDefinitionIds": [
+            "/providers/microsoft.authorization/roleDefinitions/9980e02c-c2be-4d73-94e8-173b1dc7cf3c"
+          ],
+          "type": "Microsoft.Compute/virtualMachines"
+        },
+        "effect": "[parameters('effect')]"
       }
     },
     "policyType": "Custom"

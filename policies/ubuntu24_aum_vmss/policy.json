@@ -6,52 +6,61 @@
     "displayName": "Configure Azure Update Manager periodic assessment for Ubuntu (Canonical) Uniform VMSS (assessment only)",
     "metadata": {
       "category": "Update Management",
-      "version": "1.0.0",
       "notes": [
         "Targets Uniform VMSS only (orchestrationMode Uniform or missing).",
         "Targets Marketplace Ubuntu images via imageReference.publisher == Canonical (case-insensitive) AND offer like '*ubuntu*'.",
         "Remediation sets only virtualMachineProfile.osProfile.linuxConfiguration.patchSettings.assessmentMode."
-      ]
+      ],
+      "version": "1.0.0"
     },
     "mode": "Indexed",
     "parameters": {
       "effect": {
-        "allowedValues": ["DeployIfNotExists", "Disabled"],
+        "allowedValues": [
+          "DeployIfNotExists",
+          "Disabled"
+        ],
         "defaultValue": "DeployIfNotExists",
         "metadata": {
-          "displayName": "Effect",
-          "description": "Deploys the configuration when it is missing or misconfigured."
+          "description": "Deploys the configuration when it is missing or misconfigured.",
+          "displayName": "Effect"
         },
         "type": "String"
       },
       "excludedResourceNamePatterns": {
-        "type": "Array",
         "defaultValue": [],
         "metadata": {
-          "displayName": "Excluded VMSS name patterns",
-          "description": "Optional list of VMSS name patterns to exclude. Supports '*' wildcards. Empty array means no exclusions."
-        }
+          "description": "Optional list of VMSS name patterns to exclude. Supports '*' wildcards. Empty array means no exclusions.",
+          "displayName": "Excluded VMSS name patterns"
+        },
+        "type": "Array"
       }
     },
     "policyRule": {
       "if": {
         "allOf": [
-          { "field": "type", "equals": "Microsoft.Compute/virtualMachineScaleSets" },
+          {
+            "equals": "Microsoft.Compute/virtualMachineScaleSets",
+            "field": "type"
+          },
           {
             "anyOf": [
               {
-                "field": "Microsoft.Compute/virtualMachineScaleSets/orchestrationMode",
-                "equals": "Uniform"
+                "equals": "Uniform",
+                "field": "Microsoft.Compute/virtualMachineScaleSets/orchestrationMode"
               },
               {
-                "field": "Microsoft.Compute/virtualMachineScaleSets/orchestrationMode",
-                "exists": "false"
+                "exists": "false",
+                "field": "Microsoft.Compute/virtualMachineScaleSets/orchestrationMode"
               }
             ]
           },
           {
             "field": "Microsoft.Compute/virtualMachineScaleSets/virtualMachineProfile.storageProfile.imageReference.publisher",
-            "in": ["Canonical", "canonical"]
+            "in": [
+              "Canonical",
+              "canonical"
+            ]
           },
           {
             "field": "Microsoft.Compute/virtualMachineScaleSets/virtualMachineProfile.storageProfile.imageReference.offer",
@@ -60,9 +69,12 @@
           {
             "not": {
               "count": {
-                "value": "[parameters('excludedResourceNamePatterns')]",
                 "name": "pattern",
-                "where": { "field": "name", "like": "[current('pattern')]" }
+                "value": "[parameters('excludedResourceNamePatterns')]",
+                "where": {
+                  "field": "name",
+                  "like": "[current('pattern')]"
+                }
               },
               "greater": 0
             }
@@ -70,42 +82,34 @@
         ]
       },
       "then": {
-        "effect": "[parameters('effect')]",
         "details": {
-          "type": "Microsoft.Compute/virtualMachineScaleSets",
-          "name": "[field('name')]",
-          "evaluationDelay": "AfterProvisioningSuccess",
-          "roleDefinitionIds": [
-            "/providers/microsoft.authorization/roleDefinitions/9980e02c-c2be-4d73-94e8-173b1dc7cf3c"
-          ],
-          "existenceCondition": {
-            "allOf": [
-              {
-                "field": "Microsoft.Compute/virtualMachineScaleSets/virtualMachineProfile.osProfile.linuxConfiguration.patchSettings.assessmentMode",
-                "equals": "AutomaticByPlatform"
-              }
-            ]
-          },
           "deployment": {
             "properties": {
               "mode": "incremental",
               "parameters": {
-                "location": { "value": "[field('location')]" },
-                "vmssName": { "value": "[field('name')]" }
+                "location": {
+                  "value": "[field('location')]"
+                },
+                "vmssName": {
+                  "value": "[field('name')]"
+                }
               },
               "template": {
                 "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
                 "contentVersion": "1.0.0.0",
                 "parameters": {
-                  "location": { "type": "string" },
-                  "vmssName": { "type": "string" }
+                  "location": {
+                    "type": "string"
+                  },
+                  "vmssName": {
+                    "type": "string"
+                  }
                 },
                 "resources": [
                   {
-                    "type": "Microsoft.Compute/virtualMachineScaleSets",
                     "apiVersion": "2024-03-01",
-                    "name": "[parameters('vmssName')]",
                     "location": "[parameters('location')]",
+                    "name": "[parameters('vmssName')]",
                     "properties": {
                       "virtualMachineProfile": {
                         "osProfile": {
@@ -116,13 +120,29 @@
                           }
                         }
                       }
-                    }
+                    },
+                    "type": "Microsoft.Compute/virtualMachineScaleSets"
                   }
                 ]
               }
             }
-          }
-        }
+          },
+          "evaluationDelay": "AfterProvisioningSuccess",
+          "existenceCondition": {
+            "allOf": [
+              {
+                "equals": "AutomaticByPlatform",
+                "field": "Microsoft.Compute/virtualMachineScaleSets/virtualMachineProfile.osProfile.linuxConfiguration.patchSettings.assessmentMode"
+              }
+            ]
+          },
+          "name": "[field('name')]",
+          "roleDefinitionIds": [
+            "/providers/microsoft.authorization/roleDefinitions/9980e02c-c2be-4d73-94e8-173b1dc7cf3c"
+          ],
+          "type": "Microsoft.Compute/virtualMachineScaleSets"
+        },
+        "effect": "[parameters('effect')]"
       }
     },
     "policyType": "Custom"
