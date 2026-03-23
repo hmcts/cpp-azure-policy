@@ -1,5 +1,5 @@
 {
-  "id": "/subscriptions/e6b5053b-4c38-4475-a835-a025aeb3d8c7/providers/Microsoft.Authorization/policyAssignments/NlAumScanUbuntu24VMSS",
+  "id": "/subscriptions/e6b5053b-4c38-4475-a835-a025aeb3d8c7/providers/Microsoft.Authorization/policyAssignments/AumScanUbuntuVMSSAssessmentOnly",
   "identity": {
     "type": "UserAssigned",
     "userAssignedIdentities": {
@@ -7,38 +7,29 @@
     }
   },
   "location": "uksouth",
-  "name": "NlAumScanUbuntu24VMSS",
+  "name": "AumScanUbuntuVMSSAssessmentOnly",
   "properties": {
-    "description": "Configure Ubuntu 24.x Uniform VMSS for maintenance schedule-based patching in Nonlive using Azure Update Manager.",
-    "displayName": "Configure Azure Update Manager for Ubuntu 24.x Uniform VMSS - (Nonlive)",
+    "description": "Enables Azure Update Manager periodic assessment (scan) for Canonical Ubuntu marketplace Uniform VMSS by enforcing assessmentMode=AutomaticByPlatform.",
+    "displayName": "Azure Update Manager periodic assessment - Ubuntu Uniform VMSS (Nonlive)",
     "enforcementMode": "Default",
     "metadata": {
       "assignedBy": "github.com/hmcts/cpp-azure-policy"
     },
     "nonComplianceMessages": [
       {
-        "message": "Ubuntu 24.x Uniform VMSS requires both patchMode and assessmentMode set to AutomaticByPlatform to enable Azure Update Manager in-guest patching with maintenance schedules."
+        "message": "Ubuntu Uniform VMSS does not have Azure Update Manager periodic assessment (assessmentMode=AutomaticByPlatform) enabled."
       }
     ],
     "notScopes": [],
     "parameters": {
-      "assessmentMode": {
-        "value": "AutomaticByPlatform"
-      },
-      "bypassPlatformSafetyChecksOnUserSchedule": {
-        "value": true
-      },
       "effect": {
         "value": "DeployIfNotExists"
       },
-      "patchMode": {
-        "value": "AutomaticByPlatform"
-      },
-      "rebootSetting": {
-        "value": "Never"
+      "excludedResourceNamePatterns": {
+        "value": []
       }
     },
-    "policyDefinitionId": "/providers/Microsoft.Management/managementGroups/e2995d11-9947-4e78-9de6-d44e0603518e/providers/Microsoft.Authorization/policyDefinitions/CppUbuntu24AumVMSS",
+    "policyDefinitionId": "/providers/Microsoft.Management/managementGroups/e2995d11-9947-4e78-9de6-d44e0603518e/providers/Microsoft.Authorization/policyDefinitions/CppUbuntuAumVMSSAssessmentOnly",
     "scope": "/subscriptions/e6b5053b-4c38-4475-a835-a025aeb3d8c7"
   },
   "type": "Microsoft.Authorization/policyAssignments"

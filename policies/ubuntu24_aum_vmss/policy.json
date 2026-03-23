@@ -1,38 +1,20 @@
 {
-  "id": "/providers/Microsoft.Management/managementGroups/e2995d11-9947-4e78-9de6-d44e0603518e/providers/Microsoft.Authorization/policyDefinitions/CppUbuntu24AumVMSS",
-  "name": "CppUbuntu24AumVMSS",
+  "id": "/providers/Microsoft.Management/managementGroups/e2995d11-9947-4e78-9de6-d44e0603518e/providers/Microsoft.Authorization/policyDefinitions/CppUbuntuAumVMSSAssessmentOnly",
+  "name": "CppUbuntuAumVMSSAssessmentOnly",
   "properties": {
-    "description": "Configure Ubuntu 24.x Uniform VMSS for Azure Update Manager In-Guest patching using maintenance schedules.",
-    "displayName": "Ubuntu 24.x Uniform VMSS Maintenance Schedule Configuration",
+    "description": "Configure Azure Update Manager periodic assessment (scan) for Canonical Ubuntu Uniform VMSS by enforcing patchSettings.assessmentMode = AutomaticByPlatform.",
+    "displayName": "Configure Azure Update Manager periodic assessment for Ubuntu (Canonical) Uniform VMSS (assessment only)",
     "metadata": {
       "category": "Update Management",
-      "version": "1.0.8"
+      "notes": [
+        "Targets Uniform VMSS only (orchestrationMode Uniform or missing).",
+        "Targets Marketplace Ubuntu images via imageReference.publisher == Canonical (case-insensitive) AND offer like '*ubuntu*'.",
+        "Remediation sets only virtualMachineProfile.osProfile.linuxConfiguration.patchSettings.assessmentMode."
+      ],
+      "version": "1.0.0"
     },
     "mode": "Indexed",
     "parameters": {
-      "assessmentMode": {
-        "allowedValues": [
-          "AutomaticByPlatform"
-        ],
-        "defaultValue": "AutomaticByPlatform",
-        "metadata": {
-          "description": "Assessment mode for Ubuntu 24.x Uniform VMSS",
-          "displayName": "Assessment Mode"
-        },
-        "type": "String"
-      },
-      "bypassPlatformSafetyChecksOnUserSchedule": {
-        "allowedValues": [
-          true,
-          false
-        ],
-        "defaultValue": true,
-        "metadata": {
-          "description": "Bypass platform safety checks on user schedule - required for Maintenance Control to honour schedule",
-          "displayName": "Bypass Platform Safety Checks On User Schedule"
-        },
-        "type": "Boolean"
-      },
       "effect": {
         "allowedValues": [
           "DeployIfNotExists",
@@ -40,34 +22,18 @@
         ],
         "defaultValue": "DeployIfNotExists",
         "metadata": {
-          "description": "Enable or disable the execution of the policy",
+          "description": "Deploys the configuration when it is missing or misconfigured.",
           "displayName": "Effect"
         },
         "type": "String"
       },
-      "patchMode": {
-        "allowedValues": [
-          "AutomaticByPlatform"
-        ],
-        "defaultValue": "AutomaticByPlatform",
+      "excludedResourceNamePatterns": {
+        "defaultValue": [],
         "metadata": {
-          "description": "Patch mode for Ubuntu 24.x VMSS - required for maintenance schedules",
-          "displayName": "Patch Mode"
+          "description": "Optional list of VMSS name patterns to exclude. Supports '*' wildcards. Empty array means no exclusions.",
+          "displayName": "Excluded VMSS name patterns"
         },
-        "type": "String"
-      },
-      "rebootSetting": {
-        "allowedValues": [
-          "Always",
-          "IfRequired",
-          "Never"
-        ],
-        "defaultValue": "Never",
-        "metadata": {
-          "description": "Reboot setting after patching for Ubuntu 24.x VMSS",
-          "displayName": "Reboot Setting"
-        },
-        "type": "String"
+        "type": "Array"
       }
     },
     "policyRule": {
@@ -90,63 +56,28 @@
             ]
           },
           {
-            "anyOf": [
-              {
-                "allOf": [
-                  {
-                    "field": "Microsoft.Compute/virtualMachineScaleSets/virtualMachineProfile.storageProfile.imageReference.publisher",
-                    "in": [
-                      "Canonical",
-                      "canonical"
-                    ]
-                  },
-                  {
-                    "anyOf": [
-                      {
-                        "equals": "ubuntu-24_04-lts",
-                        "field": "Microsoft.Compute/virtualMachineScaleSets/virtualMachineProfile.storageProfile.imageReference.offer"
-                      },
-                      {
-                        "equals": "0001-com-ubuntu-server-noble",
-                        "field": "Microsoft.Compute/virtualMachineScaleSets/virtualMachineProfile.storageProfile.imageReference.offer"
-                      },
-                      {
-                        "equals": "0001-com-ubuntu-pro-noble",
-                        "field": "Microsoft.Compute/virtualMachineScaleSets/virtualMachineProfile.storageProfile.imageReference.offer"
-                      },
-                      {
-                        "equals": "ubuntu-24_10",
-                        "field": "Microsoft.Compute/virtualMachineScaleSets/virtualMachineProfile.storageProfile.imageReference.offer"
-                      },
-                      {
-                        "equals": "0001-com-ubuntu-server-oracular",
-                        "field": "Microsoft.Compute/virtualMachineScaleSets/virtualMachineProfile.storageProfile.imageReference.offer"
-                      }
-                    ]
-                  }
-                ]
-              },
-              {
-                "anyOf": [
-                  {
-                    "contains": "artemis_2_18_j11",
-                    "field": "Microsoft.Compute/virtualMachineScaleSets/virtualMachineProfile.storageProfile.imageReference.id"
-                  },
-                  {
-                    "contains": "artemis_ubuntu_24_image",
-                    "field": "Microsoft.Compute/virtualMachineScaleSets/virtualMachineProfile.storageProfile.imageReference.id"
-                  },
-                  {
-                    "contains": "ubuntu_24_image",
-                    "field": "Microsoft.Compute/virtualMachineScaleSets/virtualMachineProfile.storageProfile.imageReference.id"
-                  },
-                  {
-                    "contains": "packer_shareimages/images/artemis_image",
-                    "field": "Microsoft.Compute/virtualMachineScaleSets/virtualMachineProfile.storageProfile.imageReference.id"
-                  }
-                ]
-              }
+            "field": "Microsoft.Compute/virtualMachineScaleSets/virtualMachineProfile.storageProfile.imageReference.publisher",
+            "in": [
+              "Canonical",
+              "canonical"
             ]
+          },
+          {
+            "field": "Microsoft.Compute/virtualMachineScaleSets/virtualMachineProfile.storageProfile.imageReference.offer",
+            "like": "*ubuntu*"
+          },
+          {
+            "not": {
+              "count": {
+                "name": "pattern",
+                "value": "[parameters('excludedResourceNamePatterns')]",
+                "where": {
+                  "field": "name",
+                  "like": "[current('pattern')]"
+                }
+              },
+              "greater": 0
+            }
           }
         ]
       },
@@ -156,20 +87,8 @@
             "properties": {
               "mode": "incremental",
               "parameters": {
-                "assessmentMode": {
-                  "value": "[parameters('assessmentMode')]"
-                },
-                "bypassPlatformSafetyChecksOnUserSchedule": {
-                  "value": "[parameters('bypassPlatformSafetyChecksOnUserSchedule')]"
-                },
                 "location": {
                   "value": "[field('location')]"
-                },
-                "patchMode": {
-                  "value": "[parameters('patchMode')]"
-                },
-                "rebootSetting": {
-                  "value": "[parameters('rebootSetting')]"
                 },
                 "vmssName": {
                   "value": "[field('name')]"
@@ -179,19 +98,7 @@
                 "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
                 "contentVersion": "1.0.0.0",
                 "parameters": {
-                  "assessmentMode": {
-                    "type": "string"
-                  },
-                  "bypassPlatformSafetyChecksOnUserSchedule": {
-                    "type": "boolean"
-                  },
                   "location": {
-                    "type": "string"
-                  },
-                  "patchMode": {
-                    "type": "string"
-                  },
-                  "rebootSetting": {
                     "type": "string"
                   },
                   "vmssName": {
@@ -207,14 +114,8 @@
                       "virtualMachineProfile": {
                         "osProfile": {
                           "linuxConfiguration": {
-                            "enableVmAgentPlatformUpdates": true,
                             "patchSettings": {
-                              "assessmentMode": "[parameters('assessmentMode')]",
-                              "automaticByPlatformSettings": {
-                                "bypassPlatformSafetyChecksOnUserSchedule": "[parameters('bypassPlatformSafetyChecksOnUserSchedule')]",
-                                "rebootSetting": "[parameters('rebootSetting')]"
-                              },
-                              "patchMode": "[parameters('patchMode')]"
+                              "assessmentMode": "AutomaticByPlatform"
                             }
                           }
                         }
@@ -230,20 +131,8 @@
           "existenceCondition": {
             "allOf": [
               {
-                "equals": "[parameters('patchMode')]",
-                "field": "Microsoft.Compute/virtualMachineScaleSets/virtualMachineProfile.osProfile.linuxConfiguration.patchSettings.patchMode"
-              },
-              {
-                "equals": "[parameters('assessmentMode')]",
+                "equals": "AutomaticByPlatform",
                 "field": "Microsoft.Compute/virtualMachineScaleSets/virtualMachineProfile.osProfile.linuxConfiguration.patchSettings.assessmentMode"
-              },
-              {
-                "equals": "true",
-                "field": "Microsoft.Compute/virtualMachineScaleSets/virtualMachineProfile.osProfile.linuxConfiguration.patchSettings.automaticByPlatformSettings.bypassPlatformSafetyChecksOnUserSchedule"
-              },
-              {
-                "equals": "[parameters('rebootSetting')]",
-                "field": "Microsoft.Compute/virtualMachineScaleSets/virtualMachineProfile.osProfile.linuxConfiguration.patchSettings.automaticByPlatformSettings.rebootSetting"
               }
             ]
           },
