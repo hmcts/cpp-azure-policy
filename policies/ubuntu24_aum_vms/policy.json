@@ -53,7 +53,7 @@
           },
           {
             "field": "Microsoft.Compute/virtualMachines/storageProfile.imageReference.offer",
-            "like": "*ubuntu*"
+            "contains": "ubuntu"
           },
           {
             "not": {
