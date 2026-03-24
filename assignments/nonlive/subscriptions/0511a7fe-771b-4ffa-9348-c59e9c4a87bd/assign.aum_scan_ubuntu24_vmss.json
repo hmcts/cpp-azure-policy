@@ -1,5 +1,5 @@
 {
-  "id": "/subscriptions/0511a7fe-771b-4ffa-9348-c59e9c4a87bd/providers/Microsoft.Authorization/policyAssignments/AumScanUbuntuVMSSAssessmentOnly",
+  "id": "/subscriptions/0511a7fe-771b-4ffa-9348-c59e9c4a87bd/providers/Microsoft.Authorization/policyAssignments/AumScanUbuntuVMSSAssessmentOnly-Idam",
   "identity": {
     "type": "UserAssigned",
     "userAssignedIdentities": {
@@ -7,10 +7,10 @@
     }
   },
   "location": "uksouth",
-  "name": "AumScanUbuntuVMSSAssessmentOnly",
+  "name": "AumScanUbuntuVMSSAssessmentOnly-Idam",
   "properties": {
     "description": "Enables Azure Update Manager periodic assessment (scan) for Canonical Ubuntu marketplace Uniform VMSS by enforcing assessmentMode=AutomaticByPlatform.",
-    "displayName": "Azure Update Manager periodic assessment - Ubuntu Uniform VMSS (Nonlive)",
+    "displayName": "Azure Update Manager periodic assessment - Ubuntu Uniform VMSS - (CPP IdAM nonlive)",
     "enforcementMode": "Default",
     "metadata": {
       "assignedBy": "github.com/hmcts/cpp-azure-policy"
