@@ -52,8 +52,8 @@
             ]
           },
           {
-            "field": "Microsoft.Compute/virtualMachines/storageProfile.imageReference.offer",
-            "contains": "ubuntu"
+            "contains": "ubuntu",
+            "field": "Microsoft.Compute/virtualMachines/storageProfile.imageReference.offer"
           },
           {
             "not": {
