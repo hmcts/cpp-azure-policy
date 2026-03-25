@@ -53,7 +53,7 @@
           },
           {
             "contains": "ubuntu",
-            "field": "Microsoft.Compute/virtualMachines/properties.storageProfile.imageReference.offer"
+            "field": "Microsoft.Compute/virtualMachines/storageProfile.imageReference.offer"
           },
           {
             "not": {
