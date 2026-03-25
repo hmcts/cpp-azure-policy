@@ -17,25 +17,16 @@
     },
     "nonComplianceMessages": [
       {
-        "message": "Ubuntu 24.x Uniform VMSS requires both patchMode and assessmentMode set to AutomaticByPlatform to enable Azure Update Manager in-guest patching with maintenance schedules."
+        "message": "Ubuntu Uniform VMSS does not have Azure Update Manager periodic assessment (assessmentMode=AutomaticByPlatform) enabled."
       }
     ],
     "notScopes": [],
     "parameters": {
-      "assessmentMode": {
-        "value": "AutomaticByPlatform"
-      },
-      "bypassPlatformSafetyChecksOnUserSchedule": {
-        "value": true
-      },
       "effect": {
         "value": "DeployIfNotExists"
       },
-      "patchMode": {
-        "value": "AutomaticByPlatform"
-      },
-      "rebootSetting": {
-        "value": "Never"
+      "excludedResourceNamePatterns": {
+        "value": []
       }
     },
     "policyDefinitionId": "/providers/Microsoft.Management/managementGroups/77f54315-6dde-4fe7-9e17-74762c3eb096/providers/Microsoft.Authorization/policyDefinitions/CppUbuntu24AumVMSS",
