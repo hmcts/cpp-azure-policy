@@ -45,15 +45,15 @@
             "field": "type"
           },
           {
-            "field": "Microsoft.Compute/virtualMachines/storageProfile.imageReference.publisher",
+            "field": "Microsoft.Compute/virtualMachines/properties.storageProfile.imageReference.publisher",
             "in": [
               "Canonical",
               "canonical"
             ]
           },
           {
-            "contains": "ubuntu",
-            "field": "Microsoft.Compute/virtualMachines/storageProfile.imageReference.offer"
+            "field": "Microsoft.Compute/virtualMachines/properties.storageProfile.imageReference.offer",
+            "contains": "ubuntu"
           },
           {
             "not": {
@@ -118,7 +118,7 @@
             "allOf": [
               {
                 "equals": "AutomaticByPlatform",
-                "field": "Microsoft.Compute/virtualMachines/osProfile.linuxConfiguration.patchSettings.assessmentMode"
+                "field": "Microsoft.Compute/virtualMachines/properties.osProfile.linuxConfiguration.patchSettings.assessmentMode"
               }
             ]
           },
