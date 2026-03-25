@@ -56,7 +56,7 @@
             ]
           },
           {
-            "field": "Microsoft.Compute/virtualMachineScaleSets/properties.virtualMachineProfile.storageProfile.imageReference.publisher",
+            "field": "Microsoft.Compute/virtualMachineScaleSets/virtualMachineProfile.storageProfile.imageReference.publisher",
             "in": [
               "Canonical",
               "canonical"
