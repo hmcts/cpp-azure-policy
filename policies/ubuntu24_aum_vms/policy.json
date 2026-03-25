@@ -45,7 +45,7 @@
             "field": "type"
           },
           {
-            "field": "Microsoft.Compute/virtualMachines/properties.storageProfile.imageReference.publisher",
+            "field": "Microsoft.Compute/virtualMachines/storageProfile.imageReference.publisher",
             "in": [
               "Canonical",
               "canonical"
@@ -118,7 +118,7 @@
             "allOf": [
               {
                 "equals": "AutomaticByPlatform",
-                "field": "Microsoft.Compute/virtualMachines/properties.osProfile.linuxConfiguration.patchSettings.assessmentMode"
+                "field": "Microsoft.Compute/virtualMachines/osProfile.linuxConfiguration.patchSettings.assessmentMode"
               }
             ]
           },

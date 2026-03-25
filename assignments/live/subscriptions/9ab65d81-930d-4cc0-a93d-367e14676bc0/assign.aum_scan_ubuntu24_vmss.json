@@ -29,7 +29,7 @@
         "value": []
       }
     },
-    "policyDefinitionId": "/providers/Microsoft.Management/managementGroups/77f54315-6dde-4fe7-9e17-74762c3eb096/providers/Microsoft.Authorization/policyDefinitions/CppUbuntu24AumVMSS",
+    "policyDefinitionId": "/providers/Microsoft.Management/managementGroups/77f54315-6dde-4fe7-9e17-74762c3eb096/providers/Microsoft.Authorization/policyDefinitions/CppUbuntuAumVMSSAssessmentOnly",
     "scope": "/subscriptions/9ab65d81-930d-4cc0-a93d-367e14676bc0"
   },
   "type": "Microsoft.Authorization/policyAssignments"
