@@ -119,6 +119,10 @@
               {
                 "equals": "AutomaticByPlatform",
                 "field": "Microsoft.Compute/virtualMachines/osProfile.linuxConfiguration.patchSettings.assessmentMode"
+              },
+              {
+                "field": "Microsoft.Compute/virtualMachines/osProfile.linuxConfiguration.patchSettings.patchMode",
+                "notEquals": "AutomaticByPlatform"
               }
             ]
           },
