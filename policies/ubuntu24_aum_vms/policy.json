@@ -14,7 +14,7 @@
       ],
       "version": "1.0.0"
     },
-    "mode": "Indexed",
+    "mode": "All",
     "parameters": {
       "effect": {
         "allowedValues": [
