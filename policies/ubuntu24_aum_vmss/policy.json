@@ -85,6 +85,7 @@
         "details": {
           "deployment": {
             "properties": {
+              "evaluationDelay": "AfterProvisioningSuccess",
               "mode": "incremental",
               "parameters": {
                 "location": {
@@ -127,7 +128,6 @@
               }
             }
           },
-          "evaluationDelay": "AfterProvisioningSuccess",
           "existenceCondition": {
             "allOf": [
               {
@@ -136,7 +136,10 @@
               },
               {
                 "field": "Microsoft.Compute/virtualMachineScaleSets/virtualMachineProfile.osProfile.linuxConfiguration.patchSettings.patchMode",
-                "notEquals": "AutomaticByPlatform"
+                "in": [
+                  "ImageDefault",
+                  "CustomerManagedSchedules"
+                ]
               }
             ]
           },

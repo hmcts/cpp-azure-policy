@@ -122,7 +122,10 @@
               },
               {
                 "field": "Microsoft.Compute/virtualMachines/osProfile.linuxConfiguration.patchSettings.patchMode",
-                "notEquals": "AutomaticByPlatform"
+                "in": [
+                  "ImageDefault",
+                  "CustomerManagedSchedules"
+                ]
               }
             ]
           },
