@@ -133,13 +133,6 @@
               {
                 "equals": "AutomaticByPlatform",
                 "field": "Microsoft.Compute/virtualMachineScaleSets/virtualMachineProfile.osProfile.linuxConfiguration.patchSettings.assessmentMode"
-              },
-              {
-                "field": "Microsoft.Compute/virtualMachineScaleSets/virtualMachineProfile.osProfile.linuxConfiguration.patchSettings.patchMode",
-                "in": [
-                  "ImageDefault",
-                  "CustomerManagedSchedules"
-                ]
               }
             ]
           },
