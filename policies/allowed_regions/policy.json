@@ -11,7 +11,8 @@
           "Microsoft.Cdn/profiles",
           "Microsoft.Cdn/profiles/endpoints",
           "Microsoft.Cdn/profiles",
-          "microsoft.insights/scheduledqueryrules"
+          "microsoft.insights/scheduledqueryrules",
+          "Microsoft.Maps/accounts"
         ],
         "metadata": {
           "description": "Resource Types to exclude from compliance results",
