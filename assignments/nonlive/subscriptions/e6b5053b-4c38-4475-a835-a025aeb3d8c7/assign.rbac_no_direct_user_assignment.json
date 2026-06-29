@@ -1,0 +1,27 @@
+{
+  "properties": {
+    "metadata": {
+      "assignedBy": "github.com/hmcts/azure-policy"
+    },
+    "description": "Audits direct Azure RBAC role assignments to individual user identities and time-bound PIM eligible assignments for configured privileged administrator roles at subscription or management group scope.",
+    "displayName": "HMCTS Restrict Direct User RBAC Assignments - CFT SBOX (DCD-CFTAPPS-SBOX)",
+    "enforcementMode": "Default",
+    "nonComplianceMessages": [
+      {
+        "message": "Direct user RBAC role assignments are not permitted. Time-bound PIM eligible assignments for restricted privileged administrator roles are also not permitted. Assign roles through Entra ID Groups, Service Principals, or Managed Identities. See https://github.com/hmcts/azure-policy/blob/master/policies/rbac_no_direct_user_assignment/README.md"
+      }
+    ],
+    "notScopes": [
+    ],
+    "parameters": {
+      "effect": {
+        "value": "Deny"
+      }
+    },
+    "policyDefinitionId": "/providers/Microsoft.Management/managementGroups/HMCTS/providers/Microsoft.Authorization/policyDefinitions/HMCTSNoDirectUserRbac",
+    "scope": "/subscriptions/e6b5053b-4c38-4475-a835-a025aeb3d8c7"
+  },
+  "type": "Microsoft.Authorization/policyAssignments",
+  "id": "/subscriptions/e6b5053b-4c38-4475-a835-a025aeb3d8c7/providers/Microsoft.Authorization/policyAssignments/HMCTSNoDirectUserRbac-Sbox",
+  "name": "HMCTSNoDirectUserRbac-Sbox"
+}
