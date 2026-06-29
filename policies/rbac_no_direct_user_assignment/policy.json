@@ -1,32 +1,28 @@
 {
+  "id": "/providers/Microsoft.Management/managementGroups/e2995d11-9947-4e78-9de6-d44e0603518e/providers/Microsoft.Authorization/policyDefinitions/HMCTSNoDirectUserRbac",
+  "name": "HMCTSNoDirectUserRbac",
   "properties": {
-    "displayName": "CPP Restrict Direct User RBAC Assignments",
-    "policyType": "Custom",
-    "mode": "All",
     "description": "Audits or denies direct Azure RBAC role assignments to individual user identities at any scope, and time-bound PIM eligible assignments for configured privileged administrator roles. Role assignments must be made through Microsoft Entra ID Groups, Service Principals, or Managed Identities to enforce governed access pathways and reduce standing privilege risk.",
+    "displayName": "CPP Restrict Direct User RBAC Assignments",
     "metadata": {
       "category": "Authorization"
     },
+    "mode": "All",
     "parameters": {
       "effect": {
-        "type": "String",
-        "metadata": {
-          "displayName": "Effect",
-          "description": "Audit logs non-compliant assignments. Deny prevents new direct user assignments and configured privileged eligible assignments. Disabled turns off the policy."
-        },
         "allowedValues": [
           "Audit",
           "Deny",
           "Disabled"
         ],
-        "defaultValue": "Audit"
+        "defaultValue": "Audit",
+        "metadata": {
+          "description": "Audit logs non-compliant assignments. Deny prevents new direct user assignments and configured privileged eligible assignments. Disabled turns off the policy.",
+          "displayName": "Effect"
+        },
+        "type": "String"
       },
       "privilegedEligibleRoleDefinitionIds": {
-        "type": "Array",
-        "metadata": {
-          "displayName": "Privileged eligible role definition IDs",
-          "description": "Role definition GUIDs for privileged administrator roles where time-bound PIM eligible assignments should be denied."
-        },
         "defaultValue": [
           "8e3af657-a8ff-443c-a75c-2fe8c4bcb635",
           "b24988ac-6180-42a0-ab88-20f7382dd24c",
@@ -45,7 +41,12 @@
           "7934385c-44e3-a8b9-a06b-c02469d7ef65",
           "90cff09e-5786-a9c9-b3a6-763943ec08e4",
           "4556b161-c20d-4645-9fca-fed719d2c3e0"
-        ]
+        ],
+        "metadata": {
+          "description": "Role definition GUIDs for privileged administrator roles where time-bound PIM eligible assignments should be denied.",
+          "displayName": "Privileged eligible role definition IDs"
+        },
+        "type": "Array"
       }
     },
     "policyRule": {
@@ -54,20 +55,20 @@
           {
             "allOf": [
               {
-                "field": "type",
-                "equals": "Microsoft.Authorization/roleAssignments"
+                "equals": "Microsoft.Authorization/roleAssignments",
+                "field": "type"
               },
               {
-                "field": "Microsoft.Authorization/roleAssignments/principalType",
-                "equals": "User"
+                "equals": "User",
+                "field": "Microsoft.Authorization/roleAssignments/principalType"
               }
             ]
           },
           {
             "allOf": [
               {
-                "field": "type",
-                "equals": "Microsoft.Authorization/roleEligibilityScheduleRequests"
+                "equals": "Microsoft.Authorization/roleEligibilityScheduleRequests",
+                "field": "type"
               },
               {
                 "field": "Microsoft.Authorization/roleEligibilityScheduleRequests/requestType",
@@ -86,8 +87,8 @@
                 ]
               },
               {
-                "value": "[last(split(field('Microsoft.Authorization/roleEligibilityScheduleRequests/roleDefinitionId'), '/'))]",
-                "in": "[parameters('privilegedEligibleRoleDefinitionIds')]"
+                "in": "[parameters('privilegedEligibleRoleDefinitionIds')]",
+                "value": "[last(split(field('Microsoft.Authorization/roleEligibilityScheduleRequests/roleDefinitionId'), '/'))]"
               }
             ]
           }
@@ -96,9 +97,8 @@
       "then": {
         "effect": "[parameters('effect')]"
       }
-    }
+    },
+    "policyType": "Custom"
   },
-  "id": "/providers/Microsoft.Management/managementGroups/e2995d11-9947-4e78-9de6-d44e0603518e/providers/Microsoft.Authorization/policyDefinitions/HMCTSNoDirectUserRbac",
-  "type": "Microsoft.Authorization/policyDefinitions",
-  "name": "HMCTSNoDirectUserRbac"
+  "type": "Microsoft.Authorization/policyDefinitions"
 }
