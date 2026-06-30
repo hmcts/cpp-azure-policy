@@ -1,0 +1,26 @@
+{
+  "id": "/subscriptions/e6b5053b-4c38-4475-a835-a025aeb3d8c7/providers/Microsoft.Authorization/policyAssignments/HMCTSNoDirectUserRbac-NON-LIVE",
+  "name": "HMCTSNoDirectUserRbac-NON-LIVE",
+  "properties": {
+    "description": "Audits direct Azure RBAC role assignments to individual user identities and time-bound PIM eligible assignments for configured privileged administrator roles at subscription or management group scope.",
+    "displayName": "HMCTS Restrict Direct User RBAC Assignments - Strategic Platform - non-live",
+    "enforcementMode": "Default",
+    "metadata": {
+      "assignedBy": "github.com/hmcts/cpp-azure-policy"
+    },
+    "nonComplianceMessages": [
+      {
+        "message": "Direct user RBAC role assignments are not permitted. Time-bound PIM eligible assignments for restricted privileged administrator roles are also not permitted. Assign roles through Entra ID Groups, Service Principals, or Managed Identities. See https://github.com/hmcts/cpp-azure-policy/blob/master/policies/rbac_no_direct_user_assignment/README.md"
+      }
+    ],
+    "notScopes": [],
+    "parameters": {
+      "effect": {
+        "value": "Deny"
+      }
+    },
+    "policyDefinitionId": "/providers/Microsoft.Management/managementGroups/e2995d11-9947-4e78-9de6-d44e0603518e/providers/Microsoft.Authorization/policyDefinitions/HMCTSNoDirectUserRbac",
+    "scope": "/subscriptions/e6b5053b-4c38-4475-a835-a025aeb3d8c7"
+  },
+  "type": "Microsoft.Authorization/policyAssignments"
+}

@@ -1,0 +1,104 @@
+{
+  "id": "/providers/Microsoft.Management/managementGroups/e2995d11-9947-4e78-9de6-d44e0603518e/providers/Microsoft.Authorization/policyDefinitions/HMCTSNoDirectUserRbac",
+  "name": "HMCTSNoDirectUserRbac",
+  "properties": {
+    "description": "Audits or denies direct Azure RBAC role assignments to individual user identities at any scope, and time-bound PIM eligible assignments for configured privileged administrator roles. Role assignments must be made through Microsoft Entra ID Groups, Service Principals, or Managed Identities to enforce governed access pathways and reduce standing privilege risk.",
+    "displayName": "CPP Restrict Direct User RBAC Assignments",
+    "metadata": {
+      "category": "Authorization"
+    },
+    "mode": "All",
+    "parameters": {
+      "effect": {
+        "allowedValues": [
+          "Audit",
+          "Deny",
+          "Disabled"
+        ],
+        "defaultValue": "Audit",
+        "metadata": {
+          "description": "Audit logs non-compliant assignments. Deny prevents new direct user assignments and configured privileged eligible assignments. Disabled turns off the policy.",
+          "displayName": "Effect"
+        },
+        "type": "String"
+      },
+      "privilegedEligibleRoleDefinitionIds": {
+        "defaultValue": [
+          "8e3af657-a8ff-443c-a75c-2fe8c4bcb635",
+          "b24988ac-6180-42a0-ab88-20f7382dd24c",
+          "76cc9ee4-d5d3-4a45-a930-26add3d73475",
+          "f58310d9-a9f6-439a-9e8d-f62e7b41a168",
+          "18d7d88d-d35e-4fb5-a5c3-7773c20a72d9",
+          "3a5667bb-b964-48e8-19a5-a920f2bf80a0",
+          "593a72ef-741e-4228-965b-d55834a0dcb5",
+          "e50d4fa1-4618-4b45-b1c0-5325c367fa81",
+          "9570eb10-dac9-4b29-bf86-35e5023642c1",
+          "a375a0f4-d641-40b4-9c26-e21a9b7d18de",
+          "0156128b-ff38-4edc-9ae4-fea3919ff917",
+          "17fb8404-afb3-64ba-b070-b10147108db4",
+          "0434eb54-77ee-00b4-eb3b-38763e88744c",
+          "97f4359a-cb2d-406e-dfb0-6b22979bff47",
+          "7934385c-44e3-a8b9-a06b-c02469d7ef65",
+          "90cff09e-5786-a9c9-b3a6-763943ec08e4",
+          "4556b161-c20d-4645-9fca-fed719d2c3e0"
+        ],
+        "metadata": {
+          "description": "Role definition GUIDs for privileged administrator roles where time-bound PIM eligible assignments should be denied.",
+          "displayName": "Privileged eligible role definition IDs"
+        },
+        "type": "Array"
+      }
+    },
+    "policyRule": {
+      "if": {
+        "anyOf": [
+          {
+            "allOf": [
+              {
+                "equals": "Microsoft.Authorization/roleAssignments",
+                "field": "type"
+              },
+              {
+                "equals": "User",
+                "field": "Microsoft.Authorization/roleAssignments/principalType"
+              }
+            ]
+          },
+          {
+            "allOf": [
+              {
+                "equals": "Microsoft.Authorization/roleEligibilityScheduleRequests",
+                "field": "type"
+              },
+              {
+                "field": "Microsoft.Authorization/roleEligibilityScheduleRequests/requestType",
+                "in": [
+                  "AdminAssign",
+                  "AdminUpdate",
+                  "AdminExtend",
+                  "AdminRenew"
+                ]
+              },
+              {
+                "field": "Microsoft.Authorization/roleEligibilityScheduleRequests/scheduleInfo.expiration.type",
+                "in": [
+                  "AfterDateTime",
+                  "AfterDuration"
+                ]
+              },
+              {
+                "in": "[parameters('privilegedEligibleRoleDefinitionIds')]",
+                "value": "[last(split(field('Microsoft.Authorization/roleEligibilityScheduleRequests/roleDefinitionId'), '/'))]"
+              }
+            ]
+          }
+        ]
+      },
+      "then": {
+        "effect": "[parameters('effect')]"
+      }
+    },
+    "policyType": "Custom"
+  },
+  "type": "Microsoft.Authorization/policyDefinitions"
+}
