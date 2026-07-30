@@ -2,7 +2,7 @@
   "id": "/subscriptions/e6b5053b-4c38-4475-a835-a025aeb3d8c7/providers/Microsoft.Authorization/policyAssignments/HMCTSNoDirectUserRbac-NON-LIVE",
   "name": "HMCTSNoDirectUserRbac-NON-LIVE",
   "properties": {
-    "description": "Audits direct Azure RBAC role assignments to individual user identities and time-bound PIM eligible assignments for configured privileged administrator roles at subscription or management group scope.",
+    "description": "Deny direct Azure RBAC role assignments to individual user identities and time-bound PIM eligible assignments for configured privileged administrator roles at subscription or management group scope.",
     "displayName": "HMCTS Restrict Direct User RBAC Assignments - Strategic Platform - non-live",
     "enforcementMode": "Default",
     "metadata": {
