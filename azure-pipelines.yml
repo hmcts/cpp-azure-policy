@@ -8,17 +8,12 @@ resources:
     - repository: cppAzureDevOpsTemplates
       type: github
       name: hmcts/cpp-azure-devops-templates
-      ref: "DTSPO-26989-flexible-stages"
+      ref: "main"
       endpoint: "hmcts"
 
 parameters:
   - name: tfversion
     default: 1.12.2
-  - name: agentPool
-    values:
-      - "MDV-ADO-AGENTS-01"
-      - "MPD-ADO-AGENTS-01"
-    default: "MDV-ADO-AGENTS-01"
   - name: platform
     values:
       - "nonlive"
@@ -42,16 +37,20 @@ variables:
         value: ado_nonlive_workload_identity
       - name: vaultAdminCredentialsVarGroup
         value: cpp-nonlive-vault-admin
+      - name: agentPool
+        value: "ubuntu-ado-agents-mdv"
   - ${{ if eq(parameters.platform, 'live') }}:
       - name: azureServiceConnection
         value: ado_live_workload_identity
       - name: vaultAdminCredentialsVarGroup
         value: cpp-live-vault-admin
+      - name: agentPool
+        value: "ubuntu-ado-agents-mpd"
 
 stages:
   - stage: precommit
     pool:
-      name: ${{ parameters.agentPool }}
+      name: ${{ variables.agentPool }}
     jobs:
       - job: pre
         condition: eq(variables['Build.Reason'], 'PullRequest')
@@ -68,7 +67,7 @@ stages:
           vaultAdminCredentialsVarGroup: ${{ variables.vaultAdminCredentialsVarGroup }}
           platform: ${{ parameters.platform }}
           environment: ${{ parameters.platform }}
-          agentPool: ${{ parameters.agentPool }}
+          agentPool: ${{ variables.agentPool }}
           targetResources: ${{ parameters.targetResources }}
 
   # Trigger compliance scan after successful apply
@@ -77,7 +76,7 @@ stages:
         displayName: Trigger Policy State Scan
         condition: succeeded()
         pool:
-          name: ${{ parameters.agentPool }}
+          name: ${{ variables.agentPool }}
         jobs:
           - job: scan
             steps:
