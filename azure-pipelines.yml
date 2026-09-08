@@ -14,11 +14,6 @@ resources:
 parameters:
   - name: tfversion
     default: 1.12.2
-  - name: agentPool
-    values:
-      - "MDV-ADO-AGENTS-01"
-      - "MPD-ADO-AGENTS-01"
-    default: "MDV-ADO-AGENTS-01"
   - name: platform
     values:
       - "nonlive"
