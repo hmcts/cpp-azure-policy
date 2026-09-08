@@ -57,8 +57,8 @@
               "name": "identifier",
               "value": "[parameters('nonProductionIdentifiers')]",
               "where": {
-                "field": "resourceGroup",
-                "like": "[concat('*', current('identifier'), '*')]"
+                "field": "id",
+                "like": "[concat('*/resourceGroups/*', current('identifier'), '*/providers/*')]"
               }
             },
             "equals": 0
