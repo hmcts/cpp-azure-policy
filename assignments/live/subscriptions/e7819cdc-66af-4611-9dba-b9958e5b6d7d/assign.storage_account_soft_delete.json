@@ -1,6 +1,6 @@
 {
-  "id": "/subscriptions/e7819cdc-66af-4611-9dba-b9958e5b6d7d/providers/Microsoft.Authorization/policyAssignments/CppStorageProdSoftDelete",
-  "name": "CppStorageProdSoftDelete",
+  "id": "/subscriptions/e7819cdc-66af-4611-9dba-b9958e5b6d7d/providers/Microsoft.Authorization/policyAssignments/CppStorageProdSoftDelete-Idam",
+  "name": "CppStorageProdSoftDelete-Idam",
   "properties": {
     "description": "Production storage accounts must have blob, container and file soft delete enabled with a minimum retention period",
     "displayName": "CPP Storage Account Production Soft Delete - (CPP Live)",
