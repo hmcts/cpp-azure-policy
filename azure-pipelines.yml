@@ -42,16 +42,20 @@ variables:
         value: ado_nonlive_workload_identity
       - name: vaultAdminCredentialsVarGroup
         value: cpp-nonlive-vault-admin
+      - name: agentPool
+        value: "ubuntu-ado-agents-mdv"
   - ${{ if eq(parameters.platform, 'live') }}:
       - name: azureServiceConnection
         value: ado_live_workload_identity
       - name: vaultAdminCredentialsVarGroup
         value: cpp-live-vault-admin
+      - name: agentPool
+        value: "ubuntu-ado-agents-mpd"
 
 stages:
   - stage: precommit
     pool:
-      name: ${{ parameters.agentPool }}
+      name: ${{ variables.agentPool }}
     jobs:
       - job: pre
         condition: eq(variables['Build.Reason'], 'PullRequest')
@@ -68,7 +72,7 @@ stages:
           vaultAdminCredentialsVarGroup: ${{ variables.vaultAdminCredentialsVarGroup }}
           platform: ${{ parameters.platform }}
           environment: ${{ parameters.platform }}
-          agentPool: ${{ parameters.agentPool }}
+          agentPool: ${{ variables.agentPool }}
           targetResources: ${{ parameters.targetResources }}
 
   # Trigger compliance scan after successful apply
@@ -77,7 +81,7 @@ stages:
         displayName: Trigger Policy State Scan
         condition: succeeded()
         pool:
-          name: ${{ parameters.agentPool }}
+          name: ${{ variables.agentPool }}
         jobs:
           - job: scan
             steps:
