@@ -4,7 +4,7 @@
   "properties": {
     "description": "Production storage accounts must have blob, container and file soft delete enabled with a minimum retention period",
     "displayName": "CPP Storage Account Production Soft Delete - (CPP Live)",
-    "enforcementMode": "DoNotEnforce",
+    "enforcementMode": "Audit",
     "metadata": {
       "assignedBy": "hmcts/cpp-azure-policy"
     },
@@ -14,7 +14,7 @@
       }
     ],
     "parameters": {},
-    "policyDefinitionId": "/providers/Microsoft.Management/managementGroups/77f54315-6dde-4fe7-9e17-74762c3eb096/providers/Microsoft.Authorization/policyDefinitions/CppStorageProdSoftDelete",
+    "policyDefinitionId": "/providers/Microsoft.Management/managementGroups/e2995d11-9947-4e78-9de6-d44e0603518e/providers/Microsoft.Authorization/policyDefinitions/CppStorageProdSoftDelete",
     "scope": "/subscriptions/9ab65d81-930d-4cc0-a93d-367e14676bc0"
   },
   "type": "Microsoft.Authorization/policyAssignments"
