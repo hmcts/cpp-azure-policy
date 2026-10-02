@@ -50,7 +50,8 @@
           "ccm_nft",
           "ccm_prx",
           "ccm_prp",
-          "ccm_prd"
+          "ccm_prd",
+          "ccm_none"
         ],
         "metadata": {
           "description": "Allowed environment names such as production or staging",
