@@ -40,6 +40,7 @@ environment:
 - ccm_prx
 - ccm_prp
 - ccm_prd
+- ccm_none
 
 businessArea:
 
