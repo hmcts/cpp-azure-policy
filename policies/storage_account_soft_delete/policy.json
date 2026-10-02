@@ -31,23 +31,35 @@
         "allOf": [
           {
             "anyOf": [
-              { "field": "type", "equals": "Microsoft.Storage/storageAccounts/blobServices" },
-              { "field": "type", "equals": "Microsoft.Storage/storageAccounts/fileServices" }
+              {
+                "equals": "Microsoft.Storage/storageAccounts/blobServices",
+                "field": "type"
+              },
+              {
+                "equals": "Microsoft.Storage/storageAccounts/fileServices",
+                "field": "type"
+              }
             ]
           },
           {
             "count": {
-              "value": "[parameters('nonProductionIdentifiers')]",
               "name": "identifier",
-              "where": { "field": "id", "contains": "[current('identifier')]" }
+              "value": "[parameters('nonProductionIdentifiers')]",
+              "where": {
+                "contains": "[current('identifier')]",
+                "field": "id"
+              }
             },
             "equals": 0
           },
           {
             "count": {
-              "value": "[parameters('nonProductionIdentifiers')]",
               "name": "identifier",
-              "where": { "field": "tags['environment']", "contains": "[current('identifier')]" }
+              "value": "[parameters('nonProductionIdentifiers')]",
+              "where": {
+                "contains": "[current('identifier')]",
+                "field": "tags['environment']"
+              }
             },
             "equals": 0
           },
@@ -55,24 +67,48 @@
             "anyOf": [
               {
                 "allOf": [
-                  { "field": "type", "equals": "Microsoft.Storage/storageAccounts/blobServices" },
+                  {
+                    "equals": "Microsoft.Storage/storageAccounts/blobServices",
+                    "field": "type"
+                  },
                   {
                     "anyOf": [
-                      { "field": "Microsoft.Storage/storageAccounts/blobServices/containerDeleteRetentionPolicy.enabled", "notEquals": true },
-                      { "field": "Microsoft.Storage/storageAccounts/blobServices/containerDeleteRetentionPolicy.days", "less": "[parameters('minimumRetentionDays')]" },
-                      { "field": "Microsoft.Storage/storageAccounts/blobServices/deleteRetentionPolicy.enabled", "notEquals": true },
-                      { "field": "Microsoft.Storage/storageAccounts/blobServices/deleteRetentionPolicy.days", "less": "[parameters('minimumRetentionDays')]" }
+                      {
+                        "field": "Microsoft.Storage/storageAccounts/blobServices/containerDeleteRetentionPolicy.enabled",
+                        "notEquals": true
+                      },
+                      {
+                        "field": "Microsoft.Storage/storageAccounts/blobServices/containerDeleteRetentionPolicy.days",
+                        "less": "[parameters('minimumRetentionDays')]"
+                      },
+                      {
+                        "field": "Microsoft.Storage/storageAccounts/blobServices/deleteRetentionPolicy.enabled",
+                        "notEquals": true
+                      },
+                      {
+                        "field": "Microsoft.Storage/storageAccounts/blobServices/deleteRetentionPolicy.days",
+                        "less": "[parameters('minimumRetentionDays')]"
+                      }
                     ]
                   }
                 ]
               },
               {
                 "allOf": [
-                  { "field": "type", "equals": "Microsoft.Storage/storageAccounts/fileServices" },
+                  {
+                    "equals": "Microsoft.Storage/storageAccounts/fileServices",
+                    "field": "type"
+                  },
                   {
                     "anyOf": [
-                      { "field": "Microsoft.Storage/storageAccounts/fileServices/shareDeleteRetentionPolicy.enabled", "notEquals": true },
-                      { "field": "Microsoft.Storage/storageAccounts/fileServices/shareDeleteRetentionPolicy.days", "less": "[parameters('minimumRetentionDays')]" }
+                      {
+                        "field": "Microsoft.Storage/storageAccounts/fileServices/shareDeleteRetentionPolicy.enabled",
+                        "notEquals": true
+                      },
+                      {
+                        "field": "Microsoft.Storage/storageAccounts/fileServices/shareDeleteRetentionPolicy.days",
+                        "less": "[parameters('minimumRetentionDays')]"
+                      }
                     ]
                   }
                 ]
@@ -81,7 +117,9 @@
           }
         ]
       },
-      "then": { "effect": "Deny" }
+      "then": {
+        "effect": "Deny"
+      }
     },
     "policyType": "Custom"
   },
