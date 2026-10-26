@@ -11,48 +11,48 @@
           {
             "allOf": [
               {
-                "field": "type",
-                "equals": "Microsoft.Web/sites"
+                "equals": "Microsoft.Web/sites",
+                "field": "type"
               },
               {
-                "field": "Microsoft.Web/sites/siteConfig.ftpsState",
-                "equals": "AllAllowed"
+                "equals": "AllAllowed",
+                "field": "Microsoft.Web/sites/siteConfig.ftpsState"
               }
             ]
           },
           {
             "allOf": [
               {
-                "field": "type",
-                "equals": "Microsoft.Web/sites/config"
+                "equals": "Microsoft.Web/sites/config",
+                "field": "type"
               },
               {
-                "field": "Microsoft.Web/sites/config/ftpsState",
-                "equals": "AllAllowed"
+                "equals": "AllAllowed",
+                "field": "Microsoft.Web/sites/config/ftpsState"
               }
             ]
           },
           {
             "allOf": [
               {
-                "field": "type",
-                "equals": "Microsoft.Web/sites/slots"
+                "equals": "Microsoft.Web/sites/slots",
+                "field": "type"
               },
               {
-                "field": "Microsoft.Web/sites/slots/siteConfig.ftpsState",
-                "equals": "AllAllowed"
+                "equals": "AllAllowed",
+                "field": "Microsoft.Web/sites/slots/siteConfig.ftpsState"
               }
             ]
           },
           {
             "allOf": [
               {
-                "field": "type",
-                "equals": "Microsoft.Web/sites/slots/config"
+                "equals": "Microsoft.Web/sites/slots/config",
+                "field": "type"
               },
               {
-                "field": "Microsoft.Web/sites/slots/config/ftpsState",
-                "equals": "AllAllowed"
+                "equals": "AllAllowed",
+                "field": "Microsoft.Web/sites/slots/config/ftpsState"
               }
             ]
           }
