@@ -1,0 +1,72 @@
+{
+  "id": "/providers/Microsoft.Management/managementGroups/e2995d11-9947-4e78-9de6-d44e0603518e/providers/Microsoft.Authorization/policyDefinitions/CppDenyFTPSAllAllowed",
+  "name": "CppDenyFTPSAllAllowed",
+  "properties": {
+    "description": "Deny App Service sites, site slots, and site configuration requests that set FTPS state to AllAllowed.",
+    "displayName": "Deny AllAllowed FTPS State",
+    "mode": "All",
+    "policyRule": {
+      "if": {
+        "anyOf": [
+          {
+            "allOf": [
+              {
+                "field": "type",
+                "equals": "Microsoft.Web/sites"
+              },
+              {
+                "field": "Microsoft.Web/sites/siteConfig.ftpsState",
+                "equals": "AllAllowed"
+              }
+            ]
+          },
+          {
+            "allOf": [
+              {
+                "field": "type",
+                "equals": "Microsoft.Web/sites/config"
+              },
+              {
+                "field": "Microsoft.Web/sites/config/ftpsState",
+                "equals": "AllAllowed"
+              }
+            ]
+          },
+          {
+            "allOf": [
+              {
+                "field": "type",
+                "equals": "Microsoft.Web/sites/slots"
+              },
+              {
+                "field": "Microsoft.Web/sites/slots/siteConfig.ftpsState",
+                "equals": "AllAllowed"
+              }
+            ]
+          },
+          {
+            "allOf": [
+              {
+                "field": "type",
+                "equals": "Microsoft.Web/sites/slots/config"
+              },
+              {
+                "field": "Microsoft.Web/sites/slots/config/ftpsState",
+                "equals": "AllAllowed"
+              }
+            ]
+          }
+        ]
+      },
+      "then": {
+        "effect": "deny"
+      }
+    },
+    "policyType": "Custom",
+    "version": "1.0.0",
+    "versions": [
+      "1.0.0"
+    ]
+  },
+  "type": "Microsoft.Authorization/policyDefinitions"
+}
