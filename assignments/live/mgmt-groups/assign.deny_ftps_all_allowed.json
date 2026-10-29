@@ -1,0 +1,26 @@
+{
+  "id": "/providers/Microsoft.Management/managementGroups/77f54315-6dde-4fe7-9e17-74762c3eb096/providers/Microsoft.Authorization/policyAssignments/DenyFTPSAllAllowed",
+  "name": "DenyFTPSAllAllowed",
+  "properties": {
+    "description": "Deny App Service sites, slots, and configuration requests that set FTPS state to AllAllowed.",
+    "displayName": "CPP Deny AllAllowed FTPS (LVE)",
+    "enforcementMode": "Default",
+    "metadata": {
+      "assignedBy": "hmcts/cpp-azure-policy"
+    },
+    "nonComplianceMessages": [
+      {
+        "message": "Set FTPS state to FtpsOnly or Disabled. AllAllowed is denied for App Service sites, Function Apps, and slots."
+      }
+    ],
+    "notScopes": [],
+    "parameters": {},
+    "policyDefinitionId": "/providers/Microsoft.Management/managementGroups/77f54315-6dde-4fe7-9e17-74762c3eb096/providers/Microsoft.Authorization/policyDefinitions/CppDenyFTPSAllAllowed",
+    "scope": "/providers/Microsoft.Management/managementGroups/77f54315-6dde-4fe7-9e17-74762c3eb096"
+  },
+  "sku": {
+    "name": "A0",
+    "tier": "Free"
+  },
+  "type": "Microsoft.Authorization/policyAssignments"
+}
