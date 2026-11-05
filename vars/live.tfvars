@@ -1,4 +1,3 @@
-#Test for plan change
 env       = "live"
 product   = "azure-policy"
 location  = "uksouth"
