@@ -14,13 +14,18 @@ resources:
 parameters:
   - name: tfversion
     default: 1.12.2
-  - name: platform
-    values:
-      - "nonlive"
-      - "live"
-    default: "nonlive"
   - name: targetResources
     default: null
+  - name: planEnvironments
+    type: object
+    default:
+      - platform: nonlive
+        environments:
+          - nonlive
+      - platform: live
+        dependsOn: terraform_plan_nonlive
+        environments:
+          - live
   - name: enableDebug
     displayName: Enable Debug run
     type: string
@@ -30,45 +35,15 @@ parameters:
       - "false"
 
 variables:
-  - name: backendConfigFile
-    value: backend_config/${{ parameters.platform }}.conf
-  - ${{ if eq(parameters.platform, 'nonlive') }}:
-      - name: azureServiceConnection
-        value: ado_nonlive_workload_identity
-      - name: vaultAdminCredentialsVarGroup
-        value: cpp-nonlive-vault-admin
-      - name: agentPool
-        value: "ubuntu-ado-agents-mdv"
-  - ${{ if eq(parameters.platform, 'live') }}:
-      - name: azureServiceConnection
-        value: ado_live_workload_identity
-      - name: vaultAdminCredentialsVarGroup
-        value: cpp-live-vault-admin
-      - name: agentPool
-        value: "ubuntu-ado-agents-mpd"
+  - name: system.debug
+    value: ${{ parameters.enableDebug }}
 
 stages:
-  - stage: precommit
-    pool:
-      name: ${{ variables.agentPool }}
-    jobs:
-      - job: pre
-        condition: eq(variables['Build.Reason'], 'PullRequest')
-        steps:
-          - template: steps/terraform/terraform-precommit.yaml@cppAzureDevOpsTemplates
-            parameters:
-              tfversion: ${{ parameters.tfversion }}
-
-  - ${{ if eq(variables['Build.Reason'], 'Manual') }}:
-      - template: pipelines/terraform-ws-plan-and-apply.yaml@cppAzureDevOpsTemplates
-        parameters:
-          tfversion: ${{ parameters.tfversion }}
-          azureServiceConnection: ${{ variables.azureServiceConnection }}
-          vaultAdminCredentialsVarGroup: ${{ variables.vaultAdminCredentialsVarGroup }}
-          platform: ${{ parameters.platform }}
-          environment: ${{ parameters.platform }}
-          agentPool: ${{ variables.agentPool }}
-          targetResources: ${{ parameters.targetResources }}
+  - template: pipelines/terraform-plan-and-apply.yaml@cppAzureDevOpsTemplates
+    parameters:
+      planEnvironments: ${{ parameters.planEnvironments }}
+      tfversion: ${{ parameters.tfversion }}
+      targetResources: ${{ parameters.targetResources }}
 
   # Trigger compliance scan after successful apply
   - ${{ if eq(variables['Build.SourceBranch'], 'refs/heads/master') }}:
@@ -76,7 +51,7 @@ stages:
         displayName: Trigger Policy State Scan
         condition: succeeded()
         pool:
-          name: ${{ variables.agentPool }}
+          name: "ubuntu-ado-agents-mdv"
         jobs:
           - job: scan
             steps:
