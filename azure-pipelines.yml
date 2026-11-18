@@ -14,6 +14,12 @@ resources:
 parameters:
   - name: tfversion
     default: 1.12.2
+  - name: overrideAction
+    default: plan
+    values:
+      - plan
+      - apply
+      - destroy
   - name: targetResources
     default: null
   - name: planEnvironments
@@ -41,6 +47,7 @@ variables:
 stages:
   - template: pipelines/terraform-plan-and-apply.yaml@cppAzureDevOpsTemplates
     parameters:
+      overrideAction: ${{ parameters.overrideAction }}
       planEnvironments: ${{ parameters.planEnvironments }}
       tfversion: ${{ parameters.tfversion }}
       targetResources: ${{ parameters.targetResources }}
